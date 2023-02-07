@@ -192,10 +192,16 @@ Excels with multiple workshee - click the arrow to move on the Wizard to the nex
 
 1.  About NCA
 
-1.  Observed Parameters
-2.  Half-Life
-3.  Area Under the Curve (AUC)
-4.  Extrapolation to Infinity
-5.  Volume of Distribution
-6.  Clearance
-7.  Linear vs Log
+2.  Observed Parameters
+
+3.  Half-Life
+
+4.  Area Under the Curve (AUC)
+
+5.  Extrapolation to Infinity
+
+6.  Volume of Distribution
+
+7.  Clearance
+
+8.  Linear vs Log
