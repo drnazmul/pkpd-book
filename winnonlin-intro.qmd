@@ -184,6 +184,18 @@ Excels with multiple workshee - click the arrow to move on the Wizard to the nex
 
 9.  Set Plot Preferences
 
--   Options pan - Plot - Layout
-  ![](images/image-1684060613.png){width="399"}
--   
+-   Options pan - Plot - Layout ![](images/image-1684060613.png){width="399"}
+-   Edit menu bar, preferences, plotting details
+-   Changing prefernences affect all new plots
+
+## Introduction to NCA
+
+1.  About NCA
+
+1.  Observed Parameters
+2.  Half-Life
+3.  Area Under the Curve (AUC)
+4.  Extrapolation to Infinity
+5.  Volume of Distribution
+6.  Clearance
+7.  Linear vs Log
