@@ -2,16 +2,37 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "pkpd",
+    "title": "pkpd notes",
     "section": "",
     "text": "Preface\nThis page is from index page"
   },
   {
-    "objectID": "winnonlin-intro.html",
-    "href": "winnonlin-intro.html",
-    "title": "1  Introduction to WinNonlin",
-    "section": "",
-    "text": "sdflkj\nsfsdl"
+    "objectID": "winnonlin-intro.html#project-setup",
+    "href": "winnonlin-intro.html#project-setup",
+    "title": "1  Introduction to WinNonlin (122-D)",
+    "section": "1.1 Project setup",
+    "text": "1.1 Project setup\n\nCreate Project\n\nPhenoex Projects - contains all the data and calculations - multiple projects can be open at the same time - common data file to import: excel, csv - older version can always be opened by newer version - newer version projects can not be opened by older ones\n\nCreate a project\nClick to history tab to see the project history\nClick to project tab, where most of the work is done\n\n\nCreate Worksheets\n\n\nRight click on Data, select New, select Wroksheet\nAdd columns, column name, data type\nassign units: select time from list of columns, click Unit Builder button, specify h to the time, click Add button,click OK\nfor dose, specify mass prefex, click Add\nType numbers on the worksheet\n\n\nImport Files\n\n\nfile type: xls, xlsx, csv, SAS\ntypical data file contains header and unit row.\nSelect the Import button, select the file\non the File import wizard, select appropriate options\nPreview area helps to see the changes\nIf untis in the column header, select “has units in the header”\n\nExcels with multiple workshee - click the arrow to move on the Wizard to the next worksheet\n\nSave Projects\n\n\nClick the save icon on the toolbar\nFile name can be completely different from the Project name\nNo autosave options\nsharing project file will also share the embedded data files\nClose project by right clicking the project name\nAfter opening a saved project folder, expand the plus sign to see the contents.\n\n\nSet Project Preferences\n\n\nSelect the Edit menu -> preferences -> Projects\nCheck Autosave on execution\nupdate the save locations and hit apply before clicking on OK."
+  },
+  {
+    "objectID": "winnonlin-intro.html#create-and-modify-worksheets",
+    "href": "winnonlin-intro.html#create-and-modify-worksheets",
+    "title": "1  Introduction to WinNonlin (122-D)",
+    "section": "1.2 Create and Modify Worksheets",
+    "text": "1.2 Create and Modify Worksheets\n\nSort Rows\n\n\ndata can be sort by subject, dose level,\nsort button on every worksheet\nUse the “sort worksheet” window to apply sort options\n\n\nMove Columns\n\n\nSelect a column from the column list\nClick the up or down arrow to move\n\n\nRename Columns\n\n\nClick the column name, type F2 or double click on it to edit the name\n\n\nApply Units\n\n\nSelect column\nClick the Unit Builder\nClick Clear Units\nAdd units\n\n\nConvert Units\n\n\nconvert amount column from microgram to miligram\nclick the Amount column\ntype mg in the New unit box,click OK\nTo convert ng/mL to nmole/mL, add nmol and then click the slash button, specify the volum unit,enter molecular weight, click OK.\nBetter way: use the Data Wizard to convert the units."
+  },
+  {
+    "objectID": "winnonlin-intro.html#plot-data",
+    "href": "winnonlin-intro.html#plot-data",
+    "title": "1  Introduction to WinNonlin (122-D)",
+    "section": "1.3 Plot Data",
+    "text": "1.3 Plot Data\n\nCreate Simple Plot\n\n\nconc time data, dose level 16 mg, 10 subjects,\nright click the workshee\nSelect send to -> plotting -> xy plot\nXY object is created with the linked data source\nOn the mapping window, orange column headers are required mappings\nmap, x -> Time, y -> conc, Group -> subject\nclick execute\nOptions pan - Axes - Y - select log button\nOptions pan - Graphs - rename by typing F2\nGraph name and legend names are the same\n\n\nCreate Lattice Plot\n\n\nconc time data, Administration, dose level 4 mg for IV, 8 mg for PO, 10 subjects,\nCreat XY plot object same as above\nmap x - Time, y - conc, group - subject, lattice column - administration\nExecute and get two plots\nOptions - range - ‘auto scale best’ settings scales individual plots are independent\n\n\nUse Second Y Axis\n\n\nData: plasma conc, urine conc, time, 10 subjects\nCreat XY plot object same as above\nmap x - Time, y - plasma conc, y2 - urine conc, lattice condition, page (sort) - Subject\nplots are on a single page for each subject\nOptions - select plasma_conc vs Time, type F2, change the name to Plasma, do the same for Urine\nExecute\n\n\nCompute Descriptive Statistics\n\n\nNeeded to create a plot with mean and error bars\nright click on data sheet, send to - computation tools - Discriptive statistics\nmap summary - conc, sort - Time\nExecute\nOptions pannel - click Clear All - click basic statistics, check Mean and SD\n\n\nUse Error Bars\n\n\nDiscriptive Satistics object - Output data - right click on Statistics\nsend to plotting - XY plot\nmap x - Time, y - Mean, Error bars, lower - SD, Error bars, upper - SD\nExecute\nset Y axis to log scale\n\n\nCreate Overlay Plot\n\n\nduplicate the error bars plot from previous section\nOptions pan - Plot - Graphs tab - click Add button\nSelect the new second input from the setup tab\nLink the source data by clicking source button,\nmap x - Time, y - conc, group - subject\nExecute\nOptions pan - select Conc vs Time plot\nSelect Quick Styles\nUncheck Group by lines, uncheck Gourp by colors,\nSelect Apprance tab\nSpecify color to Silver\nUncheck Markers visible\nNow all the individual lines are silver color\nSelect Mean vs Time graph\nSelect Appearance, specify line colors to red, Marker border color - red, line weight 3\nUnder the Mean vs Time graph, select the Error bars\nSelect Appearance, color - red\nOptions pan - select Y axis - select Axis label and update\nOptions pan - select Legend - uncheck Visible\n\n\nCreate Box Plot\n\n\n\n\n\n\n\n20 subjects, AR: accumulation ratio (how much accumulated under repeated ss), dose level, 2 mg and 4 mg\nIs AR increases with increasing dose level?\nright click data, send to - plotting - box plot\nmap y - AR, group - dose level\nExecute\n\n\nCreate Plot with Categorical X Axis\n\n\nData: Severity (Mild, Moderate), dose level (1, 2, 4, 8, 16, 32 mg), frequency (numerical, i.e., 0, 0.2, 0.6)\nright click the data sheet, send to plotting - X-categorical XY plot\nmap x - severity, y - frequency, group - dose level\nOptions pan, select X axis, select Order tab, change order if needed\nOptions pan - Frequency vs Severity graph - check line visible - now points are connected by a line\n\n\nSet Plot Preferences\n\n\nOptions pan - Plot - Layout \nEdit menu bar, preferences, plotting details\nChanging prefernences affect all new plots"
+  },
+  {
+    "objectID": "winnonlin-intro.html#introduction-to-nca",
+    "href": "winnonlin-intro.html#introduction-to-nca",
+    "title": "1  Introduction to WinNonlin (122-D)",
+    "section": "1.4 Introduction to NCA",
+    "text": "1.4 Introduction to NCA\n\nAbout NCA\nObserved Parameters\nHalf-Life\nArea Under the Curve (AUC)\nExtrapolation to Infinity\nVolume of Distribution\nClearance\nLinear vs Log"
   },
   {
     "objectID": "intro.html#what-is-a-model",
@@ -54,5 +75,12 @@
     "title": "References",
     "section": "",
     "text": "Alam, Muhammad. 2006. “Geometry of Diffusion and the Performance\nLimits of Nanobiosensors.”"
+  },
+  {
+    "objectID": "my-notes.html",
+    "href": "my-notes.html",
+    "title": "4  My Notes",
+    "section": "",
+    "text": "4.0.1 create a new repository on the command line\necho \"# test\" >> README.md\ngit init\ngit add README.md\ngit commit -m \"first commit\"\ngit branch -M main\ngit remote add origin https://github.com/drnazmul/test.git\ngit push -u origin main\n\n\n4.0.2 …or push an existing repository from the command line\ngit remote add origin https://github.com/drnazmul/test.git\ngit branch -M main\ngit push -u origin main"
   }
 ]

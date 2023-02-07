@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pkpd - 1&nbsp; Introduction to WinNonlin</title>
+<title>pkpd notes - 1&nbsp; Introduction to WinNonlin (122-D)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./index.html" rel="next">
+<link href="./intro.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -69,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -82,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">pkpd</a> 
+      <a href="./">pkpd notes</a> 
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -94,12 +95,12 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./winnonlin-intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./winnonlin-intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -117,19 +118,33 @@ ul.task-list li input[type="checkbox"] {
   <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./my-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Notes</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#project-setup" id="toc-project-setup" class="nav-link active" data-scroll-target="#project-setup"><span class="toc-section-number">1.1</span>  Project setup</a></li>
+  <li><a href="#create-and-modify-worksheets" id="toc-create-and-modify-worksheets" class="nav-link" data-scroll-target="#create-and-modify-worksheets"><span class="toc-section-number">1.2</span>  Create and Modify Worksheets</a></li>
+  <li><a href="#plot-data" id="toc-plot-data" class="nav-link" data-scroll-target="#plot-data"><span class="toc-section-number">1.3</span>  Plot Data</a></li>
+  <li><a href="#introduction-to-nca" id="toc-introduction-to-nca" class="nav-link" data-scroll-target="#introduction-to-nca"><span class="toc-section-number">1.4</span>  Introduction to NCA</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></h1>
 </div>
 
 
@@ -144,12 +159,233 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="project-setup" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="project-setup"><span class="header-section-number">1.1</span> Project setup</h2>
 <ol type="1">
-<li>sdflkj</li>
-<li>sfsdl</li>
+<li>Create Project</li>
+</ol>
+<p>Phenoex Projects - contains all the data and calculations - multiple projects can be open at the same time - common data file to import: excel, csv - older version can always be opened by newer version - newer version projects can not be opened by older ones</p>
+<ul>
+<li>Create a project</li>
+<li>Click to history tab to see the project history</li>
+<li>Click to project tab, where most of the work is done</li>
+</ul>
+<ol start="2" type="1">
+<li>Create Worksheets</li>
+</ol>
+<ul>
+<li>Right click on Data, select New, select Wroksheet</li>
+<li>Add columns, column name, data type</li>
+<li>assign units: select time from list of columns, click Unit Builder button, specify h to the time, click Add button,click OK</li>
+<li>for dose, specify mass prefex, click Add</li>
+<li>Type numbers on the worksheet</li>
+</ul>
+<ol start="3" type="1">
+<li>Import Files</li>
+</ol>
+<ul>
+<li>file type: xls, xlsx, csv, SAS</li>
+<li>typical data file contains header and unit row.</li>
+<li>Select the Import button, select the file</li>
+<li>on the File import wizard, select appropriate options</li>
+<li>Preview area helps to see the changes</li>
+<li>If untis in the column header, select “has units in the header”</li>
+</ul>
+<p>Excels with multiple workshee - click the arrow to move on the Wizard to the next worksheet</p>
+<ol start="4" type="1">
+<li>Save Projects</li>
+</ol>
+<ul>
+<li>Click the save icon on the toolbar</li>
+<li>File name can be completely different from the Project name</li>
+<li>No autosave options</li>
+<li>sharing project file will also share the embedded data files</li>
+<li>Close project by right clicking the project name</li>
+<li>After opening a saved project folder, expand the plus sign to see the contents.</li>
+</ul>
+<ol start="5" type="1">
+<li>Set Project Preferences</li>
+</ol>
+<ul>
+<li>Select the Edit menu -&gt; preferences -&gt; Projects</li>
+<li>Check Autosave on execution</li>
+<li>update the save locations and hit apply before clicking on OK.</li>
+</ul>
+</section>
+<section id="create-and-modify-worksheets" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="create-and-modify-worksheets"><span class="header-section-number">1.2</span> Create and Modify Worksheets</h2>
+<ol type="1">
+<li>Sort Rows</li>
+</ol>
+<ul>
+<li>data can be sort by subject, dose level,</li>
+<li>sort button on every worksheet</li>
+<li>Use the “sort worksheet” window to apply sort options</li>
+</ul>
+<ol start="2" type="1">
+<li>Move Columns</li>
+</ol>
+<ul>
+<li>Select a column from the column list</li>
+<li>Click the up or down arrow to move</li>
+</ul>
+<ol start="3" type="1">
+<li>Rename Columns</li>
+</ol>
+<ul>
+<li>Click the column name, type F2 or double click on it to edit the name</li>
+</ul>
+<ol start="4" type="1">
+<li>Apply Units</li>
+</ol>
+<ul>
+<li>Select column</li>
+<li>Click the Unit Builder</li>
+<li>Click Clear Units</li>
+<li>Add units</li>
+</ul>
+<ol start="5" type="1">
+<li>Convert Units</li>
+</ol>
+<ul>
+<li>convert amount column from microgram to miligram</li>
+<li>click the Amount column</li>
+<li>type mg in the New unit box,click OK</li>
+<li>To convert ng/mL to nmole/mL, add nmol and then click the slash button, specify the volum unit,enter molecular weight, click OK.</li>
+<li>Better way: use the Data Wizard to convert the units.</li>
+</ul>
+</section>
+<section id="plot-data" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="plot-data"><span class="header-section-number">1.3</span> Plot Data</h2>
+<ol type="1">
+<li>Create Simple Plot</li>
+</ol>
+<ul>
+<li>conc time data, dose level 16 mg, 10 subjects,</li>
+<li>right click the workshee</li>
+<li>Select send to -&gt; plotting -&gt; xy plot</li>
+<li>XY object is created with the linked data source</li>
+<li>On the mapping window, orange column headers are required mappings</li>
+<li>map, x -&gt; Time, y -&gt; conc, Group -&gt; subject</li>
+<li>click execute</li>
+<li>Options pan - Axes - Y - select log button</li>
+<li>Options pan - Graphs - rename by typing F2</li>
+<li>Graph name and legend names are the same</li>
+</ul>
+<ol start="2" type="1">
+<li>Create Lattice Plot</li>
+</ol>
+<ul>
+<li>conc time data, Administration, dose level 4 mg for IV, 8 mg for PO, 10 subjects,</li>
+<li>Creat XY plot object same as above</li>
+<li>map x - Time, y - conc, group - subject, lattice column - administration</li>
+<li>Execute and get two plots</li>
+<li>Options - range - ‘auto scale best’ settings scales individual plots are independent</li>
+</ul>
+<ol start="3" type="1">
+<li>Use Second Y Axis</li>
+</ol>
+<ul>
+<li>Data: plasma conc, urine conc, time, 10 subjects</li>
+<li>Creat XY plot object same as above</li>
+<li>map x - Time, y - plasma conc, y2 - urine conc, lattice condition, page (sort) - Subject</li>
+<li>plots are on a single page for each subject</li>
+<li>Options - select plasma_conc vs Time, type F2, change the name to Plasma, do the same for Urine</li>
+<li>Execute</li>
+</ul>
+<ol start="4" type="1">
+<li>Compute Descriptive Statistics</li>
+</ol>
+<ul>
+<li>Needed to create a plot with mean and error bars</li>
+<li>right click on data sheet, send to - computation tools - Discriptive statistics</li>
+<li>map summary - conc, sort - Time</li>
+<li>Execute</li>
+<li>Options pannel - click Clear All - click basic statistics, check Mean and SD</li>
+</ul>
+<ol start="5" type="1">
+<li>Use Error Bars</li>
+</ol>
+<ul>
+<li>Discriptive Satistics object - Output data - right click on Statistics</li>
+<li>send to plotting - XY plot</li>
+<li>map x - Time, y - Mean, Error bars, lower - SD, Error bars, upper - SD</li>
+<li>Execute</li>
+<li>set Y axis to log scale</li>
+</ul>
+<ol start="6" type="1">
+<li>Create Overlay Plot</li>
+</ol>
+<ul>
+<li><p>duplicate the error bars plot from previous section</p></li>
+<li><p>Options pan - Plot - Graphs tab - click Add button</p></li>
+<li><p>Select the new second input from the setup tab</p></li>
+<li><p>Link the source data by clicking source button,</p></li>
+<li><p>map x - Time, y - conc, group - subject</p></li>
+<li><p>Execute</p></li>
+<li><p>Options pan - select Conc vs Time plot</p></li>
+<li><p>Select Quick Styles</p></li>
+<li><p>Uncheck Group by lines, uncheck Gourp by colors,</p></li>
+<li><p>Select Apprance tab</p></li>
+<li><p>Specify color to Silver</p></li>
+<li><p>Uncheck Markers visible</p></li>
+<li><p>Now all the individual lines are silver color</p></li>
+<li><p>Select Mean vs Time graph</p></li>
+<li><p>Select Appearance, specify line colors to red, Marker border color - red, line weight 3</p></li>
+<li><p>Under the Mean vs Time graph, select the Error bars</p></li>
+<li><p>Select Appearance, color - red</p></li>
+<li><p>Options pan - select Y axis - select Axis label and update</p></li>
+<li><p>Options pan - select Legend - uncheck Visible</p></li>
+</ul>
+<ol start="7" type="1">
+<li>Create Box Plot</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image-40592419.png" class="img-fluid figure-img" width="438"></p>
+</figure>
+</div>
+<ul>
+<li>20 subjects, AR: accumulation ratio (how much accumulated under repeated ss), dose level, 2 mg and 4 mg</li>
+<li>Is AR increases with increasing dose level?</li>
+<li>right click data, send to - plotting - box plot</li>
+<li>map y - AR, group - dose level</li>
+<li>Execute</li>
+</ul>
+<ol start="8" type="1">
+<li>Create Plot with Categorical X Axis</li>
+</ol>
+<ul>
+<li>Data: Severity (Mild, Moderate), dose level (1, 2, 4, 8, 16, 32 mg), frequency (numerical, i.e., 0, 0.2, 0.6)</li>
+<li>right click the data sheet, send to plotting - X-categorical XY plot</li>
+<li>map x - severity, y - frequency, group - dose level</li>
+<li>Options pan, select X axis, select Order tab, change order if needed</li>
+<li>Options pan - Frequency vs Severity graph - check line visible - now points are connected by a line</li>
+</ul>
+<ol start="9" type="1">
+<li>Set Plot Preferences</li>
+</ol>
+<ul>
+<li>Options pan - Plot - Layout <img src="images/image-1684060613.png" class="img-fluid" width="399"></li>
+<li>Edit menu bar, preferences, plotting details</li>
+<li>Changing prefernences affect all new plots</li>
+</ul>
+</section>
+<section id="introduction-to-nca" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="introduction-to-nca"><span class="header-section-number">1.4</span> Introduction to NCA</h2>
+<ol type="1">
+<li><p>About NCA</p></li>
+<li><p>Observed Parameters</p></li>
+<li><p>Half-Life</p></li>
+<li><p>Area Under the Curve (AUC)</p></li>
+<li><p>Extrapolation to Infinity</p></li>
+<li><p>Volume of Distribution</p></li>
+<li><p>Clearance</p></li>
+<li><p>Linear vs Log</p></li>
 </ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -287,10 +523,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./index.html" class="pagination-link">
-        <span class="nav-page-text">Preface</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./intro.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
