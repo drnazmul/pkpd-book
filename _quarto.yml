@@ -3,10 +3,11 @@ project:
   output-dir: docs
 
 book:
-  title: "mynotes"
+  title: "pkpd"
   author: "Nazmul Alam"
   date: "2023-02-06"
   chapters:
+    - winnonlin-intro.qmd
     - index.qmd
     - intro.qmd
     - summary.qmd

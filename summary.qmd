@@ -2,34 +2,36 @@
 
 In summary, this book has no content whatsoever.
 
+![hi there](images/image-386722890.png){width="312"}
+
+[![hi there](images/image-386722890.png){fig-align="center" width="312"}](google.com)
+
+![](images/image-82632422.png)
+
 ```{r}
 1 + 1
 ```
+
 ## pk model 1
 
 ### Concentrations should be stacked
 
-data format for PK models
-- observed concentration stacked into a single column
-- multiple analytes or metabolites concentration should be its own column
+data format for PK models - observed concentration stacked into a single column - multiple analytes or metabolites concentration should be its own column
 
-![](img_model/data-1.png)
-![](img_model/data-2.png)
+![](img_model/data-1.png){width="538"} ![](img_model/data-2.png){width="537" height="238"}
 
 Sort variables
 
-
-- For multiple PK profiles, one or more sort variables are required.  
-- Sort variables need to have a value on every row  
-- In Phoenix  text values, blank cells are not a problem 
-- All non-numeric data is ignored by the model
+-   For multiple PK profiles, one or more sort variables are required.
+-   Sort variables need to have a value on every row
+-   In Phoenix text values, blank cells are not a problem
+-   All non-numeric data is ignored by the model
 
 ![](img_model/data-3.png)
- 
-- amount oral column has a value at time zero and the rest of the rows are blank. The dose amount is given only on the row the corresponds to a dosing event 
-- dose level column has a value on every row
-- units: unlike NCA the model object does not translate units  
-- The dose unit should always be the same as the unit in the concentration
- 
-And your parameter values keep them the same so that the units will work out properly One more warning the model object allows you to either map the dosing amounts in the main input or the dosing input Make sure that you don't map the dose amount in both places or your administered dose will be twice as large as you intended click next to continue let's recap the section we saw how the model object requires stacked concentrations you should have a single concentration column for each observation second we use sort variables to define the individual PK profiles there's nothing wrong with having more sort variables than you need third we saw how dosing events can be included in the data set remember that these are entered on the row at the time of the dosing event and finally we learned that text values and empty cells are okay in the input and we do not have to do anything to them this completes the section click
 
+-   amount oral column has a value at time zero and the rest of the rows are blank. The dose amount is given only on the row the corresponds to a dosing event
+-   dose level column has a value on every row
+-   units: unlike NCA the model object does not translate units\
+-   The dose unit should always be the same as the unit in the concentration
+
+And your parameter values keep them the same so that the units will work out properly One more warning the model object allows you to either map the dosing amounts in the main input or the dosing input Make sure that you don't map the dose amount in both places or your administered dose will be twice as large as you intended click next to continue let's recap the section we saw how the model object requires stacked concentrations you should have a single concentration column for each observation second we use sort variables to define the individual PK profiles there's nothing wrong with having more sort variables than you need third we saw how dosing events can be included in the data set remember that these are entered on the row at the time of the dosing event and finally we learned that text values and empty cells are okay in the input and we do not have to do anything to them this completes the section click

@@ -1,0 +1,189 @@
+# Introduction to WinNonlin (122-D)
+
+## Project setup
+
+1.  Create Project
+
+Phenoex Projects - contains all the data and calculations - multiple projects can be open at the same time - common data file to import: excel, csv - older version can always be opened by newer version - newer version projects can not be opened by older ones
+
+-   Create a project
+-   Click to history tab to see the project history
+-   Click to project tab, where most of the work is done
+
+2.  Create Worksheets
+
+-   Right click on Data, select New, select Wroksheet
+-   Add columns, column name, data type
+-   assign units: select time from list of columns, click Unit Builder button, specify h to the time, click Add button,click OK
+-   for dose, specify mass prefex, click Add
+-   Type numbers on the worksheet
+
+3.  Import Files
+
+-   file type: xls, xlsx, csv, SAS
+-   typical data file contains header and unit row.
+-   Select the Import button, select the file
+-   on the File import wizard, select appropriate options
+-   Preview area helps to see the changes
+-   If untis in the column header, select "has units in the header"
+
+Excels with multiple workshee - click the arrow to move on the Wizard to the next worksheet
+
+4.  Save Projects
+
+-   Click the save icon on the toolbar
+-   File name can be completely different from the Project name
+-   No autosave options
+-   sharing project file will also share the embedded data files
+-   Close project by right clicking the project name
+-   After opening a saved project folder, expand the plus sign to see the contents.
+
+5.  Set Project Preferences
+
+-   Select the Edit menu -\> preferences -\> Projects
+-   Check Autosave on execution
+-   update the save locations and hit apply before clicking on OK.
+
+## Create and Modify Worksheets
+
+1.  Sort Rows
+
+-   data can be sort by subject, dose level,
+-   sort button on every worksheet
+-   Use the "sort worksheet" window to apply sort options
+
+2.  Move Columns
+
+-   Select a column from the column list
+-   Click the up or down arrow to move
+
+3.  Rename Columns
+
+-   Click the column name, type F2 or double click on it to edit the name
+
+4.  Apply Units
+
+-   Select column
+-   Click the Unit Builder
+-   Click Clear Units
+-   Add units
+
+5.  Convert Units
+
+-   convert amount column from microgram to miligram
+-   click the Amount column
+-   type mg in the New unit box,click OK
+-   To convert ng/mL to nmole/mL, add nmol and then click the slash button, specify the volum unit,enter molecular weight, click OK.
+-   Better way: use the Data Wizard to convert the units.
+
+## Plot Data
+
+1.  Create Simple Plot
+
+-   conc time data, dose level 16 mg, 10 subjects,
+-   right click the workshee
+-   Select send to -\> plotting -\> xy plot
+-   XY object is created with the linked data source
+-   On the mapping window, orange column headers are required mappings
+-   map, x -\> Time, y -\> conc, Group -\> subject
+-   click execute
+-   Options pan - Axes - Y - select log button
+-   Options pan - Graphs - rename by typing F2
+-   Graph name and legend names are the same
+
+2.  Create Lattice Plot
+
+-   conc time data, Administration, dose level 4 mg for IV, 8 mg for PO, 10 subjects,
+-   Creat XY plot object same as above
+-   map x - Time, y - conc, group - subject, lattice column - administration
+-   Execute and get two plots
+-   Options - range - 'auto scale best' settings scales individual plots are independent
+
+3.  Use Second Y Axis
+
+-   Data: plasma conc, urine conc, time, 10 subjects
+-   Creat XY plot object same as above
+-   map x - Time, y - plasma conc, y2 - urine conc, lattice condition, page (sort) - Subject
+-   plots are on a single page for each subject
+-   Options - select plasma_conc vs Time, type F2, change the name to Plasma, do the same for Urine
+-   Execute
+
+4.  Compute Descriptive Statistics
+
+-   Needed to create a plot with mean and error bars
+-   right click on data sheet, send to - computation tools - Discriptive statistics
+-   map summary - conc, sort - Time
+-   Execute
+-   Options pannel - click Clear All - click basic statistics, check Mean and SD
+
+5.  Use Error Bars
+
+-   Discriptive Satistics object - Output data - right click on Statistics
+-   send to plotting - XY plot
+-   map x - Time, y - Mean, Error bars, lower - SD, Error bars, upper - SD
+-   Execute
+-   set Y axis to log scale
+
+6.  Create Overlay Plot
+
+-   duplicate the error bars plot from previous section
+
+-   Options pan - Plot - Graphs tab - click Add button
+
+-   Select the new second input from the setup tab
+
+-   Link the source data by clicking source button,
+
+-   map x - Time, y - conc, group - subject
+
+-   Execute
+
+-   Options pan - select Conc vs Time plot
+
+-   Select Quick Styles
+
+-   Uncheck Group by lines, uncheck Gourp by colors,
+
+-   Select Apprance tab
+
+-   Specify color to Silver
+
+-   Uncheck Markers visible
+
+-   Now all the individual lines are silver color
+
+-   Select Mean vs Time graph
+
+-   Select Appearance, specify line colors to red, Marker border color - red, line weight 3
+
+-   Under the Mean vs Time graph, select the Error bars
+
+-   Select Appearance, color - red
+
+-   Options pan - select Y axis - select Axis label and update
+
+-   Options pan - select Legend - uncheck Visible
+
+7.  Create Box Plot
+
+![](images/image-40592419.png){fig-align="center" width="438"}
+
+-   20 subjects, AR: accumulation ratio (how much accumulated under repeated ss), dose level, 2 mg and 4 mg
+-   Is AR increases with increasing dose level?
+-   right click data, send to - plotting - box plot
+-   map y - AR, group - dose level
+-   Execute
+
+8.  Create Plot with Categorical X Axis
+
+-   Data: Severity (Mild, Moderate), dose level (1, 2, 4, 8, 16, 32 mg), frequency (numerical, i.e., 0, 0.2, 0.6)
+-   right click the data sheet, send to plotting - X-categorical XY plot
+-   map x - severity, y - frequency, group - dose level
+-   Options pan, select X axis, select Order tab, change order if needed
+-   Options pan - Frequency vs Severity graph - check line visible - now points are connected by a line
+
+9.  Set Plot Preferences
+
+-   Options pan - Plot - Layout
+  ![](images/image-1684060613.png){width="399"}
+-   
