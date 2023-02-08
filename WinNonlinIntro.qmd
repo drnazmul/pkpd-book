@@ -180,7 +180,7 @@ Excels with multiple worksheet:
 
 7.  Create Box Plot
 
-![](images/image-40592419.png){fig-align="center" width="438"}
+![](images/image-40592419.png){fig-align="center" width="696"}
 
 -   20 subjects, AR: accumulation ratio (how much accumulated under repeated ss), dose level, 2 mg and 4 mg
 -   Is AR increases with increasing dose level?
@@ -280,7 +280,7 @@ Summarize
 
 How to calculate AUC?
 
--   assume that the concentration follows a stright line between points
+-   assume that the concentration follows a straight line between points
 
 -   one triangle and several trapizoid
 

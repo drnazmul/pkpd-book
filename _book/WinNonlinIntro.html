@@ -361,7 +361,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/image-40592419.png" class="img-fluid figure-img" width="438"></p>
+<p><img src="images/image-40592419.png" class="img-fluid figure-img" width="696"></p>
 </figure>
 </div>
 <ul>
@@ -453,7 +453,7 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.4.4" class="anchored" data-anchor-id="area-under-the-curve-auc"><span class="header-section-number">1.4.4</span> Area Under the Curve (AUC)</h3>
 <p>How to calculate AUC?</p>
 <ul>
-<li><p>assume that the concentration follows a stright line between points</p></li>
+<li><p>assume that the concentration follows a straight line between points</p></li>
 <li><p>one triangle and several trapizoid</p></li>
 <li><p>AUC is calculated from concentration-time data</p></li>
 <li><p>Trapezoids are used to estimate AUC between two data points</p></li>
@@ -498,9 +498,42 @@ C = \frac{Dose}{V}
 </section>
 <section id="clearance" class="level3" data-number="1.4.7">
 <h3 data-number="1.4.7" class="anchored" data-anchor-id="clearance"><span class="header-section-number">1.4.7</span> Clearance</h3>
+<ul>
+<li>Clearance Quantifies how quickly drug is removed from the body</li>
+</ul>
+<p><span class="math display">\[
+Rate of elimination = Cl * C(t)
+\]</span></p>
+<ul>
+<li><p>In most cases Cl is constant. If changes with concentration, suspect non linear kinetics (saturation). for this reason, different dose level is adminstered.</p></li>
+<li><p>Clearance includes both Metabolisma and Excretion</p></li>
+</ul>
+<p><img src="images/image-284829586.png" class="img-fluid"></p>
+<p><img src="images/image-510239295.png" class="img-fluid"></p>
+<ul>
+<li>it is difficult to obtain all the ratios, so the overall ratio is called Bioavailability.</li>
+</ul>
+<p>Bioavailability</p>
+<p><span class="math display">\[
+F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
+\]</span></p>
+<ul>
+<li><p>Intravenous: NCA parameters are V and Cl (F = 1)</p></li>
+<li><p>Extravascular: NCA parameters are V/F and Cl/F (F&lt;1)</p></li>
+<li><p>Elimination = Metabolism (liver) + Excretion (Kidney)</p></li>
+<li><p>Cl<sub>total</sub> = Cl<sub>hepatic</sub> + Cl<sub>renal</sub> + Cl<sub>other</sub></p></li>
+<li><p>Cl<sub>renal</sub> = A<sub>e</sub> (amount of drug excreted in the urine)/ AUC<sub>plasma</sub></p></li>
+<li><p>Calculation of Clearance from NCA:</p></li>
+</ul>
+<p><img src="images/image-281401148.png" class="img-fluid"></p>
+<p><img src="images/image-2093126627.png" class="img-fluid"></p>
+<p>You get the following from NCA</p>
+<p><img src="images/image-438969836.png" class="img-fluid"></p>
+<p><img src="images/image-1032710582.png" class="img-fluid"></p>
 </section>
 <section id="linear-vs-log" class="level3" data-number="1.4.8">
 <h3 data-number="1.4.8" class="anchored" data-anchor-id="linear-vs-log"><span class="header-section-number">1.4.8</span> Linear vs Log</h3>
+<p><img src="images/image-1313806547.png" class="img-fluid"></p>
 
 
 </section>
