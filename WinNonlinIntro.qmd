@@ -1,0 +1,383 @@
+# Introduction to WinNonlin (122-D)
+
+## Project setup
+
+1.  Create Project
+
+Phenoex Projects
+
+-   contains all the data and calculations
+
+-   multiple projects can be open at the same time
+
+-   common data file to import: excel, csv
+
+-   older version can always be opened by newer version
+
+-   newer version projects can not be opened by older ones
+
+-   Create a project
+
+-   Click to history tab to see the project history
+
+-   Click to properties tab, where most of the work is done
+
+2.  Create Worksheets
+
+-   Right click on Data, select New, select Worksheet
+-   Add columns, give column name, assign data type
+-   assign units: select time from list of columns, click Unit Builder button, specify h to the time, click Add button,click OK
+-   for dose, specify mass prefex, click Add
+-   Type numbers on the worksheet to add values to the cells
+
+3.  Import Files
+
+-   file type: xls, xlsx, csv, SAS
+-   typical data file contains header and unit row.
+-   Select the Import button, select the file
+-   on the File import wizard, select appropriate options
+-   Preview area helps to see the changes
+-   If units are in the column header, select "has units in the header"
+
+Excels with multiple worksheet:
+
+-   click the arrow to move on the Wizard to the next worksheet
+
+4.  Save Projects
+
+-   Click the save icon on the toolbar
+-   File name can be completely different from the Project name
+-   No auto-save options
+-   sharing project file will also share the embedded data files
+-   Close project by right clicking the project name
+-   After opening a saved project folder, expand the plus sign to see the contents.
+
+5.  Set Project Preferences
+
+-   Select the Edit menu -\> preferences -\> Projects
+-   Check Autosave on execution
+-   update the save locations and hit apply before clicking on OK.
+
+## Create and Modify Worksheets
+
+1.  Sort Rows
+
+-   data can be sorted by subject, dose level,
+-   sort button on every worksheet
+-   Use the "sort worksheet" window to apply sort options
+
+2.  Move Columns
+
+-   Select a column from the column list
+-   Click the up or down arrow to move
+
+3.  Rename Columns
+
+-   Click the column name, type F2 or double click on it to edit the name
+
+4.  Apply Units
+
+-   Select column
+-   Click the Unit Builder
+-   Click Clear Units
+-   Add units
+
+5.  Convert Units
+
+-   convert amount column from microgram to miligram
+-   click the Amount column
+-   type mg in the New unit box,click OK
+-   To convert ng/mL to nmole/mL, add nmol and then click the slash button, specify the volume unit, enter molecular weight, click OK.
+-   Better way: use the Data Wizard to convert the units.
+
+## Plot Data
+
+1.  Create Simple Plot
+
+-   Data: Conc, Time, dose level: 16 mg, 10 subjects
+-   right click the worksheet
+-   Select send to -\> plotting -\> xy plot
+-   XY object is created with the linked data source
+-   On the mapping window, orange column headers are required mappings
+-   map, x -\> Time, y -\> conc, Group -\> subject
+-   click execute
+-   Options pan - Axes - Y - select log button
+-   Options pan - Graphs - rename by typing F2
+-   Graph name and legend names are the same
+
+2.  Create Lattice Plot
+
+-   Data: Conc, Time, Administration, dose level 4 mg for IV, 8 mg for PO, 10 subjects
+-   Create a XY plot object same as above
+-   map x - Time, y - conc, group - subject, lattice column - administration
+-   Execute and get two plots
+-   Options - range - 'auto scale best' settings scales individual plots are independent
+
+3.  Use Second Y Axis
+
+-   Data: plasma conc, urine conc, time, 10 subjects
+-   Creat XY plot object same as above
+-   map x - Time, y - plasma conc, y2 - urine conc, lattice condition, page (sort) - Subject
+-   plots are on a single page for each subject
+-   Options - select plasma_conc vs Time, type F2, change the name to Plasma, do the same for Urine
+-   Execute
+
+4.  Compute Descriptive Statistics
+
+-   Needed to create a plot with mean and error bars
+-   right click on data sheet, send to - computation tools - Discriptive statistics
+-   map summary - conc, sort - Time
+-   Execute
+-   Options pannel - click Clear All - click basic statistics, check Mean and SD
+
+5.  Use Error Bars
+
+-   Discriptive Satistics object - Output data - right click on Statistics
+-   send to plotting - XY plot
+-   map x - Time, y - Mean, Error bars, lower - SD, Error bars, upper - SD
+-   Execute
+-   set Y axis to log scale
+
+6.  Create Overlay Plot
+
+-   duplicate the error bars plot from previous section
+
+-   Options pan - Plot - Graphs tab - click Add button
+
+-   Select the new second input from the setup tab
+
+-   Link the source data by clicking source button,
+
+-   map x - Time, y - conc, group - subject
+
+-   Execute
+
+-   Options pan - select Conc vs Time plot
+
+-   Select Quick Styles
+
+-   Uncheck Group by lines, uncheck Gourp by colors,
+
+-   Select Apprance tab
+
+-   Specify color to Silver
+
+-   Uncheck Markers visible
+
+-   Now all the individual lines are silver color
+
+-   Select Mean vs Time graph
+
+-   Select Appearance, specify line colors to red, Marker border color - red, line weight 3
+
+-   Under the Mean vs Time graph, select the Error bars
+
+-   Select Appearance, color - red
+
+-   Options pan - select Y axis - select Axis label and update
+
+-   Options pan - select Legend - uncheck Visible
+
+7.  Create Box Plot
+
+![](images/image-40592419.png){fig-align="center" width="438"}
+
+-   20 subjects, AR: accumulation ratio (how much accumulated under repeated ss), dose level, 2 mg and 4 mg
+-   Is AR increases with increasing dose level?
+-   right click data, send to - plotting - box plot
+-   map y - AR, group - dose level
+-   Execute
+
+8.  Create Plot with Categorical X Axis
+
+-   Data: Severity (Mild, Moderate), dose level (1, 2, 4, 8, 16, 32 mg), frequency (numerical, i.e., 0, 0.2, 0.6)
+-   right click the data sheet, send to plotting - X-categorical XY plot
+-   map x - severity, y - frequency, group - dose level
+-   Options pan, select X axis, select Order tab, change order if needed
+-   Options pan - Frequency vs Severity graph - check line visible - now points are connected by a line
+
+9.  Set Plot Preferences
+
+-   Options pan - Plot - Layout ![](images/image-1684060613.png){width="399"}
+-   Edit menu bar, preferences, plotting details
+-   Changing prefernences affect all new plots
+
+## Introduction to NCA
+
+### About NCA
+
+Non-compartmental analysis or NCA is a method for quantifying drug exposure
+
+-   NCA determines a large number of pharmacokinetic descriptors or PK parameters for a drug
+
+-   They are not really parameters as you would have in a model
+
+-   NCA does not use any kind of model other than assuming that the elimination can be described by first order kinetics
+
+-   because there is no model at the heart of the method we cannot really use it for predictions
+
+-   An example plot of concentration over time following an extravascular dose NCA will give us two different measures of drug exposure:
+
+    -   the peak exposure to the drug concentration occurring after dosing
+
+    -   The overall exposure is measured by computing the area under the curve or AUC
+
+    -   an extra vascular dose starts with a concentration of zero, the concentration rises rapidly reaches C~max~ and then decreases
+
+        ![](images/image-1998985080.png){width="556"}
+
+-   with extra vascular dosing there is an absorption process that leads to a maximum concentration followed by elimination
+
+-   IV bolus dosing: drug is directly injected all at once into a vein; the mixing and systemic circulation is very fast and by the time the first sample is taken after dosing the mixing is assumed to be complete. The concentration starts high and then decreases as the drug is eliminated.
+
+-   IV infusion: the concentration starts at zero and then rises if the infusion is continued for long enough the concentration approaches a plateau at steady state when the infusion stops the concentration then falls in the same manner as in ivy bolus dosing
+
+-   plotting on a log scale is useful because it usually shows linear elimination in each case regardless of the dosing root we could fit the linear portion with a straight line to predict what will happen to concentration after we've collected the last sample concentration on the log axis
+
+![](images/image-781344710.png){width="587"}
+
+-   It is useful to have both linear and log plots. Linear plots are useful for examining the peak concentration and log plots are useful for the low concentrations
+
+-   In addition to an elimination phase many drugs also show a distribution phase in such cases there may be two distinctive straight line sections on the plot. Although sometimes the two phases blend into a general curvature in the plots we see here the distribution phase is apparent for all three dosing routs but it is most pronounced for the IV bolus dosing. For extravascular dosing the distribution phase may be obscured by the drug absorption.
+
+-   The AUC can be determined no matter how complex the relationship between concentration and time.
+
+    Summary:
+
+-   NCA is the primary method of assessing drug exposure.
+
+-   C~max~ is a measure of peak exposure
+
+-   AUC is a measure of the overall exposure to the drug
+
+-   different dosing route leads to a curve with the distinctive shape that plotting on a log concentration scale usually shows linear elimination
+
+-   many drugs show a distribution phase as well as an elimination phase\
+
+### Observe Parameters
+
+-   From the plot of concentration versus time, we can see that the maximum concentration is reached at about 1 hour, we call that time T~max~ and the concentration at the peak is C~max~
+-   T~max~ and C~max~ are listed in the output of NCA in Phoenix
+-   At some point after dosing we will have our last observed concentration this may be because we have stopped collecting samples or the concentration may have dropped below the quantification limit for the analysis and therefore we were unable to get more values The point is at a time of t last and has a concentration of T~last~ These observeed parameters are affected by the sampling schedule we can improve our chances by sampling richly around the expected time of c max if we have more points we have a better chance of capturing a concentration that is near the true maximum
+
+Summarize
+
+-   Observed parameters are T~Max~ C~max~ T~Last~ and C~last~. We call these observed parameters because they are found directly in the observations
+-   the observed parameters are dependent on sampling times
+-   sample richly around the expected time of C~max~ so you can have a better chance of capturing something close to the true maximum
+
+### Half-Life
+
+-   time it takes for the concentration to decrease by 50%.
+
+-   a long half-life leads to a shallower slope and a short half-life leads to a steeper slope
+
+-   some drugs exhibit two phases a distribution phase and an elimination phase each of these will have a half-life associated with it The shorter the half-life of the distribution phase the steeper the initial decline will be although we usually concentrate on the half-life of the elimination phase the effective half-life of the drug may very well depend on the half-lives of both of these processes
+
+-   It takes five to seven half lives to eliminate the drug.
+
+### Area Under the Curve (AUC)
+
+How to calculate AUC?
+
+-   assume that the concentration follows a stright line between points
+
+-   one triangle and several trapizoid
+
+-   AUC is calculated from concentration-time data
+
+-   Trapezoids are used to estimate AUC between two data points
+
+-   AUC is the sum of the areas of all the trapezoids plus one triangle
+
+### Extrapolation to Infinity
+
+-   after the T~last~ there are still large quantity of drug in the plasma
+
+-   How can we extrapolate to infinity?
+
+-   We need a way to calculate the AUC ~Tlast - infinity~.
+
+-   Slope of the elimination is the key, apparent terminal phase, magnitide of the slope is $\lambda_Z$
+
+$$
+AUC _{tlast - \infty} = \frac{C_{last}}{\lambda_z}
+$$ $$
+AUC _{0 - \infty} = AUC_{last} + \frac{C_{last}}{\lambda_z}
+$$
+
+-   extrapolatd area should be below 20%
+
+Important NCA parameters:
+
+-   Independent of least
+
+-   squares fit, such as C~max~, T~max~, AUC~last~,
+
+-   Dependent on the least-squares fit: Lamda Z, AUC 0-inf, %Extrapolation, terminal half-life, volume, clearance
+
+### Volume of Distribution
+
+$$
+C = \frac{Dose}{V}
+$$
+
+-   volume of distribution relates to the dose and concentration
+
+-   Does not corresponds to anything physiological
+
+-   Example, 100 ug dose to IV bolus and 2 ug/L concentration, volume is 50L.
+
+-   typical human plasma volume is 5 L, why V is sometimes very large?
+
+-   Drugs that are strongly bound to protein has very high V
+
+### Clearance
+
+-   Clearance Quantifies how quickly drug is removed from the body
+
+$$
+Rate of elimination = Cl * C(t)
+$$
+
+-   In most cases Cl is constant. If changes with concentration, suspect non linear kinetics (saturation). for this reason, different dose level is adminstered.
+
+-   Clearance includes both Metabolisma and Excretion
+
+![](images/image-284829586.png)
+
+![](images/image-510239295.png)
+
+-   it is difficult to obtain all the ratios, so the overall ratio is called Bioavailability.
+
+Bioavailability
+
+$$
+F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
+$$
+
+-   Intravenous: NCA parameters are V and Cl (F = 1)
+
+-   Extravascular: NCA parameters are V/F and Cl/F (F\<1)
+
+-   Elimination = Metabolism (liver) + Excretion (Kidney)
+
+-   Cl~total~ = Cl~hepatic~ + Cl~renal~ + Cl~other~
+
+-   Cl~renal~ = A~e~ (amount of drug excreted in the urine)/ AUC~plasma~
+
+-   Calculation of Clearance from NCA:
+
+![](images/image-281401148.png)
+
+![](images/image-2093126627.png)
+
+You get the following from NCA
+
+![](images/image-438969836.png)
+
+![](images/image-1032710582.png)
+
+### Linear vs Log
+
+![](images/image-1313806547.png)

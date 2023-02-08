@@ -1,13 +1,13 @@
-# Introduction
+# WinNonlin Modeling(123-OD)
 
 See @alam2006 for additional discussion on modeling
 
 ## What is a Model
 
 -   a mathematical abstraction
--   a diagram of a typical PK model
+-   below is a diagram of a typical PK model
 
-![](img/model-1.png) - The movement of drug through the body is usually much more complicated than depicted in the diagram but even a simple model such as this can mimic the shape of the observed data and allow us to make predictions.
+![](img/model-1.png)- The movement of drug through the body is usually much more complicated than depicted in the diagram but even a simple model such as this can mimic the shape of the observed data and allow us to make predictions.
 
 -   models can be anywhere from purely empirical to purely mechanistic\
 -   empirical model is used just because it fits the data without drawing too many conclusions about the process that the drug undergoes while being absorbed distributed metabolized and eliminated
@@ -19,14 +19,14 @@ See @alam2006 for additional discussion on modeling
 ## Parameterization
 
 -   parameterization refers to the type of parameters that are used in the model
--   examples include clearance parameters micro parameters and macro parameters
+-   examples include clearance parameters, micro parameters and macro parameters
 
 let's see how these differ first let's consider
 
 clearance parameters
 
 -   the most widely used
--   The parameters in this model are the absorption rate constant the clearance and the volume
+-   The parameters in this model are the absorption rate constant, the clearance and the volume
 -   we suggest using clearance parameters when possible because
     -   clearances are physiologically relevant and
     -   clearance-based models tend to be more stable
@@ -48,11 +48,17 @@ Clearance paremeters and microparameters are easily convertable. Let's look at t
 
 Firts, let's consider microparameters:
 
-![](img/param-2.png) - drug can move in both direction k: rate constants A ;amount of drug in the originative compartment
+![](img/param-2.png){width="573"}
 
-Next the clearance parameters ![](img/param-3.png) Clearance and microcompartment models are usally equivalent and gives similar results. However, clearance models are more commonly used.
+\- drug can move in both direction k: rate constants A ;amount of drug in the originative compartment
 
-![](img/param-4.png) \## 3. administration
+Next the clearance parameters ![](img/param-3.png){width="571"}
+
+Clearance and microcompartment models are usually equivalent and gives similar results. However, clearance models are more commonly used.
+
+![](img/param-4.png)
+
+### administration
 
 the way the drug is administered has a large effect on the shape of the PK curve. three types of administration
 

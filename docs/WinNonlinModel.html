@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pkpd notes - 2&nbsp; Introduction</title>
+<title>pkpd notes - 2&nbsp; WinNonlin Modeling(123-OD)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -50,7 +50,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
 <link href="./summary.html" rel="next">
-<link href="./winnonlin-intro.html" rel="prev">
+<link href="./WinNonlinIntro.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -89,7 +89,7 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">WinNonlin Modeling(123-OD)</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -119,12 +119,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./winnonlin-intro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
+  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./intro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></a>
+  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">WinNonlin Modeling(123-OD)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -134,12 +134,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Tech Notes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./my-notes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Notes</span></a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
   </div>
 </li>
     </ul>
@@ -152,7 +152,10 @@ div.csl-indent {
    
   <ul>
   <li><a href="#what-is-a-model" id="toc-what-is-a-model" class="nav-link active" data-scroll-target="#what-is-a-model"><span class="toc-section-number">2.1</span>  What is a Model</a></li>
-  <li><a href="#parameterization" id="toc-parameterization" class="nav-link" data-scroll-target="#parameterization"><span class="toc-section-number">2.2</span>  Parameterization</a></li>
+  <li><a href="#parameterization" id="toc-parameterization" class="nav-link" data-scroll-target="#parameterization"><span class="toc-section-number">2.2</span>  Parameterization</a>
+  <ul class="collapse">
+  <li><a href="#administration" id="toc-administration" class="nav-link" data-scroll-target="#administration"><span class="toc-section-number">2.2.1</span>  administration</a></li>
+  </ul></li>
   <li><a href="#model-structure" id="toc-model-structure" class="nav-link" data-scroll-target="#model-structure"><span class="toc-section-number">2.3</span>  4. model structure</a></li>
   <li><a href="#residual-error" id="toc-residual-error" class="nav-link" data-scroll-target="#residual-error"><span class="toc-section-number">2.4</span>  5. residual error</a></li>
   </ul>
@@ -163,7 +166,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">WinNonlin Modeling(123-OD)</span></h1>
 </div>
 
 
@@ -183,9 +186,9 @@ div.csl-indent {
 <h2 data-number="2.1" class="anchored" data-anchor-id="what-is-a-model"><span class="header-section-number">2.1</span> What is a Model</h2>
 <ul>
 <li>a mathematical abstraction</li>
-<li>a diagram of a typical PK model</li>
+<li>below is a diagram of a typical PK model</li>
 </ul>
-<p><img src="img/model-1.png" class="img-fluid"> - The movement of drug through the body is usually much more complicated than depicted in the diagram but even a simple model such as this can mimic the shape of the observed data and allow us to make predictions.</p>
+<p><img src="img/model-1.png" class="img-fluid">- The movement of drug through the body is usually much more complicated than depicted in the diagram but even a simple model such as this can mimic the shape of the observed data and allow us to make predictions.</p>
 <ul>
 <li>models can be anywhere from purely empirical to purely mechanistic<br>
 </li>
@@ -201,13 +204,13 @@ div.csl-indent {
 <h2 data-number="2.2" class="anchored" data-anchor-id="parameterization"><span class="header-section-number">2.2</span> Parameterization</h2>
 <ul>
 <li>parameterization refers to the type of parameters that are used in the model</li>
-<li>examples include clearance parameters micro parameters and macro parameters</li>
+<li>examples include clearance parameters, micro parameters and macro parameters</li>
 </ul>
 <p>let’s see how these differ first let’s consider</p>
 <p>clearance parameters</p>
 <ul>
 <li>the most widely used</li>
-<li>The parameters in this model are the absorption rate constant the clearance and the volume</li>
+<li>The parameters in this model are the absorption rate constant, the clearance and the volume</li>
 <li>we suggest using clearance parameters when possible because
 <ul>
 <li>clearances are physiologically relevant and</li>
@@ -229,9 +232,13 @@ div.csl-indent {
 </ul>
 <p>Clearance paremeters and microparameters are easily convertable. Let’s look at the</p>
 <p>Firts, let’s consider microparameters:</p>
-<p><img src="img/param-2.png" class="img-fluid"> - drug can move in both direction k: rate constants A ;amount of drug in the originative compartment</p>
-<p>Next the clearance parameters <img src="img/param-3.png" class="img-fluid"> Clearance and microcompartment models are usally equivalent and gives similar results. However, clearance models are more commonly used.</p>
-<p><img src="img/param-4.png" class="img-fluid"> ## 3. administration</p>
+<p><img src="img/param-2.png" class="img-fluid" width="573"></p>
+<p>- drug can move in both direction k: rate constants A ;amount of drug in the originative compartment</p>
+<p>Next the clearance parameters <img src="img/param-3.png" class="img-fluid" width="571"></p>
+<p>Clearance and microcompartment models are usually equivalent and gives similar results. However, clearance models are more commonly used.</p>
+<p><img src="img/param-4.png" class="img-fluid"></p>
+<section id="administration" class="level3" data-number="2.2.1">
+<h3 data-number="2.2.1" class="anchored" data-anchor-id="administration"><span class="header-section-number">2.2.1</span> administration</h3>
 <p>the way the drug is administered has a large effect on the shape of the PK curve. three types of administration</p>
 <ol type="1">
 <li>Extravascular</li>
@@ -255,6 +262,7 @@ div.csl-indent {
 <ul>
 <li>the elimination phase is linear in all three plots and there is no distribution phase seen</li>
 </ul>
+</section>
 </section>
 <section id="model-structure" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="model-structure"><span class="header-section-number">2.3</span> 4. model structure</h2>
@@ -471,7 +479,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./winnonlin-intro.html" class="pagination-link">
+      <a href="./WinNonlinIntro.html" class="pagination-link">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></span>
       </a>          
   </div>

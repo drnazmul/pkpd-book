@@ -8,11 +8,11 @@ book:
   date: "2023-02-06"
   chapters:
     - index.qmd
-    - winnonlin-intro.qmd
-    - intro.qmd
+    - WinNonlinIntro.qmd
+    - WinNonlinModel.qmd
     - summary.qmd
+    - TechNotes.qmd
     - references.qmd
-    - my-notes.qmd
 
 bibliography: references.bib
 
