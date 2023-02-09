@@ -302,7 +302,9 @@ How to calculate AUC?
 
 $$
 AUC _{tlast - \infty} = \frac{C_{last}}{\lambda_z}
-$$ $$
+$$
+
+$$
 AUC _{0 - \infty} = AUC_{last} + \frac{C_{last}}{\lambda_z}
 $$
 
@@ -381,3 +383,755 @@ You get the following from NCA
 ### Linear vs Log
 
 ![](images/image-1313806547.png)
+
+## Run NCA on Plasma Data
+
+### Run NCA using best fit
+
+-   Drug: Gravitix, 10 subjects, a single ascending dose (SAD) study, 6 dose level (1, 2, 4, 8, 16, 32 mg), PO adminsitration
+
+-   From the plot each subject grouped by dose level, we see that as the dose increases so do the concentrations in plasma
+
+-   we expect that the drug exposure should increase proportionally to the dose
+
+-   after we run NCA we will assess *dose proportionality* by examining PK parameters returned by NCA
+
+-   Two worksheets: Observations and Dosing. Data on Observatino worksheet: Conc, Time, Subject, Doselevel, Administration, Amount.
+
+Performing NCA:
+
+-   Right click on observation worksheet
+
+-   select sent to, non-compartmental analysis, NCA
+
+-   Select plasma, which is default setting
+
+-   specify the dose type the default is extravascular
+
+-   apply the main mappings
+
+-   the time is already mapped
+
+-   map the conc to concentration
+
+-   map subject to sort
+
+-   map doselevel to sort
+
+-   select dosing. two options: a worksheet with the dozing information or an internal worksheet
+
+-   select source
+
+-   click okay
+
+-   Time is already mapped
+
+-   map amount to dose
+
+-   map subject and dose level to sort
+
+-   specify the calculation method linear up logdown
+
+-   click execute
+
+-   double click the final parameters pivoted worksheet to open in its own window
+
+Viewing plots:
+
+-   select observed y and predicted y versus x
+
+-   for subject one dose level 1: 5 points were used in the $\lambda_Z$ calculation, from 8 hours to the last observation at 36 hours
+
+-   The best fit method automatically determines the optimal least squares regression using at least three points
+
+-   r-squared is the correlation coefficient of the regression
+
+-   r squared adjusted is based on the r squared adjusted for the number of points in the regression
+
+-   The number points with the best value of r squared adjusted is used.
+
+-   the half-life based on the value of $\lambda_Z$ is also reported in this case the half life is about 22 hours
+
+-   Page 2: this plot is also for subject one but now the dose level is 2 mg
+
+-   in this case the best fit method used three points in the calculation
+
+-   even though it is the same subject but the half-life based on lambda z is much shorter than for the first dose at only about 15 hours
+
+-   Page 3: this plot is for subject one does level 4
+
+-   again 3 points were used in the calculation
+
+-   the half-life is about 28 hours
+
+-   Page 4: this is for subject one those level 8
+
+-   this time five points were used in the half-life is 15 hours
+
+-   Page 5: now we are up to those level 16 for and half-life is 21 hours
+
+-   Page 6: this plot is now at the highest to those level 32 mg
+
+-   the half life is lower this time It's 18
+
+-   we have seen it's quite a variability between different dose levels but is there a systematic trend?
+
+let's create a box plot to see if there is appears to be a trend
+
+-   right click on final parameters pivoted
+
+-   send to plotting: box plot
+
+-   map HL_lambda_z to y
+
+-   now we want to look for a trend across the dose group map to dose level
+
+-   click execute button
+
+-   The plot shows us the distribution of half-life across the different dose groups
+
+-   from the plots we can see that although there is a good deal of variation in the dose levels, there does not appear to be a systemic trend and all the boxes overlopped with each other
+
+Box plot of AUCs
+
+-   let's make the duplicate of this plot:
+
+-   right click box plot
+
+-   select copy
+
+-   right click on the workflow
+
+-   select paste
+
+-   select the duplicated plot let's change the mapping for the y map AUCINF_D\_obs
+
+-   click execute
+
+-   because the data are dose normalized AUC values extrapolated to infinity we would expect these values to be the same for all dose groups and they do appear to be very consistent
+
+-   most values falling between 0.04 and 0.05
+
+-   this does suggest that the overall drug exposure is proportional to the dose
+
+-   although this is not a statistical test for the dose proportionality, it does give us a quick visual impression
+
+Box plot of AUClast_D
+
+-   Let's make duplicate of the second plot right click the plot select copy right click on workflow paste
+
+-   map AUClast_D to y execute
+
+### Customize rules and parameters
+
+-   Goal is to add $\lambda_Z$ acceptance rules to our NCA
+
+-   select the rules tab
+
+-   enter 0.9 for r-squared adjusted
+
+-   enter 20 for percentage of extrapolation
+
+-   enter 2 for span, the span is the number of half lives spent by the regression.
+
+-   click execute
+
+-   Review the flag column for r-squared adjusted, % extrapolation and span
+
+-   note that the results are not removed from the output
+
+-   but we can use data tools to do the filtering if we want to
+
+To filter the data:
+
+-   Right click in the final parameters pivoted worksheet
+
+-   Select sent to
+
+-   select data management
+
+-   select split worksheet
+
+-   map the three flag columns to sort
+
+-   Click execute
+
+The "unique values" worksheet shows how many rows there are for each combination of sort values - notice that there are 24 rows that passed all criteria
+
+-   let's look at the worksheet fully accepted here we see the walls that has all three criteria is
+
+*User defined parameters*
+
+-   select "user defined parameters" tab
+
+-   to compute the concentration at a time of 48 hours
+
+-   inter 48 in the box The other thing that we can do is user defined parameters
+
+-   the NCA does include many parameters we can also define our own
+
+-   click add button
+
+-   add a parameter, i.e., AUC_2
+
+-   For definition you see last / 2
+
+-   if you would like this values include in the final parameters pivoted worksheet turn on include the final parameters
+
+-   execute the NCA object
+
+### Customize slope selections
+
+-   start with NCA used in previous section
+
+-   Duplicate the NCA object
+
+-   select slopes selector from the Setup trab
+
+-   Each plot is on a separate page, on each plot we can see the points that were used select for best fit.
+
+-   click the left point to change starting point for the linear fit
+
+-   to change the end of the fitting, holding down the shift key and clicking on the indicated point
+
+-   Don't change the endpoint of the fitting unless you have reason to reset the last point
+
+-   to exclude points from the linear fit hold on the control key and click on the indicated point
+
+Faster way of modifying slopes:
+
+-   select the slopes under the Setup tab
+
+-   this worksheet has the same information we saw in the individual plots but all on one table
+
+-   to control the best fit method select rules tab
+
+-   we have two options for customizing you can either limit the number of points used in the linear regression or you can specify your start time limit
+
+-   Since there is a distribution phase we might decide to make sure that we do not include from the 12 hours in linear regression
+
+-   type of 12 in the option start not before
+
+-   let's look at the slopes and then see output settings
+
+-   select slope settings
+
+-   Now, the start time is at least 12 hours
+
+-   Comparing box plots from two NCA results ( best fit and coustom fit) it is seen that some of the outliers are removed.
+
+-   It is good idea to examine each slopes and adjust the solpes to compare the data.
+
+### Compute partial areas
+
+In the previous section we saw how comparing AUClast was problematic.When different subjects had different Tlast, Computing partial areas is a way that can overcome that limitation.
+
+![](images/image-54238214.png){width="641"}
+
+-   Select the setup tab
+
+-   Select Partial Areas
+
+-   Check "use Internal Wroksheet"
+
+-   Beacause we will use the same partial areas for all subjects, uncheck subject checkbox and beacause we want to use the same settings for all dose groups, uncheck DoseLevel checkbox
+
+-   Click OK
+
+-   We may want to compute more than one partial area, at the bottom of the option tab, we can specify how many we want.
+
+-   Click on the selector for number of maximum partial areas. Select 2
+
+-   Once again, we are asked to specify the sorts, Uncheck subject and dose level checkbox.
+
+-   We need to fill in the start and end times
+
+-   For the first partial area, we will compute the partial area for the first 12 hours
+
+-   Specify 0 for the start time and 12 for the end time.
+
+-   For our second partial area, use 0 and 24 hours.
+
+-   If desired, we can label for each partial area. However, label is not required and it will automatically generate for us. Leave the label field blank.
+
+-   Click Execute.
+
+The partial areas are added as columns to the right of the final parameters pivoted.
+
+Let's repeat the process for other NCA object in our project: Select NCA best fit Click Setup Click Partial Areas Check "Use Internal Worksheet"
+
+Turn off Subject and doselevel Specify the maximum number of partial areas
+
+The plots are all read, because the plots are all out of date -WE can update by Selecting the workflow in the object browser, the Workflow is displayed, click the Execute butte and it will update. While the Workflow is selected, on the result tab, we have the output of the workflow. Let's go back to the workflow diagram, select Diagram, notice how the red color gone
+
+### Use Theraputic response
+
+To choose a dose for a given drug we have consider both the efficacy and side effects. We can set upper and lower concentration limits in NCA and quantify the time and AUC between the limits as well as above and below.
+
+![](images/image-812533664.png){width="652"}
+
+The following plot is for gravitex SAD study: Let's say we want concentration to be between 10 and 50 ug/L. At the lowest dose, all the concentrations are below the lower limit. For higher dose (32 mg), concentrations are largley between the upper and lower limit
+
+-   Select "Therapeutic Response" option on the Setup tab of the NCA object
+
+-   uncheck both subject and dose boxes
+
+-   Enter 10 for lower limit and 50 for higher limit
+
+-   Execute
+
+### Customize units and parameters names
+
+To obtain units in the NCA results, we need to have units defined on the concentrations, the times and the doses
+
+-   concentration units are microgram per liter, nanogram per liter and micromols per liter
+
+-   times units are typically either hours or minutes and in some cases days
+
+-   units for doses are milligrams micrograms and micromols
+
+-   it is not recommended to mix mass units
+
+-   if you get no units on your results you may have missed the unit on the concentration, time or dose, you will see the message insufficient unit in the units output. If this happens to you check that you have proper units on the concentration time and dose
+
+Define the units used in the NCA:
+
+-   select the setup tab
+
+-   select the units input
+
+-   The default units depend on input dataset units because the time units in the input data set is hours all the time units in the NCA results will also be based on hours
+
+-   The volume unit in our input data is liters and therefore all the results have liters in the default units
+
+-   if we decide we want to change the units on our results we can do so by changing the values in the columns labeled preferred
+
+let's do that
+
+![](images/image-421645396.png)
+
+-   Change the preferred unit for volume to milliliter
+
+-   specify milliliters per minute for the clearance unit
+
+-   Make sure to match the case as shown
+
+-   Phoenix will attempt to convert but if Phoenix doesn't know how to convert to your preferred unit it will revert to the default unit execute the NCA
+
+-   By checking execute here you can see the appropriate units in the results.
+
+Changing Parameters Name
+
+-   Click setup tab select the parameter names input
+
+-   Turn on the Use internal worksheet checkbox
+
+-   Let's say that we want to change the name of half life
+
+-   And executed the NCA and now the half-life column has been renamed in the result
+
+## Run Urine NCA
+
+### About Urine NCA
+
+![](images/image-1976229668.png)
+
+-   Urine samples are collected over an interval. Four samples were collected and concentration and volume was measured, the data is compiled in the table.
+
+-   The rate of drug excretion is calculated by:
+
+$$
+Rate = \frac{A_{ur}}{t_{end}-t_{start}}
+$$
+
+-   Plot the Rate of drug excretion vs midpoint of collection interval
+
+-   Rate of excretion starts high and decreases over time.
+
+![](images/image-744014796.png){width="337"}
+
+-   Most import parameters are Amount Recovered and Percent Recovered and Percent of extrapolation (AURC\_%Extrap_red)
+
+-   Urine NCA also include lambdaZ and halflife, however, since the urine data only contains four data, it is better to use plasma halflife
+
+-   Percent of extrapolation should be as small as possible.
+
+### Setup project
+
+-   10 subjects, dose level, 4 mg, conc in both plasma and urine,
+
+### Exploratory Data Analysis
+
+-   XY plot of plasma conc vs time is created
+
+-   XY plot of urine conc vs time is created. Time is end of collection interval
+
+### NCA of plasma data
+
+-   map x to Time, y to conc, sort to subject
+
+-   select the Dosing imput, map Time to Time, Dose to dose, sort to subject
+
+-   Select linear up log down
+
+-   Excecute
+
+### NCA of urine data
+
+-   specify the model type: Urine
+
+-   Required mapping: start time, end time, concentration, volume
+
+-   sort to subject
+
+-   select the dosing file, sort subject
+
+-   Execute
+
+-   Automatic data calculations was done. Three different rates are given: Max_rate, Rate_last, Rate_last_pred, Tmax_rate, AURC: Area Under the Rate Curve
+
+-   Urine NCA does not extrapolate for amount recovered and percent recovered. That's why it is best to collect urine samples until no more drugs are detected in the urine sample
+
+### Calculate Renal Clearance
+
+![](images/image-1193624636.png){width="614"}
+
+-   right click Final Parameter Pivited, send to "computation tools", "ratio and differences".
+
+-   map sort to subject
+
+-   Select the worksheet2 input, click to select source button, select "Final Parameter Pivited" from NCA plasma, sort to subject
+
+-   On the options tab, update the X column to "Amount Recovered", Y column: AUClast, new column name: Clr, unit: L/h,
+
+-   Execute
+
+Create a box plot
+
+-   Right click Ratios Differences Stacked, send to box plot, map y to Clr,
+
+![](images/image-1805596672.png){width="638"}
+
+## Sparse and Steady-State NCA
+
+-   preclinical study of Gravitex in rats, 20 rats, dose: 200 ug/kg,time of blood draws: group A(0.5, 1, 2, 4, 8 h), group B( 0.75, 2, 6, 12 h)
+
+-   Not possible to do full NCA with only four data points
+
+-   We need to pool the data to do NCA
+
+-   Data: Schedule ( group A or group B), Animal, Time, Conc
+
+### EDA of Sparse Data
+
+Create a plot Concentration vs time by schedule
+
+-   Plotting the data: XY plot, map x to Time, y to conc, group to schedule, group to animal
+
+-   Options pan, select the graph Conc vs Time, select Quick Style tab, check "Each group to color", select "Schedule"
+
+-   Now the lines are yellow for group A and purple for group B.
+
+-   Turn off "group by marker", now all the markers are same
+
+-   Turn off "group by lines",
+
+-   Select the Legend and turn off the "visible" checkbox
+
+Reporting as concentrations table
+
+-   right click observation worksheet, send to reporting, select table
+
+-   map conc to Data, animal to Raw ID, Raw Stratification to Schedule, Column Stratification to Time.
+
+-   Select "Precision/Alignment" from option, precision method: significantDigits, value: 3,
+
+-   For Time, specify the precision method: DecimalPlaces, value: 2, execute
+
+-   Select Animal column, specify precision method: DcimalPlaces, value: 0
+
+-   Select statistic tab, turn of "mean" and "SD"
+
+### NCA of Sparse Data
+
+![](images/image-1521872363.png)
+
+-   Send the data to NCA, turn on "Sparse" button
+
+-   Required mapping: Time to time, Concentration to Conc and Subject to Animal
+
+-   Specify dosing file, time to Time and dose to dose_norm, execute
+
+-   There is only one raw in the result sheet
+
+-   Linear Trapizoid method was used and SE was obtained for some of the PK parameters.
+
+-   Since the data is pooled, only one plot is obtained.
+
+### EDA of Multiple-Dose Data
+
+Study design of Gravitex multiple dose study
+
+20 human subjects randomly divided into two groups (dose level 2 and 4), dosed at 0h, conc determined at 48 h,2nd dose at 48h, next doses at every 24h, until 192 hours. The first dose is a Naive dose
+
+-   Richly sampled for 0 to 48 hours and the last dose from 192h to 240h. Only Trough conc were measured for other doses
+
+![](images/image-965298524.png)
+
+Blue lines are generated from PK model.
+
+-   plot the data by mapping x to Time, y to Conc, group to subject, lattice page to dose level, lattice column to profile
+
+![](images/image-993126346.png)
+
+After modifying x and y axis:
+
+![](images/image-698219605.png)
+
+Making a Table
+
+-   Send to reporting, Table
+
+-   map Data to Conc, subject to RowID, dose level to stratification row, stratification column to time, profile to stratification column.
+
+-   Select Column/sort Order, select Row Stratification, select Column Stratification, move profile to the top,
+
+![](images/image-1660090732.png)
+
+### Split Data
+
+-   Before running NCA of multiple dose data, we need to split data
+
+-   Right click the worksheet, send to Data Management, Split Worksheet
+
+-   map profile to sort, Exicute.
+
+-   Split the dose worksheet the same way as the observation worksheet
+
+### NCA for First Dose
+
+-   Select Split Observation, right click on Output data A, send to NCA
+
+-   map subject to sort, dose level to sort, conc to concentration, time to Time
+
+-   link dosing input for A profile
+
+-   map Dose to Amount, Tau to Tau, sort to dose level and subject
+
+-   Calculation method LinearupLogdown
+
+-   Select Dose level column and click freez pane icon
+
+### NCA for Final Dose
+
+-   perform same operation as for First Dose by selecting profile C.
+
+-   T~min~ is the time where minimum concentration was found
+
+-   C~tau~ is the concentration at the end of the dosing enterval
+
+-   C~avg~ is the average concentration during the dosing interval
+
+-   Difference between AUC~last~ and AUC~tau~![](images/image-612476685.png)
+
+-   Slope correction of the linear fit is of concern only if we are extrapolating the results. Otherwise AUC~tau~ will not be affected by the slope correction.
+
+### Determine Accumulation Ratio
+
+![](images/image-1080380939.png)
+
+NCA can only determine PK parameters of the first dose or the last dose,
+
+![](images/image-226123731.png)
+
+partial area
+
+## Use Data Tools
+
+### Append Worksheets
+
+-   Combine data from two worksheets that share the same general structure of columns
+
+![](images/image-360243120.png){width="479"}
+
+-   example, combine PK1 and PK2. The new column "source" tells which worksheet each set of rows came from.
+
+-   Columns do not have to be identical nor the same order
+
+-   Right click the worksheet, select Data Management, Append Worksheets
+
+-   map source column to all the columns of worksheet 1
+
+-   Click worksheet2, link the source file, map all the columns to Source Column
+
+-   Double click Results tab to view the results
+
+-   To append more that one worksheet, set the number on the option section
+
+### Crossproduct Worksheets
+
+-   For making combination of multiple columns,
+
+![](images/image-92324410.png){width="425"}
+
+-   Right click the worksheet, send to Crossproduct Worksheet
+
+-   map subject to sort
+
+-   Link the second worksheet and map the same way as before, Execute
+
+### Join Worksheets
+
+-   To combine data so that rows are matched by a common sort key. Merge option is identical to Join option.
+
+![](images/image-1772725599.png){width="524"}
+
+![](images/image-202626124.png)
+
+![](images/image-1399663213.png)
+
+-   both column has be to same name to join the columns.
+
+-   Click 'sort map", turn on Internal Worksheet, cut and paste to the same row.
+
+![](images/image-2085006661.png){width="506"}
+
+### Pivot Worksheet
+
+-   Rearranging data to allow comparison, for example to compare the effect of treatment, we need to see the data:
+
+![](images/image-1027446819.png)
+
+![](images/image-479348411.png)
+
+![](images/image-2099007160.png){width="302"}
+
+### Stack Columns
+
+-   Inverse of Pivoting . Stackers stacks two or more column into a single column
+
+![](images/image-1950151722.png){width="394"}
+
+-   Change the column names from the options section
+
+-   
+
+### Split Worksheet
+
+### Enumerate Worksheet
+
+-   To convert text values to numbers,
+
+![](images/image-763513672.png)
+
+![](images/image-617025274.png)
+
+### Make BQL Substitutions
+
+![](images/image-1669131987.png)
+
+-   Any non-numeric data is ignored by the NCA object
+
+    ![](images/image-1755428445.png)
+
+-   To estimate T~lag~ we must replace BQL by zero
+
+    ![](images/image-899493500.png)
+
+    ![](images/image-148281771.png)
+
+    ![](images/image-85334640.png)
+
+    ![](images/image-2010256627.png)
+
+    ![](images/image-1228450167.png)
+
+## Compute Ratios and Differences
+
+### Compute Ratios from Single Input
+
+-   10 subjects with 2 mg IV dose, after wash out period same subject was administered 4 mg PO, To compute Bio-availability, we need to do ratio from a single worksheet.
+
+    ![](images/image-1660862903.png)
+
+    ![](images/image-1212642758.png)
+
+### Compute Ratios from Dual Inputs
+
+-   NCA for urine and plasma must be done in separate NCA object, we have to combine results from two different worksheets.
+
+-   Renal Clearance example, view clearance section above.
+
+    ![](images/image-76720220.png)
+
+### Compute Ratios using Means
+
+-   Difference between cross-over and parallel study
+
+![](images/image-1871426373.png)
+
+![](images/image-1201568344.png)
+
+![](images/image-703336195.png)
+
+### Compute Differences
+
+![](images/image-2006269746.png)
+
+## Use Data Wizard
+
+### Create a Filter
+
+-   Filter by time values
+
+-   Right click, send to Data management, Data Wizard \### Set Column Properties
+
+![](images/image-562934783.png)
+
+-   We can: 1. Exclude whole column; 2. Exclude or include by values, 3. Filter individual cells or whole rows.
+
+### Set column properties
+
+-   This can be used to sort columns, rename columns, specify or convert units
+
+### Transform Data (Arithmatic)
+
+-   used to do simple arethmatic; x and y are variables, n is constant, units inherited from source.
+
+-   same as data normalization.
+
+-   Set baseline in Time based data, Requires Time and Data Columns to map, Substrat the initial values
+
+### Transform Data (Custom)
+
+-   Ceiling, random
+
+![](images/image-1432572422.png)
+
+### Transform Data (Functinos)
+
+-   this works with only on single column such as X to Ln(X).
+
+### Multi-step operation
+
+## Applications of NCA
+
+### Using Cmax and AUC to Make Decisions
+
+![](images/image-1817054768.png)
+
+![](images/image-1976381336.png)
+
+![](images/image-308956951.png)
+
+### Study Designs
+
+### Dose Proportionality
+
+![](images/image-1045938611.png)
+
+### ![](images/image-71630160.png)Average Bioequivalence
+
+### Food Effects
+
+### Drug-Drug Interactions

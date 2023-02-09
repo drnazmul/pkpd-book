@@ -20,3 +20,39 @@ After any change made on github repo but not on the local folder, do the followi
 
     git pull --rebase origin main
     git push origin main
+
+### Publishing Quarto site or book
+
+Publish from Git Provider
+
+https://quarto.org/docs/publishing/netlify.html#publish-from-git-provider
+
+### Custom domain on Netlify with Namecheap
+
+-   Go to Namecheap's account, click Manage on the active domain
+
+-   on "Name Server" select "Custom DNS" option
+
+-   Go to "Domain Settings" of Netlify
+
+-   Custom Domain : Options: Edit site name
+
+-   Click on "Add custom domain" and add your domain
+
+-   Under "primary domain" options, click "Setup Netlify DNS"
+
+-   Click verify tab
+
+-   Click Add domain tab
+
+-   Click Continue
+
+-   copy all the four name servers and paste to the DNS server on Namecheap
+
+-   Click Done on Netlify
+
+-   
+
+## PBPK notes
+
+https://www.admescope.com/whats-new/blog/2016/pbpk-what-it-is-for
