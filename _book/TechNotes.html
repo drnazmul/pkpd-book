@@ -134,6 +134,9 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#create-a-new-repository-on-the-command-line" id="toc-create-a-new-repository-on-the-command-line" class="nav-link active" data-scroll-target="#create-a-new-repository-on-the-command-line"><span class="toc-section-number">4.0.1</span>  create a new repository on the command line</a></li>
   <li><a href="#or-push-an-existing-repository-from-the-command-line" id="toc-or-push-an-existing-repository-from-the-command-line" class="nav-link" data-scroll-target="#or-push-an-existing-repository-from-the-command-line"><span class="toc-section-number">4.0.2</span>  …or push an existing repository from the command line</a></li>
+  <li><a href="#publishing-quarto-site-or-book" id="toc-publishing-quarto-site-or-book" class="nav-link" data-scroll-target="#publishing-quarto-site-or-book"><span class="toc-section-number">4.0.3</span>  Publishing Quarto site or book</a></li>
+  <li><a href="#custom-domain-on-netlify-with-namecheap" id="toc-custom-domain-on-netlify-with-namecheap" class="nav-link" data-scroll-target="#custom-domain-on-netlify-with-namecheap"><span class="toc-section-number">4.0.4</span>  Custom domain on Netlify with Namecheap</a></li>
+  <li><a href="#pbpk-notes" id="toc-pbpk-notes" class="nav-link" data-scroll-target="#pbpk-notes"><span class="toc-section-number">4.1</span>  PBPK notes</a></li>
   </ul>
 </nav>
     </div>
@@ -175,6 +178,32 @@ git push -u origin main</code></pre>
 <p>After any change made on github repo but not on the local folder, do the following</p>
 <pre><code>git pull --rebase origin main
 git push origin main</code></pre>
+</section>
+<section id="publishing-quarto-site-or-book" class="level3" data-number="4.0.3">
+<h3 data-number="4.0.3" class="anchored" data-anchor-id="publishing-quarto-site-or-book"><span class="header-section-number">4.0.3</span> Publishing Quarto site or book</h3>
+<p>Publish from Git Provider</p>
+<p>https://quarto.org/docs/publishing/netlify.html#publish-from-git-provider</p>
+</section>
+<section id="custom-domain-on-netlify-with-namecheap" class="level3" data-number="4.0.4">
+<h3 data-number="4.0.4" class="anchored" data-anchor-id="custom-domain-on-netlify-with-namecheap"><span class="header-section-number">4.0.4</span> Custom domain on Netlify with Namecheap</h3>
+<ul>
+<li><p>Go to Namecheap’s account, click Manage on the active domain</p></li>
+<li><p>on “Name Server” select “Custom DNS” option</p></li>
+<li><p>Go to “Domain Settings” of Netlify</p></li>
+<li><p>Custom Domain : Options: Edit site name</p></li>
+<li><p>Click on “Add custom domain” and add your domain</p></li>
+<li><p>Under “primary domain” options, click “Setup Netlify DNS”</p></li>
+<li><p>Click verify tab</p></li>
+<li><p>Click Add domain tab</p></li>
+<li><p>Click Continue</p></li>
+<li><p>copy all the four name servers and paste to the DNS server on Namecheap</p></li>
+<li><p>Click Done on Netlify</p></li>
+<li></li>
+</ul>
+</section>
+<section id="pbpk-notes" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="pbpk-notes"><span class="header-section-number">4.1</span> PBPK notes</h2>
+<p>https://www.admescope.com/whats-new/blog/2016/pbpk-what-it-is-for</p>
 
 
 </section>
