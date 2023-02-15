@@ -1,0 +1,278 @@
+---
+title: "R-notes"
+---
+
+## Helpful Syntax
+
+```{r}
+#Returns the structure and information of a given object
+str(iris)
+
+#Returns the class of a given object
+class(iris)
+
+#Returns your current working directory
+getwd() 
+
+#Changes your current working directory to a desired filepath
+setwd("C:\Users\BABA\Documents\mynotes")
+
+```
+
+### Installing and loading
+
+```{r}
+#Install dplyr through tidyverse 
+
+install.packages("tidyverse")
+
+# Install it directly
+
+install.packages("dplyr")
+
+# Load dplyr into R
+
+library("dplyr")
+
+```
+
+Load the packages:
+
+```{r}
+library(datasets) # Load the datasets
+library(gapminder) 
+attach(iris) # Attach iris data to r search path
+
+```
+
+### The %\>% operator
+
+```{r}
+# Without the %>% operator
+
+select(df, a, b)
+
+# By using the %>% operator
+
+df %>%
+  select(a, b)
+
+```
+
+List of pre-loaded data To see the list of pre-loaded data, type the function data():
+
+```{r}
+data()
+
+```
+
+Load and print mtcars data as follow:
+
+```{r}
+
+data("mtcars")
+
+head(mtcars, 6)
+```
+
+To learn more about the dataset:
+
+```{r}
+?mtcars
+nrow(mtcars)
+ncol(mtcars)
+```
+
+Other popular dataset:
+
+```{r}
+data("iris")
+data("ToothGrowth")
+data("PlantGrowth")
+data("USArrests")
+
+```
+
+### Transforming data with dplyr
+
+Basic column operations with dplyr
+
+```{r}
+# Select one or more columns with select()
+
+iris %>%
+
+select(Petal.Length, Petal.Width)
+ 
+# Select all but one column (e.g., listing_id)
+
+iris %>%
+
+select(-Petal.Width)
+# Select all columns within a range
+
+iris %>%
+
+select(Species:Petal.Length)
+
+# Rename a column using rename()
+
+iris %>%
+
+rename(p_length=Petal.Length)
+
+
+```
+
+## Working with columns
+
+### Mutate
+
+
+```{r}
+# Change Sepal.Length to be in millimeters
+
+iris %>% 
+  mutate(Sepal.Length = Sepal.Length*10)
+
+# Create a new column called s_length
+
+iris %>% 
+  mutate(SLMm = Sepal.Length*2)
+
+iris %>%
+  filter(Species=="Virginica") %>%
+  mutate(SLMm=Sepal.Length*10) %>%
+  arrange(desc(SLMm))
+
+
+# Add the number of observations for a column (e.g., number of Specirs)
+
+iris %>% 
+  add_count(Species)
+
+```
+
+## Working with rows
+
+### Filter
+
+```{r}
+# Filter rows on one condition (e.g., Select iris data of species "virginica")
+
+iris %>%
+  filter(Species=="virginica")
+
+# Filter on two OR more conditions (Species OR Petal Length)
+
+iris %>%
+  filter(Species=="virginica" | Sepal.Length > 6)
+
+# Filter on two AND more conditions (country AND number_of_rooms)
+
+iris %>%
+  filter(Species=="virginica", Sepal.Length > 6)
+
+
+# Filter by checking if a value exists in another set of values
+
+iris %>% 
+  filter(Species %in% c("versicolor", "virginica"))
+
+```
+
+### Arrange
+
+```{r}
+# Sort rows by values in a column in ascending order
+
+iris %>%
+arrange(Petal.Length)
+
+# Sort rows by values in a column in descending order
+
+iris %>%
+arrange(desc(Petal.Length))
+
+# Combine multiple dplyr verb
+
+iris %>% 
+  filter(Species == "virginica") %>% 
+  arrange(desc(Sepal.Length))
+
+
+```
+
+### Others
+
+```{r}
+# Remove duplicate rows in all the dataset
+
+iris %>% 
+  distinct()
+
+# Find unique values in the country column
+
+iris %>% 
+  distinct(Species)
+
+# Select rows based on top-n values of a column (e.g., top 3 listings with the highest amount  of rooms)
+
+iris %>% 
+
+top_n(3, Petal.Length)
+
+```
+
+## Aggregating data with dplyr
+
+### Count
+
+```{r}
+
+# Count groups within a column (e.g., count number of species in Species)
+
+iris %>% 
+  count(Species)
+
+# Count groups within a column and return sorted
+
+iris %>% 
+  count(Species, sort=TRUE)
+
+
+
+```
+
+### Summerise
+
+```{r}
+
+# Return the total sum of values for a column (e.g., total petal length)
+
+iris %>% 
+  summarise(total_length=sum(Petal.Length))
+
+# Return the average of values for a column (e.g, average petal length)
+
+iris %>% 
+  summarise(avg_length=mean(Petal.Length))
+
+#group_by() allows you to summarize within groups instead of summarizing the entire dataset
+
+# Group by a variable and return counts of each group (e.g., number of listings by country)
+
+iris %>% 
+  group_by(Species) %>%
+  summarise(n=n())
+
+# Group by a variable and return the average value per group (e.g., average number of rooms in listings per city)
+
+iris %>%
+  group_by(Species) %>%
+  summarise(avg_length=mean(Petal.Length))
+
+# Find mediann and 
+
+```
+

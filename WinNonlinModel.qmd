@@ -1,8 +1,6 @@
-# WinNonlin Modeling(123-OD)
+## Introduction to PK Modeling
 
-See @alam2006 for additional discussion on modeling
-
-## What is a Model
+### What is a Model
 
 -   a mathematical abstraction
 -   below is a diagram of a typical PK model
@@ -16,7 +14,7 @@ See @alam2006 for additional discussion on modeling
 -   The equations that describe the model are converted into model code in Phoenix
 -   Parameter values
 
-## Parameterization
+### Parameterization
 
 -   parameterization refers to the type of parameters that are used in the model
 -   examples include clearance parameters, micro parameters and macro parameters
@@ -44,9 +42,9 @@ macro parameter
 -   PK curve is given by an equation that is combination of one or more exponentials
 -   these parameters are not directly related to the phyiology
 
-Clearance paremeters and microparameters are easily convertable. Let's look at the
+Clearance parameters and micro-parameters are easily convertible. Let's look at the
 
-Firts, let's consider microparameters:
+Firts, let's consider micro-parameters:
 
 ![](img/param-2.png){width="573"}
 
@@ -58,7 +56,7 @@ Clearance and microcompartment models are usually equivalent and gives similar r
 
 ![](img/param-4.png)
 
-### administration
+### Administration
 
 the way the drug is administered has a large effect on the shape of the PK curve. three types of administration
 
@@ -83,7 +81,7 @@ let's compare the shapes of PK curves resulting from different administration me
 
 -   the elimination phase is linear in all three plots and there is no distribution phase seen
 
-## 4. model structure
+### Model structure
 
 -   the model structure affects the shape of the pK profile
 -   three different aspects of model structure
@@ -96,9 +94,9 @@ The effect of the number of compartments:
 one compartment model is the simplest
 
 -   one compartment extravascular model
--   has three parameters k a v and CL
+-   has three parameters k~a~, V and CL
 
-Two comartment models adds a peripheral compartment which can take up some of the drug - needed when there is a sizable distribution phase - five parameters
+Two compartment models adds a peripheral compartment which can take up some of the drug - needed when there is a sizable distribution phase - five parameters
 
 three compartments - adds two more parameters V3 and CL3 - The three compartment model is not used frequently ![](img/structure-1.png)
 
@@ -110,7 +108,7 @@ corresponding extravascular Administration but
 
 ![](img/structure-3.png) - Early distribution phases can become obscured because of the absorption phase - this is particularly apparent in the three compartment model where the first distribution phase is entirely obscured by the absorption
 
-time lag
+Time lag
 
 many drugs take some time to show up in systemic circulation and the time lag is a way that we can account for this in our model
 
@@ -123,11 +121,11 @@ saturation
 
 -   linear elimination saturation is often referred to as Michaela
 
--   replaces clearance parameter with Km and Vmax ![](img/saturation-1.png) Clearance is no longer constant Clearance is depended on the concengtratino downward bend is characteristics of saturating kinetics saturation increased with higher doses
+-   replaces clearance parameter with Km and Vmax ![](img/saturation-1.png) Clearance is no longer constant. Clearance is depended on the concentration. downward bend is characteristics of saturating kinetics saturation increased with higher doses.
 
--   ![](img/saturation-2.png) Let's see how this change affects the shape of the PK curve click next to continue ![](img/saturation-3.png) here are simulated curves for a drug that has a KM value of 1,000 in a saturating model clearance becomes the expression v max over km + c this means that clearance depends on the concentration and the clearance is no longer constant notice how different doses have PK curves with dramatically different shapes notice how many of the curves have a downward bend this downward bend is a characteristic of saturating kinetics it may not be observed at lower doses but as the dose increases we may encounter saturation and it is useful to know what it looks like at the lowest dose shown here the yellow curve looks just like a one compartment model with linear kinetics as the dose increases we see more saturation notice how
+-   ![](img/saturation-2.png) Let's see how this change affects the shape of the PK curve click next to continue ![](img/saturation-3.png) here are simulated curves for a drug that has a Km value of 1,000 in a saturating model clearance becomes the expression Vmax over km + C. this means that clearance depends on the concentration and the clearance is no longer constant notice how different doses have PK curves with dramatically different shapes notice how many of the curves have a downward bend this downward bend is a characteristic of saturating kinetics it may not be observed at lower doses but as the dose increases we may encounter saturation and it is useful to know what it looks like at the lowest dose shown here the yellow curve looks just like a one compartment model with linear kinetics as the dose increases we see more saturation notice how
 
--   when the concentration is higher than the KM value the apparent clearance is much lower and the slopes are much shallower at higher concentrations scale
+-   when the concentration is higher than the Km value the apparent clearance is much lower and the slopes are much shallower at higher concentrations scale
 
 -   This breakdown the dose proportionality
 
@@ -138,11 +136,11 @@ Linear scale:
 
 ![](img/saturation-4.png)
 
-![](img/saturation-5.png) if we consider the expression for the effective clearance at different concentrations we can consider two extremes when the concentration is much lower than the KM value we do not see any saturation and the clearance is constant clearance over KM at the other extreme when the concentration is much greater than the KM value The clearance reduces to VMAX over c as the concentration increases the clearance becomes progressively smaller at very high concentrations we are overwhelming the elimination pathway usually this happens when an enzyme has a finite capacity to eliminate the drug and we are overloading it you may never need to create a model with saturating elimination but it is good to know when to recognize that saturation
+![](img/saturation-5.png) if we consider the expression for the effective clearance at different concentrations we can consider two extremes when the concentration is much lower than the Km value we do not see any saturation and the clearance is constant clearance over Km at the other extreme when the concentration is much greater than the KM value The clearance reduces to Vmax over c as the concentration increases the clearance becomes progressively smaller at very high concentrations we are overwhelming the elimination pathway usually this happens when an enzyme has a finite capacity to eliminate the drug and we are overloading it you may never need to create a model with saturating elimination but it is good to know when to recognize that saturation
 
 let's recap the section we have seen that the model structure is typically defined by the number of compartments the presence or absence of a time lag and the possibility of saturating elimination These three items can be combined to make a very large number of potential models click next to continue
 
-## 5. residual error
+### Residual error
 
 Residual error:the difference between the observed and predicted concentrations DV: dependent variable or observed concentration\
 IPRED: Individual prediction, the predicted concentration

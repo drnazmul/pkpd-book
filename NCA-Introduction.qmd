@@ -1,0 +1,53 @@
+---
+title: "NCA-Introduction"
+---
+
+## Presenting PK results
+
+1.  Individual observations
+2.  Calculated PK parameter results
+3.  Statistical results of comparisons
+4.  Discussion of results
+5.  Relevant conclusions (that addresses the study objective)
+
+How to present concentration data
+
+-   Individual concentration values in listings
+
+-   Individual concentration-time plots (both linear and semi-logarithomic)
+
+-   Combined plot of all individual concentration time data
+
+-   Summary statistics by nominal time points
+
+Example of individual listing:
+
+![](/images/image-977221378.png)
+
+![](/images/image-243790241.png)
+
+![](/images/image-713328188.png)
+
+![](/images/image-1014833456.png)
+
+PK parameters
+
+-   Individual parameter values in listing
+
+-   summary statistics by treatment (for small data, include individual parameter values)
+
+-   Graphical presentation of the parameters are useful
+
+![](/images/image-1615514092.png)
+
+Proper use of descriptive statistics
+
+Discrete variables: Variables that can only take on a certain number of values (eg whole number). Main statistics used are: N, minimum, maximum, median
+
+-   mean and SD don't make sense for discrete variables
+
+-   tmax and tlag are discrete variables because they can only take on values of the specific blood draw times
+
+Continues variables
+
+Variables that can take on any value within a range of values (eg wright)

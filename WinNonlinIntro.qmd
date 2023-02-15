@@ -312,11 +312,9 @@ $$
 
 Important NCA parameters:
 
--   Independent of least
+-   Independent of least-squares fit: such as C~max~, T~max~, AUC~last~,
 
--   squares fit, such as C~max~, T~max~, AUC~last~,
-
--   Dependent on the least-squares fit: Lamda Z, AUC 0-inf, %Extrapolation, terminal half-life, volume, clearance
+-   Dependent on the least-squares fit: $\lambda_Z$, AUC\~ 0-inf\~, %Extrapolation, terminal half-life, volume, clearance
 
 ### Volume of Distribution
 
@@ -339,16 +337,16 @@ $$
 -   Clearance Quantifies how quickly drug is removed from the body
 
 $$
-Rate of elimination = Cl * C(t)
+Rate ofelimination = Cl * C(t)
 $$
 
 -   In most cases Cl is constant. If changes with concentration, suspect non linear kinetics (saturation). for this reason, different dose level is adminstered.
 
--   Clearance includes both Metabolisma and Excretion
+-   Clearance includes both Metabolism and Excretion
 
-![](images/image-284829586.png)
+![](images/image-284829586.png){width="639"}
 
-![](images/image-510239295.png)
+![](images/image-510239295.png){width="637"}
 
 -   it is difficult to obtain all the ratios, so the overall ratio is called Bioavailability.
 
@@ -408,15 +406,7 @@ Performing NCA:
 
 -   specify the dose type the default is extravascular
 
--   apply the main mappings
-
--   the time is already mapped
-
--   map the conc to concentration
-
--   map subject to sort
-
--   map doselevel to sort
+-   Required mappings: Time to time, the conc to concentration, subject to sort, dose level to sort
 
 -   select dosing. two options: a worksheet with the dozing information or an internal worksheet
 
@@ -424,11 +414,7 @@ Performing NCA:
 
 -   click okay
 
--   Time is already mapped
-
--   map amount to dose
-
--   map subject and dose level to sort
+-   Map: Time to time, amount to dose, subject and dose level to sort
 
 -   specify the calculation method linear up logdown
 
@@ -814,7 +800,7 @@ Create a box plot
 
 ## Sparse and Steady-State NCA
 
--   preclinical study of Gravitex in rats, 20 rats, dose: 200 ug/kg,time of blood draws: group A(0.5, 1, 2, 4, 8 h), group B( 0.75, 2, 6, 12 h)
+-   pre-clinical study of Gravitex in rats, 20 rats, dose: 200 ug/kg,time of blood draws: group A(0.5, 1, 2, 4, 8 h), group B( 0.75, 2, 6, 12 h)
 
 -   Not possible to do full NCA with only four data points
 
@@ -824,7 +810,7 @@ Create a box plot
 
 ### EDA of Sparse Data
 
-Create a plot Concentration vs time by schedule
+Plot: Concentration vs time by schedule
 
 -   Plotting the data: XY plot, map x to Time, y to conc, group to schedule, group to animal
 
@@ -838,7 +824,7 @@ Create a plot Concentration vs time by schedule
 
 -   Select the Legend and turn off the "visible" checkbox
 
-Reporting as concentrations table
+Table:
 
 -   right click observation worksheet, send to reporting, select table
 
@@ -854,7 +840,19 @@ Reporting as concentrations table
 
 ### NCA of Sparse Data
 
-![](images/image-1521872363.png)
+Key Points on NCA of spares data:
+
+-   Spares Option often used in pre-clinical data, where there is insufficient data to compute a full NCA for each subject
+
+-   Once set of PK parameters is returned for the pooled results
+
+-   PK parameters are identical to what you would get by running NCA on mean concentration data
+
+-   Standard errors on C~max~ and AUC~last~ . These are calculated using published methods
+
+-   Standard error calculation is only avaialbel with linear trapezoids
+
+Perform NCA
 
 -   Send the data to NCA, turn on "Sparse" button
 
@@ -870,9 +868,11 @@ Reporting as concentrations table
 
 ### EDA of Multiple-Dose Data
 
-Study design of Gravitex multiple dose study
+Study design:
 
-20 human subjects randomly divided into two groups (dose level 2 and 4), dosed at 0h, conc determined at 48 h,2nd dose at 48h, next doses at every 24h, until 192 hours. The first dose is a Naive dose
+-   Example: Gravitex multiple dose study
+
+-   20 human subjects randomly divided into two groups (dose level 2 and 4), dosed at 0h, conc. determined at 48 h,2nd dose at 48h, next doses at every 24h, until 192 hours. The first dose is a Naive dose
 
 -   Richly sampled for 0 to 48 hours and the last dose from 192h to 240h. Only Trough conc were measured for other doses
 
@@ -880,15 +880,17 @@ Study design of Gravitex multiple dose study
 
 Blue lines are generated from PK model.
 
--   plot the data by mapping x to Time, y to Conc, group to subject, lattice page to dose level, lattice column to profile
+Plots:
+
+-   Map x to Time, y to Conc, group to subject, lattice page to dose level, lattice column to profile
 
 ![](images/image-993126346.png)
 
-After modifying x and y axis:
+After modifying (log) x and y axis:
 
 ![](images/image-698219605.png)
 
-Making a Table
+Table:
 
 -   Send to reporting, Table
 
@@ -928,7 +930,7 @@ Making a Table
 
 -   T~min~ is the time where minimum concentration was found
 
--   C~tau~ is the concentration at the end of the dosing enterval
+-   C~tau~ is the concentration at the end of the dosing interval
 
 -   C~avg~ is the average concentration during the dosing interval
 
@@ -942,7 +944,13 @@ Making a Table
 
 NCA can only determine PK parameters of the first dose or the last dose,
 
-![](images/image-226123731.png)
+Accumulation ration (AR) is calculated with the equation below:
+
+$$
+AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
+$$
+
+where, $AUC_{\tau,SS}$ is AUC_TAU from steady-state NCA, last dose and $AUC_{0-\tau}$ is AUC0_24 partial area from first dose NCA
 
 partial area
 
@@ -968,7 +976,7 @@ partial area
 
 -   To append more that one worksheet, set the number on the option section
 
-### Crossproduct Worksheets
+### Cross-product Worksheets
 
 -   For making combination of multiple columns,
 
@@ -1084,7 +1092,9 @@ partial area
 
 -   Filter by time values
 
--   Right click, send to Data management, Data Wizard \### Set Column Properties
+-   Right click, send to Data management, Data Wizard
+
+    \### Set Column Properties
 
 ![](images/image-562934783.png)
 
@@ -1118,20 +1128,102 @@ partial area
 
 ### Using Cmax and AUC to Make Decisions
 
-![](images/image-1817054768.png)
+In regulatory guidance:
 
-![](images/image-1976381336.png)
+Rate of absorption : C~max~
 
-![](images/image-308956951.png)
+Extent of absorption: AUC
+
+C~max~ and AUC are used in the following type of studies:
+
+| Studies                     | what compares                                                       |
+|-----------------------------|---------------------------------------------------------------------|
+| Formulations                | Compare two formulations of a drug                                  |
+| Food effects                | Compare effect of food on drug absorption                           |
+| Drug-drug interaction       | Compare effect of one drug on another                               |
+| Demographics                | Compare effect of demographics (age, weight, gender, etc) on a drug |
+| Special Patient Populations | Compare effect of drug in two different groups                      |
+| Hepatic Impairment          | Compare effect of drug in two different groups                      |
+| Bio availability            | Compare drug exposure with and without absorption                   |
+| Dose Propotionality         | Test of linear kinetics                                             |
+
+: Application of NCA
+
+AUC Rations (Also for C~max~ )
+
+Bioequivalence $\frac{AUC_{test\, form}}{AUC_{ref\, form}}$
+
+Food Effect $\frac{AUC_{fed}}{AUC_{fasted}}$
+
+Drug-drug Interaction: $\frac{AUC_{Drug\, + Inhibitor}}{AUC_{Drug\, alone}}$
+
+Hepatic Impairment: $\frac{AUC_{with\, impairment}}{AUC_{normal\, hepatic\, function}}$
+
+### 
 
 ### Study Designs
 
+Study design considerations:
+
+1.  Population
+2.  Duration
+3.  Schedule
+4.  Procedures
+
+Crossover: Each subject receives each treatment
+
+Parallel: Each subject receives one treatment
+
+single dose
+
 ### Dose Proportionality
 
-![](images/image-1045938611.png)
+$$AUC = \frac{F*Dose}{CL}$$
+
+-   If Dose and CL are constant, $AUC \propto F$
+
+-   If F and CL are constant, $AUC \propto Dose$
+
+-   If F and Dose are constant, $AUC \propto \frac{1}{CL}$
 
 ### ![](images/image-71630160.png)Average Bioequivalence
 
 ### Food Effects
 
+-   This study helps labeling. Important parameters for Food Effect study:
+
+    -   Total exposure ($AUC_{last}, AUC_{\infty}$)
+
+    -   Peak exposure (C~max~)
+
+    -   Partial exposure (for MR formulations) (pAUC)
+
+    -   Time to peak exposure (T~max~)
+
+    -   Lag-time (T~lag~)
+
+    -   Terminal elimination half-life (t~1/2~)
+
+    -   Apparent clearance (CL/F)
+
+    -   Apparent volume of distribution (V/F)
+
+-   If 90% confidence interval for the fed/fasted ratio is wholly contained withing 80-125% then there is no significant food effect.
+
+    -   
+
 ### Drug-Drug Interactions
+
+## Create Tables
+
+### Create Simple Table
+
+### Use Stratification
+
+### Add Statistics to Table
+
+### Change Column/Sort Order
+
+### Set Precision/Alignment
+
+### Change Table Text

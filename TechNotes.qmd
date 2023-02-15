@@ -1,4 +1,14 @@
-# My Tech Notes
+# My Notes
+
+## Courses
+
+1.  (103-OD) Fundamentals of Pharmacokinetics \[Conceptual Course\]
+
+2.  (105-OD) Noncompartmental Data Analysis \[Conceptual Course\]
+
+3.  (122-OD) Introduction to Phoenix WinNonlin (Part 1) - NCA
+
+4.  (123-OD) Introduction to Phoenix WinNonlin (Part 2) - Modeling
 
 ### create a new repository on the command line
 
@@ -56,3 +66,91 @@ https://quarto.org/docs/publishing/netlify.html#publish-from-git-provider
 ## PBPK notes
 
 https://www.admescope.com/whats-new/blog/2016/pbpk-what-it-is-for
+
+https://www.fda.gov/regulatory-information/search-fda-guidance-documents
+
+https://www.boomer.org/
+
+https://www.pkpd168.com/
+
+https://bebac.at/
+
+Data: Collection of observations or facts. Can be text, number, audio, video, pics,
+
+-   We encounter data 1. purposefully 2. Unintentionally
+
+-   Understanding the data we encounter everyday is where the data literacy comes in.
+
+-   Data Literacy: how a person interacts with data to make sense or the world around them
+
+-   Data literate person:
+
+    -   recognize usefulness of the data
+
+    -   Interrogate reliability: When, where and how the data was collected?
+
+    -   Discover meaning
+
+    -   Make decision
+
+    -   Communicate findings
+
+    -   Do everything ethically
+
+    ### Recognize usefulness of the data
+
+    when you encounter a data: ask: Is this data relevant and useful to me? If so, how?
+
+    \% increase = (final value - initial value)/initial value \* 100
+
+    Questions to ask:
+
+-   what's the story the author is trying to make
+
+-   What data are they presenting and how are the presenting it?
+
+-   What is the agenda behind the information being presented
+
+-   how might this data help others to make decision
+
+-   what do you like and what would you do differently?
+
+Data: which is most useful? Which is not relavant?
+
+Make a plan with the questions
+
+Scaptacle eays and curious mind are essential for data literate person
+
+## Courses to take
+
+-   https://www.coursera.org/specializations/precalculus-data-modelling
+
+-   NONMEM paper @keizer2013
+
+-   PM and ML paper @keutzer2022
+
+## Data Camp Courses
+
+### Introduction to the Tidyverse
+
+David Robinson
+
+https://www.datacamp.com/cheat-sheet/tidyverse-cheat-sheet-for-beginners
+
+### Data Manipulation with dplyr
+
+James Chapman
+
+### Introduction to Statistics in R 
+
+Maggie Matsui
+
+### Hypothesis Testing in R 
+
+Richie Cotto
+
+### Sampling in R 
+
+Richie Cotto
+
+https://rpubs.com/ArifYetik/887228
