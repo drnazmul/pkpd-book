@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pkpd notes - 2&nbsp; Introduction to PK Modeling</title>
+<title>pkpd notes - 3&nbsp; Introduction to PK Modeling</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -100,22 +100,27 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
+  <a href="./NCAintroduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">NCA-Introduction</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></a>
+  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">My Notes</span></a>
+  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Rnotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R-notes</span></a>
+  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Rnotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-notes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -132,16 +137,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#what-is-a-model" id="toc-what-is-a-model" class="nav-link active" data-scroll-target="#what-is-a-model"><span class="toc-section-number">2.0.1</span>  What is a Model</a></li>
-  <li><a href="#parameterization" id="toc-parameterization" class="nav-link" data-scroll-target="#parameterization"><span class="toc-section-number">2.0.2</span>  Parameterization</a></li>
-  <li><a href="#administration" id="toc-administration" class="nav-link" data-scroll-target="#administration"><span class="toc-section-number">2.0.3</span>  Administration</a></li>
-  <li><a href="#model-structure" id="toc-model-structure" class="nav-link" data-scroll-target="#model-structure"><span class="toc-section-number">2.0.4</span>  Model structure</a></li>
-  <li><a href="#residual-error" id="toc-residual-error" class="nav-link" data-scroll-target="#residual-error"><span class="toc-section-number">2.0.5</span>  Residual error</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">3</span>  Summary</a>
+  <li><a href="#what-is-a-model" id="toc-what-is-a-model" class="nav-link active" data-scroll-target="#what-is-a-model"><span class="toc-section-number">3.0.1</span>  What is a Model</a></li>
+  <li><a href="#parameterization" id="toc-parameterization" class="nav-link" data-scroll-target="#parameterization"><span class="toc-section-number">3.0.2</span>  Parameterization</a></li>
+  <li><a href="#administration" id="toc-administration" class="nav-link" data-scroll-target="#administration"><span class="toc-section-number">3.0.3</span>  Administration</a></li>
+  <li><a href="#model-structure" id="toc-model-structure" class="nav-link" data-scroll-target="#model-structure"><span class="toc-section-number">3.0.4</span>  Model structure</a></li>
+  <li><a href="#residual-error" id="toc-residual-error" class="nav-link" data-scroll-target="#residual-error"><span class="toc-section-number">3.0.5</span>  Residual error</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">4</span>  Summary</a>
   <ul class="collapse">
-  <li><a href="#pk-model-1" id="toc-pk-model-1" class="nav-link" data-scroll-target="#pk-model-1"><span class="toc-section-number">3.1</span>  pk model 1</a>
+  <li><a href="#pk-model-1" id="toc-pk-model-1" class="nav-link" data-scroll-target="#pk-model-1"><span class="toc-section-number">4.1</span>  pk model 1</a>
   <ul class="collapse">
-  <li><a href="#concentrations-should-be-stacked" id="toc-concentrations-should-be-stacked" class="nav-link" data-scroll-target="#concentrations-should-be-stacked"><span class="toc-section-number">3.1.1</span>  Concentrations should be stacked</a></li>
+  <li><a href="#concentrations-should-be-stacked" id="toc-concentrations-should-be-stacked" class="nav-link" data-scroll-target="#concentrations-should-be-stacked"><span class="toc-section-number">4.1.1</span>  Concentrations should be stacked</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -152,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></h1>
 </div>
 
 
@@ -167,8 +172,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="what-is-a-model" class="level3" data-number="2.0.1">
-<h3 data-number="2.0.1" class="anchored" data-anchor-id="what-is-a-model"><span class="header-section-number">2.0.1</span> What is a Model</h3>
+<section id="what-is-a-model" class="level3" data-number="3.0.1">
+<h3 data-number="3.0.1" class="anchored" data-anchor-id="what-is-a-model"><span class="header-section-number">3.0.1</span> What is a Model</h3>
 <ul>
 <li>a mathematical abstraction</li>
 <li>below is a diagram of a typical PK model</li>
@@ -185,8 +190,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Parameter values</li>
 </ul>
 </section>
-<section id="parameterization" class="level3" data-number="2.0.2">
-<h3 data-number="2.0.2" class="anchored" data-anchor-id="parameterization"><span class="header-section-number">2.0.2</span> Parameterization</h3>
+<section id="parameterization" class="level3" data-number="3.0.2">
+<h3 data-number="3.0.2" class="anchored" data-anchor-id="parameterization"><span class="header-section-number">3.0.2</span> Parameterization</h3>
 <ul>
 <li>parameterization refers to the type of parameters that are used in the model</li>
 <li>examples include clearance parameters, micro parameters and macro parameters</li>
@@ -223,8 +228,8 @@ ul.task-list li input[type="checkbox"] {
 <p>Clearance and microcompartment models are usually equivalent and gives similar results. However, clearance models are more commonly used.</p>
 <p><img src="img/param-4.png" class="img-fluid"></p>
 </section>
-<section id="administration" class="level3" data-number="2.0.3">
-<h3 data-number="2.0.3" class="anchored" data-anchor-id="administration"><span class="header-section-number">2.0.3</span> Administration</h3>
+<section id="administration" class="level3" data-number="3.0.3">
+<h3 data-number="3.0.3" class="anchored" data-anchor-id="administration"><span class="header-section-number">3.0.3</span> Administration</h3>
 <p>the way the drug is administered has a large effect on the shape of the PK curve. three types of administration</p>
 <ol type="1">
 <li>Extravascular</li>
@@ -249,8 +254,8 @@ ul.task-list li input[type="checkbox"] {
 <li>the elimination phase is linear in all three plots and there is no distribution phase seen</li>
 </ul>
 </section>
-<section id="model-structure" class="level3" data-number="2.0.4">
-<h3 data-number="2.0.4" class="anchored" data-anchor-id="model-structure"><span class="header-section-number">2.0.4</span> Model structure</h3>
+<section id="model-structure" class="level3" data-number="3.0.4">
+<h3 data-number="3.0.4" class="anchored" data-anchor-id="model-structure"><span class="header-section-number">3.0.4</span> Model structure</h3>
 <ul>
 <li>the model structure affects the shape of the pK profile</li>
 <li>three different aspects of model structure
@@ -296,8 +301,8 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="img/saturation-5.png" class="img-fluid"> if we consider the expression for the effective clearance at different concentrations we can consider two extremes when the concentration is much lower than the Km value we do not see any saturation and the clearance is constant clearance over Km at the other extreme when the concentration is much greater than the KM value The clearance reduces to Vmax over c as the concentration increases the clearance becomes progressively smaller at very high concentrations we are overwhelming the elimination pathway usually this happens when an enzyme has a finite capacity to eliminate the drug and we are overloading it you may never need to create a model with saturating elimination but it is good to know when to recognize that saturation</p>
 <p>let’s recap the section we have seen that the model structure is typically defined by the number of compartments the presence or absence of a time lag and the possibility of saturating elimination These three items can be combined to make a very large number of potential models click next to continue</p>
 </section>
-<section id="residual-error" class="level3" data-number="2.0.5">
-<h3 data-number="2.0.5" class="anchored" data-anchor-id="residual-error"><span class="header-section-number">2.0.5</span> Residual error</h3>
+<section id="residual-error" class="level3" data-number="3.0.5">
+<h3 data-number="3.0.5" class="anchored" data-anchor-id="residual-error"><span class="header-section-number">3.0.5</span> Residual error</h3>
 <p>Residual error:the difference between the observed and predicted concentrations DV: dependent variable or observed concentration<br>
 IPRED: Individual prediction, the predicted concentration</p>
 <div class="quarto-figure quarto-figure-center">
@@ -320,12 +325,12 @@ IPRED: Individual prediction, the predicted concentration</p>
 <p>Use multiplicative the initial choice of residual error when building models</p>
 <p>Start your modeling using a multiplicative residual error as you are optimizing the structural model - after you have decided on the best structural model then you can start optimizing the residual error model</p>
 </section>
-<section id="summary" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Summary</h1>
-<section id="pk-model-1" class="level2" data-number="3.1">
-<h2 data-number="3.1" class="anchored" data-anchor-id="pk-model-1"><span class="header-section-number">3.1</span> pk model 1</h2>
-<section id="concentrations-should-be-stacked" class="level3" data-number="3.1.1">
-<h3 data-number="3.1.1" class="anchored" data-anchor-id="concentrations-should-be-stacked"><span class="header-section-number">3.1.1</span> Concentrations should be stacked</h3>
+<section id="summary" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Summary</h1>
+<section id="pk-model-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="pk-model-1"><span class="header-section-number">4.1</span> pk model 1</h2>
+<section id="concentrations-should-be-stacked" class="level3" data-number="4.1.1">
+<h3 data-number="4.1.1" class="anchored" data-anchor-id="concentrations-should-be-stacked"><span class="header-section-number">4.1.1</span> Concentrations should be stacked</h3>
 <p>data format for PK models - observed concentration stacked into a single column - multiple analytes or metabolites concentration should be its own column</p>
 <p><img src="img_model/data-1.png" class="img-fluid" width="538"> <img src="img_model/data-2.png" width="537" height="238"></p>
 <p>Sort variables</p>
@@ -486,12 +491,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./WinNonlinIntro.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./TechNotes.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">My Notes</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Notes</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

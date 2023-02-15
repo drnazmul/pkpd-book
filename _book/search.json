@@ -1,0 +1,86 @@
+[
+  {
+    "objectID": "Rnotes.html#helpful-syntax",
+    "href": "Rnotes.html#helpful-syntax",
+    "title": "5  R-notes",
+    "section": "5.1 Helpful Syntax",
+    "text": "5.1 Helpful Syntax\n\nReturns the structure and information of a given object\n\nstr(iris)\n\n#Returns the class of a given object\nclass(iris)\n\n#Returns your current working directory\ngetwd() \n\n#Changes your current working directory to a desired filepath\n#setwd(\"C:\\Users\\BABA\\Documents\\mynotes\")\n\n\n5.1.1 Installing and loading\n\n#Install dplyr through tidyverse \n\ninstall.packages(\"tidyverse\")\n\n# Install it directly\n\ninstall.packages(\"dplyr\")\n\n# Load dplyr into R\n\nlibrary(\"dplyr\")\n\nLoad the packages:\n\nlibrary(datasets) # Load the datasets\nlibrary(gapminder) \nattach(iris) # Attach iris data to r search path\n\n\n\n5.1.2 The %>% operator\n\n# Without the %>% operator\n\nselect(df, a, b)\n\n# By using the %>% operator\n\ndf %>%\n  select(a, b)\n\nList of pre-loaded data To see the list of pre-loaded data, type the function data():\n\ndata()\n\nLoad and print mtcars data as follow:\n\ndata(\"mtcars\")\n\nhead(mtcars, 6)\n\nTo learn more about the dataset:\n\n?mtcars\nnrow(mtcars)\nncol(mtcars)\n\nOther popular dataset:\n\ndata(\"iris\")\ndata(\"ToothGrowth\")\ndata(\"PlantGrowth\")\ndata(\"USArrests\")\n\n\n\n5.1.3 Transforming data with dplyr\nBasic column operations with dplyr\n\n# Select one or more columns with select()\n\niris %>%\n\nselect(Petal.Length, Petal.Width)\n \n# Select all but one column (e.g., listing_id)\n\niris %>%\n\nselect(-Petal.Width)\n# Select all columns within a range\n\niris %>%\n\nselect(Species:Petal.Length)\n\n# Rename a column using rename()\n\niris %>%\n\nrename(p_length=Petal.Length)"
+  },
+  {
+    "objectID": "Rnotes.html#working-with-columns",
+    "href": "Rnotes.html#working-with-columns",
+    "title": "5  R-notes",
+    "section": "5.2 Working with columns",
+    "text": "5.2 Working with columns\n\n5.2.1 Mutate\n\n# Change Sepal.Length to be in millimeters\n\niris %>% \n  mutate(Sepal.Length = Sepal.Length*10)\n\n# Create a new column called s_length\n\niris %>% \n  mutate(SLMm = Sepal.Length*2)\n\niris %>%\n  filter(Species==\"Virginica\") %>%\n  mutate(SLMm=Sepal.Length*10) %>%\n  arrange(desc(SLMm))\n\n\n# Add the number of observations for a column (e.g., number of Specirs)\n\niris %>% \n  add_count(Species)"
+  },
+  {
+    "objectID": "Rnotes.html#working-with-rows",
+    "href": "Rnotes.html#working-with-rows",
+    "title": "5  R-notes",
+    "section": "5.3 Working with rows",
+    "text": "5.3 Working with rows\n\n5.3.1 Filter\n\n# Filter rows on one condition (e.g., Select iris data of species \"virginica\")\n\niris %>%\n  filter(Species==\"virginica\")\n\n# Filter on two OR more conditions (Species OR Petal Length)\n\niris %>%\n  filter(Species==\"virginica\" | Sepal.Length > 6)\n\n# Filter on two AND more conditions (country AND number_of_rooms)\n\niris %>%\n  filter(Species==\"virginica\", Sepal.Length > 6)\n\n\n# Filter by checking if a value exists in another set of values\n\niris %>% \n  filter(Species %in% c(\"versicolor\", \"virginica\"))\n\n\n\n5.3.2 Arrange\n\n# Sort rows by values in a column in ascending order\n\niris %>%\narrange(Petal.Length)\n\n# Sort rows by values in a column in descending order\n\niris %>%\narrange(desc(Petal.Length))\n\n# Combine multiple dplyr verb\n\niris %>% \n  filter(Species == \"virginica\") %>% \n  arrange(desc(Sepal.Length))\n\n\n\n5.3.3 Others\n\n# Remove duplicate rows in all the dataset\n\niris %>% \n  distinct()\n\n# Find unique values in the country column\n\niris %>% \n  distinct(Species)\n\n# Select rows based on top-n values of a column (e.g., top 3 listings with the highest amount  of rooms)\n\niris %>% \n\ntop_n(3, Petal.Length)"
+  },
+  {
+    "objectID": "Rnotes.html#aggregating-data-with-dplyr",
+    "href": "Rnotes.html#aggregating-data-with-dplyr",
+    "title": "5  R-notes",
+    "section": "5.4 Aggregating data with dplyr",
+    "text": "5.4 Aggregating data with dplyr\n\n5.4.1 Count\n\n# Count groups within a column (e.g., count number of species in Species)\n\niris %>% \n  count(Species)\n\n# Count groups within a column and return sorted\n\niris %>% \n  count(Species, sort=TRUE)\n\n\n\n5.4.2 Summerise\n\n# Return the total sum of values for a column (e.g., total petal length)\n\niris %>% \n  summarise(total_length=sum(Petal.Length))\n\n# Return the average of values for a column (e.g, average petal length)\n\niris %>% \n  summarise(avg_length=mean(Petal.Length))\n\n#group_by() allows you to summarize within groups instead of summarizing the entire dataset\n\n# Group by a variable and return counts of each group (e.g., number of listings by country)\n\niris %>% \n  group_by(Species) %>%\n  summarise(n=n())\n\n# Group by a variable and return the average value per group (e.g., average number of rooms in listings per city)\n\niris %>%\n  group_by(Species) %>%\n  summarise(avg_length=mean(Petal.Length))\n\n# Find mediann and"
+  },
+  {
+    "objectID": "references.html",
+    "href": "references.html",
+    "title": "References",
+    "section": "",
+    "text": "Keizer, R J, M O Karlsson, and A Hooker. 2013. “Modeling and\nSimulation Workbench for NONMEM: Tutorial on Pirana, PsN, and\nXpose.” CPT: Pharmacometrics & Systems Pharmacology\n2 (6): e50. https://doi.org/10.1038/psp.2013.24.\n\n\nKeutzer, Lina, Huifang You, Ali Farnoud, Joakim Nyberg, Sebastian G.\nWicha, Gareth Maher-Edwards, Georgios Vlasakakis, et al. 2022.\n“Machine Learning and Pharmacometrics for Prediction of\nPharmacokinetic Data: Differences, Similarities and Challenges\nIllustrated with Rifampicin.” Pharmaceutics 14 (8):\n1530. https://doi.org/10.3390/pharmaceutics14081530."
+  },
+  {
+    "objectID": "Rnotes.html",
+    "href": "Rnotes.html",
+    "title": "5  R-notes",
+    "section": "",
+    "text": "6 Install it directly\ninstall.packages(“dplyr”)\nlibrary(“dplyr” `\nLoad the packages:\n` library(datasets) # Load the datasets library(gapminder) attach(iris) # Attach iris data to r search path\n`"
+  },
+  {
+    "objectID": "TechNotes.html#courses",
+    "href": "TechNotes.html#courses",
+    "title": "4  My Notes",
+    "section": "4.1 Courses",
+    "text": "4.1 Courses\n\n(103-OD) Fundamentals of Pharmacokinetics [Conceptual Course]\n(105-OD) Noncompartmental Data Analysis [Conceptual Course]\n(122-OD) Introduction to Phoenix WinNonlin (Part 1) - NCA\n(123-OD) Introduction to Phoenix WinNonlin (Part 2) - Modeling\n\n\n4.1.1 create a new repository on the command line\necho \"# test\" >> README.md\ngit init\ngit add README.md\ngit commit -m \"first commit\"\ngit branch -M main\ngit remote add origin https://github.com/drnazmul/test.git\ngit push -u origin main\n\n\n4.1.2 …or push an existing repository from the command line\ngit remote add origin https://github.com/drnazmul/test.git\ngit branch -M main\ngit push -u origin main\nAfter any change made on github repo but not on the local folder, do the following\ngit pull --rebase origin main\ngit push origin main\n\n\n4.1.3 Publishing Quarto site or book\nPublish from Git Provider\nhttps://quarto.org/docs/publishing/netlify.html#publish-from-git-provider\n\n\n4.1.4 Custom domain on Netlify with Namecheap\n\nGo to Namecheap’s account, click Manage on the active domain\non “Name Server” select “Custom DNS” option\nGo to “Domain Settings” of Netlify\nCustom Domain : Options: Edit site name\nClick on “Add custom domain” and add your domain\nUnder “primary domain” options, click “Setup Netlify DNS”\nClick verify tab\nClick Add domain tab\nClick Continue\ncopy all the four name servers and paste to the DNS server on Namecheap\nClick Done on Netlify"
+  },
+  {
+    "objectID": "TechNotes.html#pbpk-notes",
+    "href": "TechNotes.html#pbpk-notes",
+    "title": "4  My Notes",
+    "section": "4.2 PBPK notes",
+    "text": "4.2 PBPK notes\nhttps://www.admescope.com/whats-new/blog/2016/pbpk-what-it-is-for\nhttps://www.fda.gov/regulatory-information/search-fda-guidance-documents\nhttps://www.boomer.org/\nhttps://www.pkpd168.com/\nhttps://bebac.at/\nData: Collection of observations or facts. Can be text, number, audio, video, pics,\n\nWe encounter data 1. purposefully 2. Unintentionally\nUnderstanding the data we encounter everyday is where the data literacy comes in.\nData Literacy: how a person interacts with data to make sense or the world around them\nData literate person:\n\nrecognize usefulness of the data\nInterrogate reliability: When, where and how the data was collected?\nDiscover meaning\nMake decision\nCommunicate findings\nDo everything ethically\n\n4.2.1 Recognize usefulness of the data\nwhen you encounter a data: ask: Is this data relevant and useful to me? If so, how?\n% increase = (final value - initial value)/initial value * 100\nQuestions to ask:\nwhat’s the story the author is trying to make\nWhat data are they presenting and how are the presenting it?\nWhat is the agenda behind the information being presented\nhow might this data help others to make decision\nwhat do you like and what would you do differently?\n\nData: which is most useful? Which is not relavant?\nMake a plan with the questions\nScaptacle eays and curious mind are essential for data literate person"
+  },
+  {
+    "objectID": "TechNotes.html#courses-to-take",
+    "href": "TechNotes.html#courses-to-take",
+    "title": "4  My Notes",
+    "section": "4.3 Courses to take",
+    "text": "4.3 Courses to take\n\nhttps://www.coursera.org/specializations/precalculus-data-modelling\nNONMEM paper Keizer, Karlsson, and Hooker (2013)\nPM and ML paper Keutzer et al. (2022)"
+  },
+  {
+    "objectID": "TechNotes.html#data-camp-courses",
+    "href": "TechNotes.html#data-camp-courses",
+    "title": "4  My Notes",
+    "section": "4.4 Data Camp Courses",
+    "text": "4.4 Data Camp Courses\n\n4.4.1 Introduction to the Tidyverse\nDavid Robinson\nhttps://www.datacamp.com/cheat-sheet/tidyverse-cheat-sheet-for-beginners\n\n\n4.4.2 Data Manipulation with dplyr\nJames Chapman\n\n\n4.4.3 Introduction to Statistics in R\nMaggie Matsui\n\n\n4.4.4 Hypothesis Testing in R\nRichie Cotto\n\n\n4.4.5 Sampling in R\nRichie Cotto\nhttps://rpubs.com/ArifYetik/887228\n\n\n\n\nKeizer, R J, M O Karlsson, and A Hooker. 2013. “Modeling and Simulation Workbench for NONMEM: Tutorial on Pirana, PsN, and Xpose.” CPT: Pharmacometrics & Systems Pharmacology 2 (6): e50. https://doi.org/10.1038/psp.2013.24.\n\n\nKeutzer, Lina, Huifang You, Ali Farnoud, Joakim Nyberg, Sebastian G. Wicha, Gareth Maher-Edwards, Georgios Vlasakakis, et al. 2022. “Machine Learning and Pharmacometrics for Prediction of Pharmacokinetic Data: Differences, Similarities and Challenges Illustrated with Rifampicin.” Pharmaceutics 14 (8): 1530. https://doi.org/10.3390/pharmaceutics14081530."
+  },
+  {
+    "objectID": "NCAintroduction.html#presenting-pk-results",
+    "href": "NCAintroduction.html#presenting-pk-results",
+    "title": "1  NCA-Introduction",
+    "section": "1.1 Presenting PK results",
+    "text": "1.1 Presenting PK results\n\nIndividual observations\nCalculated PK parameter results\nStatistical results of comparisons\nDiscussion of results\nRelevant conclusions (that addresses the study objective)\n\nHow to present concentration data\n\nIndividual concentration values in listings\nIndividual concentration-time plots (both linear and semi-logarithomic)\nCombined plot of all individual concentration time data\nSummary statistics by nominal time points\n\nExample of individual listing:\n\n\n\n\nPK parameters\n\nIndividual parameter values in listing\nsummary statistics by treatment (for small data, include individual parameter values)\nGraphical presentation of the parameters are useful\n\n\nProper use of descriptive statistics\nDiscrete variables: Variables that can only take on a certain number of values (eg whole number). Main statistics used are: N, minimum, maximum, median\n\nmean and SD don’t make sense for discrete variables\ntmax and tlag are discrete variables because they can only take on values of the specific blood draw times\n\nContinues variables\nVariables that can take on any value within a range of values (eg wright)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "pkpd notes",
+    "section": "",
+    "text": "Preface\nThis page is from index page"
+  }
+]

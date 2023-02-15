@@ -1,11 +1,14 @@
 ---
 title: "R-notes"
+execute:
+  eval: false
 ---
 
 ## Helpful Syntax
 
 ```{r}
-#Returns the structure and information of a given object
+Returns the structure and information of a given object
+
 str(iris)
 
 #Returns the class of a given object
@@ -15,8 +18,7 @@ class(iris)
 getwd() 
 
 #Changes your current working directory to a desired filepath
-setwd("C:\Users\BABA\Documents\mynotes")
-
+#setwd("C:\Users\BABA\Documents\mynotes")
 ```
 
 ### Installing and loading
@@ -127,7 +129,6 @@ rename(p_length=Petal.Length)
 ## Working with columns
 
 ### Mutate
-
 
 ```{r}
 # Change Sepal.Length to be in millimeters
@@ -275,4 +276,3 @@ iris %>%
 # Find mediann and 
 
 ```
-
