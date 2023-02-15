@@ -7,10 +7,11 @@ book:
   date: "2023-02-06"
   chapters:
     - index.qmd
+    - NCAintroduction.qmd
     - WinNonlinIntro.qmd
     - WinNonlinModel.qmd
-    - summary.qmd
     - TechNotes.qmd
+    - Rnotes.qmd
     - references.qmd
 
 bibliography: references.bib

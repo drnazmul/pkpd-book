@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.269">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>pkpd notes - 2&nbsp; Introduction to PK Modeling</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./TechNotes.html" rel="next">
+<link href="./WinNonlinIntro.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">pkpd notes</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">My Notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Rnotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">R-notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#what-is-a-model" id="toc-what-is-a-model" class="nav-link active" data-scroll-target="#what-is-a-model"><span class="toc-section-number">2.0.1</span>  What is a Model</a></li>
+  <li><a href="#parameterization" id="toc-parameterization" class="nav-link" data-scroll-target="#parameterization"><span class="toc-section-number">2.0.2</span>  Parameterization</a></li>
+  <li><a href="#administration" id="toc-administration" class="nav-link" data-scroll-target="#administration"><span class="toc-section-number">2.0.3</span>  Administration</a></li>
+  <li><a href="#model-structure" id="toc-model-structure" class="nav-link" data-scroll-target="#model-structure"><span class="toc-section-number">2.0.4</span>  Model structure</a></li>
+  <li><a href="#residual-error" id="toc-residual-error" class="nav-link" data-scroll-target="#residual-error"><span class="toc-section-number">2.0.5</span>  Residual error</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="toc-section-number">3</span>  Summary</a>
+  <ul class="collapse">
+  <li><a href="#pk-model-1" id="toc-pk-model-1" class="nav-link" data-scroll-target="#pk-model-1"><span class="toc-section-number">3.1</span>  pk model 1</a>
+  <ul class="collapse">
+  <li><a href="#concentrations-should-be-stacked" id="toc-concentrations-should-be-stacked" class="nav-link" data-scroll-target="#concentrations-should-be-stacked"><span class="toc-section-number">3.1.1</span>  Concentrations should be stacked</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="what-is-a-model" class="level3" data-number="2.0.1">
+<h3 data-number="2.0.1" class="anchored" data-anchor-id="what-is-a-model"><span class="header-section-number">2.0.1</span> What is a Model</h3>
+<ul>
+<li>a mathematical abstraction</li>
+<li>below is a diagram of a typical PK model</li>
+</ul>
+<p><img src="img/model-1.png" class="img-fluid">- The movement of drug through the body is usually much more complicated than depicted in the diagram but even a simple model such as this can mimic the shape of the observed data and allow us to make predictions.</p>
+<ul>
+<li>models can be anywhere from purely empirical to purely mechanistic<br>
+</li>
+<li>empirical model is used just because it fits the data without drawing too many conclusions about the process that the drug undergoes while being absorbed distributed metabolized and eliminated</li>
+<li>a mechanistic model accounts for many of the processes that the drug is known to undergo</li>
+<li>the model in the diagram is translated into a series of differential equations<br>
+</li>
+<li>The equations that describe the model are converted into model code in Phoenix</li>
+<li>Parameter values</li>
+</ul>
+</section>
+<section id="parameterization" class="level3" data-number="2.0.2">
+<h3 data-number="2.0.2" class="anchored" data-anchor-id="parameterization"><span class="header-section-number">2.0.2</span> Parameterization</h3>
+<ul>
+<li>parameterization refers to the type of parameters that are used in the model</li>
+<li>examples include clearance parameters, micro parameters and macro parameters</li>
+</ul>
+<p>let’s see how these differ first let’s consider</p>
+<p>clearance parameters</p>
+<ul>
+<li>the most widely used</li>
+<li>The parameters in this model are the absorption rate constant, the clearance and the volume</li>
+<li>we suggest using clearance parameters when possible because
+<ul>
+<li>clearances are physiologically relevant and</li>
+<li>clearance-based models tend to be more stable</li>
+<li>it is also easy to obtain initial estimates by using parameters from NCA</li>
+</ul></li>
+</ul>
+<p>micro-parameters</p>
+<ul>
+<li>All the transport is defined in terms of rate constants</li>
+<li>These models are also widely used particularly for more mechanistic</li>
+<li>In the picture model both KA and Ke are rate constants and v is the volume</li>
+</ul>
+<p>macro parameter</p>
+<ul>
+<li>These were the first type of parameters to be used in PK modeling</li>
+<li>PK curve is given by an equation that is combination of one or more exponentials</li>
+<li>these parameters are not directly related to the phyiology</li>
+</ul>
+<p>Clearance parameters and micro-parameters are easily convertible. Let’s look at the</p>
+<p>Firts, let’s consider micro-parameters:</p>
+<p><img src="img/param-2.png" class="img-fluid" width="573"></p>
+<p>- drug can move in both direction k: rate constants A ;amount of drug in the originative compartment</p>
+<p>Next the clearance parameters <img src="img/param-3.png" class="img-fluid" width="571"></p>
+<p>Clearance and microcompartment models are usually equivalent and gives similar results. However, clearance models are more commonly used.</p>
+<p><img src="img/param-4.png" class="img-fluid"></p>
+</section>
+<section id="administration" class="level3" data-number="2.0.3">
+<h3 data-number="2.0.3" class="anchored" data-anchor-id="administration"><span class="header-section-number">2.0.3</span> Administration</h3>
+<p>the way the drug is administered has a large effect on the shape of the PK curve. three types of administration</p>
+<ol type="1">
+<li>Extravascular</li>
+</ol>
+<ul>
+<li>Oral, subcautaneous, intervanious, etc any kind of administration that involves an absorption</li>
+<li>there is a depot compartment that receives the dose</li>
+<li>in Phoenix the dose point is indicated with the blue syringe, The name of the absorption compartment is AA and the absorption rate constant is KA any administration</li>
+</ul>
+<ol start="2" type="1">
+<li>Intravenous (IV infusion or IV bolus)</li>
+</ol>
+<ul>
+<li>Delivered at a constant rate for a defined duration or rate</li>
+<li>there is no absorption process and the dose point delivers the drug directly into the central compartment</li>
+</ul>
+<p>let’s compare the shapes of PK curves resulting from different administration methods here are three simulations all with - a dose of 5,000 micrograms - a volume of 100 liters - a clearance of 20 liters per hour and - an absorption rate constant ka of 1 per hour</p>
+<p><img src="img/admin-1.png" class="img-fluid"></p>
+<p><img src="img/admin-2.png" class="img-fluid"></p>
+<p><img src="img/admin-3.png" class="img-fluid"></p>
+<ul>
+<li>the elimination phase is linear in all three plots and there is no distribution phase seen</li>
+</ul>
+</section>
+<section id="model-structure" class="level3" data-number="2.0.4">
+<h3 data-number="2.0.4" class="anchored" data-anchor-id="model-structure"><span class="header-section-number">2.0.4</span> Model structure</h3>
+<ul>
+<li>the model structure affects the shape of the pK profile</li>
+<li>three different aspects of model structure
+<ul>
+<li>number of compartments</li>
+<li>presence or absence of a time lag</li>
+<li>saturating elimination</li>
+</ul></li>
+</ul>
+<p>The effect of the number of compartments:</p>
+<p>one compartment model is the simplest</p>
+<ul>
+<li>one compartment extravascular model</li>
+<li>has three parameters k<sub>a</sub>, V and CL</li>
+</ul>
+<p>Two compartment models adds a peripheral compartment which can take up some of the drug - needed when there is a sizable distribution phase - five parameters</p>
+<p>three compartments - adds two more parameters V3 and CL3 - The three compartment model is not used frequently <img src="img/structure-1.png" class="img-fluid"></p>
+<p>shape but the PK curve</p>
+<p><img src="img/structure-2.png" class="img-fluid"> - one compartment IV bolus model is just a straight line when plotted on a log concentration axis - a two compartment model is useful when there is a distribution phase that is different than the elimination phase - The three compartment model can have three distinct phases - it will not always be as apparent that there are multiple phases instead of two distinct phases we may see a general curvature that blends two or more phases together</p>
+<p>corresponding extravascular Administration but</p>
+<p><img src="img/structure-3.png" class="img-fluid"> - Early distribution phases can become obscured because of the absorption phase - this is particularly apparent in the three compartment model where the first distribution phase is entirely obscured by the absorption</p>
+<p>Time lag</p>
+<p>many drugs take some time to show up in systemic circulation and the time lag is a way that we can account for this in our model</p>
+<p>on the left is a model with the time lag and on the right is the corresponding model without a time lag T-Lag is a parameter that causes the absorption to be delayed Time lag has the same time units as the time column</p>
+<ul>
+<li>add a time lag to your model if tmax does not fit properly</li>
+<li>The model fit can then adjust both the KA and the T-Lag values to obtain and improve fit</li>
+</ul>
+<p>saturation</p>
+<ul>
+<li><p>linear elimination saturation is often referred to as Michaela</p></li>
+<li><p>replaces clearance parameter with Km and Vmax <img src="img/saturation-1.png" class="img-fluid"> Clearance is no longer constant. Clearance is depended on the concentration. downward bend is characteristics of saturating kinetics saturation increased with higher doses.</p></li>
+<li><p><img src="img/saturation-2.png" class="img-fluid"> Let’s see how this change affects the shape of the PK curve click next to continue <img src="img/saturation-3.png" class="img-fluid"> here are simulated curves for a drug that has a Km value of 1,000 in a saturating model clearance becomes the expression Vmax over km + C. this means that clearance depends on the concentration and the clearance is no longer constant notice how different doses have PK curves with dramatically different shapes notice how many of the curves have a downward bend this downward bend is a characteristic of saturating kinetics it may not be observed at lower doses but as the dose increases we may encounter saturation and it is useful to know what it looks like at the lowest dose shown here the yellow curve looks just like a one compartment model with linear kinetics as the dose increases we see more saturation notice how</p></li>
+<li><p>when the concentration is higher than the Km value the apparent clearance is much lower and the slopes are much shallower at higher concentrations scale</p></li>
+<li><p>This breakdown the dose proportionality</p></li>
+</ul>
+<p>Linear scale:</p>
+<ul>
+<li>The increase in AUC is far beyond what we would have predicted under linear kinetics</li>
+<li>In cases were saturation is observed it is important to have data from more than one dose amount so that you can obtain in reliable parameter estimates</li>
+</ul>
+<p><img src="img/saturation-4.png" class="img-fluid"></p>
+<p><img src="img/saturation-5.png" class="img-fluid"> if we consider the expression for the effective clearance at different concentrations we can consider two extremes when the concentration is much lower than the Km value we do not see any saturation and the clearance is constant clearance over Km at the other extreme when the concentration is much greater than the KM value The clearance reduces to Vmax over c as the concentration increases the clearance becomes progressively smaller at very high concentrations we are overwhelming the elimination pathway usually this happens when an enzyme has a finite capacity to eliminate the drug and we are overloading it you may never need to create a model with saturating elimination but it is good to know when to recognize that saturation</p>
+<p>let’s recap the section we have seen that the model structure is typically defined by the number of compartments the presence or absence of a time lag and the possibility of saturating elimination These three items can be combined to make a very large number of potential models click next to continue</p>
+</section>
+<section id="residual-error" class="level3" data-number="2.0.5">
+<h3 data-number="2.0.5" class="anchored" data-anchor-id="residual-error"><span class="header-section-number">2.0.5</span> Residual error</h3>
+<p>Residual error:the difference between the observed and predicted concentrations DV: dependent variable or observed concentration<br>
+IPRED: Individual prediction, the predicted concentration</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/residual-error-1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">resdials</figcaption><p></p>
+</figure>
+</div>
+<p>ideal prediction would fall on the line positive residual error negative residual error</p>
+<p>Let’s look at another type of plot that is more useful for examining the residuals click next to continue</p>
+<ul>
+<li>These plots show us the residuals on the y-axis with either the predicted concentration or the time on the x-axis</li>
+<li>each point is a residual error</li>
+<li>both plots have the same number of points they’re just arranged differently</li>
+<li>The dotted lines represent two standard deviations in the positive and negative directions</li>
+</ul>
+<p><img src="img/residual-error-2.png" class="img-fluid"></p>
+<p>Residual worksheet contains the data that was plotted Ires: individual residual, difference between DV and IPRED</p>
+<p>different methods for the residual error - additive : assumes that all errors are constant regardless of concentration . In practice we usually find that the error magnitude becomes smaller at smaller concentrations and therefore additive is not often the best choice - multiplicative, assumes that the errors are proportional to the concentration of - additive plus multiplicative: partly constant, partly proportional. at higher concentrations the error magnitude is proportional but at small concentrations the error reaches a threshold and does not decrease any more as the concentration falls</p>
+<p>Use multiplicative the initial choice of residual error when building models</p>
+<p>Start your modeling using a multiplicative residual error as you are optimizing the structural model - after you have decided on the best structural model then you can start optimizing the residual error model</p>
+</section>
+<section id="summary" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Summary</h1>
+<section id="pk-model-1" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="pk-model-1"><span class="header-section-number">3.1</span> pk model 1</h2>
+<section id="concentrations-should-be-stacked" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="concentrations-should-be-stacked"><span class="header-section-number">3.1.1</span> Concentrations should be stacked</h3>
+<p>data format for PK models - observed concentration stacked into a single column - multiple analytes or metabolites concentration should be its own column</p>
+<p><img src="img_model/data-1.png" class="img-fluid" width="538"> <img src="img_model/data-2.png" width="537" height="238"></p>
+<p>Sort variables</p>
+<ul>
+<li>For multiple PK profiles, one or more sort variables are required.</li>
+<li>Sort variables need to have a value on every row</li>
+<li>In Phoenix text values, blank cells are not a problem</li>
+<li>All non-numeric data is ignored by the model</li>
+</ul>
+<p><img src="img_model/data-3.png" class="img-fluid"></p>
+<ul>
+<li>amount oral column has a value at time zero and the rest of the rows are blank. The dose amount is given only on the row the corresponds to a dosing event</li>
+<li>dose level column has a value on every row</li>
+<li>units: unlike NCA the model object does not translate units</li>
+<li>The dose unit should always be the same as the unit in the concentration</li>
+</ul>
+<p>And your parameter values keep them the same so that the units will work out properly One more warning the model object allows you to either map the dosing amounts in the main input or the dosing input Make sure that you don’t map the dose amount in both places or your administered dose will be twice as large as you intended click next to continue let’s recap the section we saw how the model object requires stacked concentrations you should have a single concentration column for each observation second we use sort variables to define the individual PK profiles there’s nothing wrong with having more sort variables than you need third we saw how dosing events can be included in the data set remember that these are entered on the row at the time of the dosing event and finally we learned that text values and empty cells are okay in the input and we do not have to do anything to them this completes the section click</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./WinNonlinIntro.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./TechNotes.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">My Notes</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
