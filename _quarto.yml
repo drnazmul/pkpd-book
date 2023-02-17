@@ -12,6 +12,7 @@ book:
     - WinNonlinModel.qmd
     - TechNotes.qmd
     - Rnotes.qmd
+    - Rintro.qmd
     - references.qmd
 
 bibliography: references.bib

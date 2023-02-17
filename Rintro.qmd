@@ -265,7 +265,7 @@ positions <- order(planets_df$diameter)
 
 # Use positions to sort planets_df
 planets_df[positions, ]
-
+pwd
 
 
 ```
