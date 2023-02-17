@@ -7,18 +7,21 @@ execute:
 ## Helpful Syntax
 
 ```{r}
-Returns the structure and information of a given object
+#Returns the structure and information of a given object
 
 str(iris)
 
 #Returns the class of a given object
+
 class(iris)
 
 #Returns your current working directory
+
 getwd() 
 
-#Changes your current working directory to a desired filepath
-#setwd("C:\Users\BABA\Documents\mynotes")
+#Changes your current working directory to a desired file path
+
+setwd("/c/Users/BABA/Documents")
 ```
 
 ### Installing and loading
@@ -35,6 +38,7 @@ install.packages("dplyr")
 # Load dplyr into R
 
 library("dplyr")
+library("tidyverse")
 
 ```
 
@@ -61,33 +65,24 @@ df %>%
 
 ```
 
-List of pre-loaded data To see the list of pre-loaded data, type the function data():
+### Preloaded datasets
 
 ```{r}
 data()
 
-```
-
-Load and print mtcars data as follow:
-
-```{r}
+#Load and print mtcars data as follow:
 
 data("mtcars")
-
 head(mtcars, 6)
-```
 
-To learn more about the dataset:
+#To learn more about the data set:
 
-```{r}
 ?mtcars
 nrow(mtcars)
 ncol(mtcars)
-```
 
-Other popular dataset:
-
-```{r}
+#Other popular dataset:
+  
 data("iris")
 data("ToothGrowth")
 data("PlantGrowth")
@@ -95,34 +90,28 @@ data("USArrests")
 
 ```
 
-### Transforming data with dplyr
-
-Basic column operations with dplyr
+### Basic column operations with dplyr
 
 ```{r}
 # Select one or more columns with select()
 
 iris %>%
-
-select(Petal.Length, Petal.Width)
+  select(Petal.Length, Petal.Width)
  
 # Select all but one column (e.g., listing_id)
 
 iris %>%
+  select(-Petal.Width)
 
-select(-Petal.Width)
 # Select all columns within a range
 
 iris %>%
-
-select(Species:Petal.Length)
+  select(Species:Petal.Length)
 
 # Rename a column using rename()
 
 iris %>%
-
-rename(p_length=Petal.Length)
-
+  rename(p_length = Petal.Length)
 
 ```
 
@@ -273,6 +262,96 @@ iris %>%
   group_by(Species) %>%
   summarise(avg_length=mean(Petal.Length))
 
-# Find mediann and 
+# Find median and max sepal length of each species
+
+iris %>% 
+  group_by(Species) %>% 
+  summarise(medianSL = median(Sepal.Length),
+            maxSL = max(Sepal.Length))
+# Find median and max petal length of each species with sepal length > 6
+
+iris %>% 
+  filter(Sepal.Length >6) %>% 
+  group_by(Species) %>% 
+  summarise(medianPL = median(Petal.Length), 
+            maxPL = max(Petal.Length))
+
 
 ```
+
+## ggplot2
+
+### Scatter Plots
+
+```{r}
+iris_small <- iris %>% 
+  filter(Sepal.Length >5)
+ggplot(iris_small, aes(x = Petal.Length, # Requires ggplot package
+                       y = Petal.Width))+
+  geom_point()
+
+# Add color with another variable
+
+iris_small <- iris %>% 
+  filter(Sepal.Length >5)
+ggplot(iris_small, aes(x = Petal.Length, # Requires ggplot package
+                       y = Petal.Width,
+                       color = Species))+
+  geom_point()
+
+# Add color and size with two other variables
+
+iris_small <- iris %>% 
+  filter(Sepal.Length >5)
+ggplot(iris_small, aes(x = Petal.Length, # Requires ggplot package
+                       y = Petal.Width,
+                       color = Species, 
+                       size = Sepal.Length))+
+  geom_point()
+
+# Faceting
+
+iris_small <- iris %>% 
+  filter(Sepal.Length >5)
+ggplot(iris_small, aes(x = Petal.Length, # Requires ggplot package
+                       y = Petal.Width))+
+  geom_point()+
+  facet_wrap(~Species)
+
+```
+
+### Line plots
+
+```{r}
+ggplot(iris, aes(x = Petal.Length, y = Sepal.Length))+
+  geom_line()+
+  expand_limits(y=0)
+```
+
+### Bar plots
+
+```{r}
+by_species <- iris %>% 
+  filter(Sepal.Length >6) %>% 
+  group_by(Species) %>% 
+  summarize(medianPL = median(Petal.Length))
+
+ggplot(by_species, aes(x = Species, y = medianPL))+
+  geom_col()
+```
+
+### Histograms
+
+```{r}
+ggplot(iris_small, aes(x= Petal.Length))+
+  geom_histogram()
+```
+
+### Box plots
+
+```{r}
+ggplot(iris_small, aes(x=Species, y=Sepal.Width))+
+  geom_boxplot()
+
+```
+
