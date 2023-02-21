@@ -1,0 +1,113 @@
+---
+title: "Hypothesis test in R"
+execute:
+  eval: false
+---
+## Introduction to hypothesis testing
+
+### Calculating a z-score
+
+Since variables have arbitrary ranges and units, we need to standardize them. For example, it would be silly if a hypothesis test gave a different answer if your variables were in Euros instead of US dollars. Standardization avoids that.
+
+One standardized value of interest in a hypothesis test is called a z-score. 
+To calculate it, we need three numbers: 
+
+1. the sample statistic (point estimate), 
+2. the hypothesized statistic, 
+3. the standard error of the statistic (which we estimate from the bootstrap distribution).
+
+
+```{r}
+# View the late_shipments dataset
+View(late_shipments)
+
+# Calculate the proportion of late shipments
+late_prop_samp <- late_shipments %>% 
+  summarize(prop_late_shipments = mean(late == "Yes")) %>% 
+  pull(prop_late_shipments)
+
+# See the results
+late_prop_samp
+
+# Hypothesize that the proportion is 6%
+late_prop_hyp <- 0.06
+
+# Calculate the standard error
+std_error <- late_shipments_boot_distn %>% 
+  summarize(sd_late_prop = sd(late_prop)) %>% 
+  pull(sd_late_prop)
+
+# Find z-score of late_prop_samp
+z_score <- (late_prop_samp - late_prop_hyp) / std_error
+
+# See the results
+z_score
+
+
+
+```
+
+The z-score is a standardized measure of the difference between the sample statistic and the hypothesized statistic.
+
+### p value
+
+A hypothesis is a statement about a population parameter. We don't know the true value of this population parameter; we can only make inferences about it from the data. Hypothesis tests compare two competing hypotheses.
+
+Rather than saying we accept the alternative hypothesis, the verdicts are rejecting the null hypothesis, or failing to reject the null hypothesis.
+
+The hypothes is testing equivalent of "beyond a reasonable doubt" is known as the significance level.
+
+The tails of the distribution that are relevant depend on whether the alternative hypothesis refers to "greater than", "less than", or "differences between".
+
+
+```{r}
+ 
+# Calculate the p-value
+p_value <- pnorm(z_score, lower.tail = FALSE)
+                 
+# See the result
+p_value   
+```
+
+The p-value is calculated by transforming the z-score with the standard normal cumulative distribution function.
+
+### Statistical significance
+
+What defines the cutoff point between a small p-value and a large one?
+
+Significance level
+
+The cutoff point is known as the significance level,$\alpha$. The appropriate significance level depends on the dataset and the discipline you are working in. Five percent is the most common choice, but ten percent and one percent are also popular. The significance level gives us a decision process for which hypothesis to support.
+If the p-value is low, H~0~ must go (reject H~0~
+If the p-value is high, H~0~ must fly (fail to reject H~0~) 
+
+It's important that you decide what the appropriate significance level should be before you run your test. Otherwise there is a temptation to decide on a significance level that lets you choose the hypothesis you want.
+
+### Confidence intervals
+
+To get a sense as to potential values of the population parameter, it's common to choose a confidence interval of one minus the significance level. For a significance level of 0.05 e, we'd use a 95% confidance interval. Here's the calculation using the quantile method. 
+
+```{r}
+# Calculate 95% confidence interval using quantile method
+conf_int_quantile <- late_shipments_boot_distn %>%
+  summarize(
+    lower = quantile(prop_late_shipments, 0.025),
+    upper = quantile(prop_late_shipments, 0.975)
+  )
+
+# See the result
+conf_int_quantile
+
+```
+
+The interval runs from 0.369 to 0.407 giving a range of plausible values for the proportion of data scientists starting programming as children.
+
+
+Calculating confidence intervals
+
+If you give a single estimate of a sample statistic, you are bound to be wrong by some amount. For example, the hypothesized proportion of late shipments was 6%. Even if evidence suggests the null hypothesis that the proportion of late shipments is equal to this, for any new sample of shipments, the proportion is likely to be a little different. Consequently, it's a good idea to state a confidence interval. That is, you say "we are 95% 'confident' the proportion of late shipments is between A and B" (for some value of A and B).
+
+Sampling in R demonstrated two methods for calculating confidence intervals. Here, you'll use quantiles of the bootstrap distribution to calculate the confidence interval.
+
+When you have a confidence interval width equal to one minus the significance level, if the hypothesized population parameter is within the confidence interval, you should fail to reject the null hypothesis.
+

@@ -1,0 +1,208 @@
+---
+title: "Sampling in R"
+execute:
+  eval: false
+---
+
+## Introduction to sampling
+
+### Point estimates
+
+### Random number generation
+
+```{r}
+View(dataset)
+# Generate random numbers from ...
+randoms <- data.frame(
+  # a uniform distribution from -3 to 3
+  uniform = runif(n_numbers, min = -3, max = 3),
+  # a normal distribution with mean 5 and sd 2
+  normal = rnorm(n_numbers, mean = 5, sd = 2)
+)
+```
+
+Notice how the histograms almost take the flat and bell curve shapes of the uniform and normal distributions, but there is a bit of random noise.
+
+Setting the seed to a particular value means that subsequent random code that generates random numbers will have the same answer each time you run it.
+
+### Bootstrapping
+
+The bootstrapping workflow is to generate
+
+-   a resample of the same size as the population,
+
+-   calculate a summary statistic,
+
+-   then repeat this to get a distribution of summary statistics.
+
+The key to deciding whether to sample without or with replacement is whether or not your dataset is best thought of as being the whole population or not.
+
+To make a sampling distribution, you start with the population and sample without replacement. To make a bootstrap distribution, you start with a sample and sample that with replacement. After that, the steps are the same: calculate the summary statistic that you are interested in on that sample/resample, then replicate the process many times. In each case, you can visualize the distribution with a histogram.
+
+From the smaller sample of Spotify songs, we can estimate the mean danceability statistic in the population. Since we have a distribution of statistics, we can even quantify how accurate our estimate is.
+
+If the sample is not closely representative of the population, then the mean of the bootstrap distribution will not be representative of the population mean. This is less of a problem for standard errors.
+
+```{r}
+# Generate a sampling distribution
+mean_sampling_dist <- replicate(
+  # Use 2000 replicates
+  n = 2000,
+  expr = {
+    # Start with the population
+    spotify_population %>% 
+      # Sample 500 rows without replacement
+      slice_sample(n = 500) %>% 
+      # Calculate the mean popularity as mean_popularity
+      summarise(mean_popularity = mean(popularity)) %>% 
+      # Pull out the mean popularity
+      pull(mean_popularity)
+  }
+)
+
+# See the result
+mean_popularity_2000_samp
+
+
+# Generate a bootstrap distribution
+mean_bootstrap_dist <- replicate(
+  # Use 2000 replicates
+  n = 2000,
+  expr = {
+    # Start with the sample
+    spotify_sample %>% 
+      # Sample same number of rows with replacement
+      slice_sample(prop = 1, replace = TRUE) %>% 
+      # Calculate the mean popularity
+      summarise(mean_popularity = mean(popularity)) %>% 
+      # Pull out the mean popularity
+      pull(mean_popularity)
+  }
+)
+
+# Store the resamples in a tibble
+bootstrap_distn <- tibble(
+  resample_mean = mean_danceability_1000
+)
+
+# Draw a histogram of the resample means with binwidth 0.002
+ggplot(bootstrap_distn, aes(resample_mean))+
+  geom_histogram(binwidth=0.002)
+
+
+```
+
+The sampling distribution mean is the best estimate of the true population mean; the bootstrap distribution mean is closest to the original sample mean.
+
+The sampling distribution mean can be used to estimate the population mean, but that is not the case with the boostrap distribution.
+
+```{r}
+
+# Calculate std from sampling_distribution
+
+samp_distn_sd <- sampling_distribution %>% 
+  summarize(sd(sample_mean) * sqrt(500))
+
+# Calculate std from bootstrap_distribution
+
+boot_distn_sd <- bootstrap_distribution %>% 
+  summarize(sd(resample_mean) * sqrt(500))
+
+# See the results
+c(sam_distn = samp_distn_sd, boot_distn = boot_distn_sd)
+```
+
+*When you don't have all the values from the true population, you can use bootstrapping to get a good estimate of the population standard deviation*
+
+### Confidence interval
+
+When reporting results, it is common to provide a confidence interval alongside an estimate.
+
+What does that confidence interval provide?
+
+-   A range of plausible values for an unknown quantity.
+
+Confidence intervals account for uncertainty in our estimate of a population parameter by providing a range of possible values. We are confident that the true value lies somewhere in the interval specified by that range.
+
+The standard error method for calculating the confidence interval assumes that the bootstrap distribution is normal. This assumption should hold if the sample size and number of replicates are sufficiently large.
+
+```{r}
+# Generate a 95% confidence interval using the quantile method
+conf_int_quantile <- bootstrap_distribution %>% 
+  summarize(
+    lower = quantile(resample_mean, 0.025),
+    upper = quantile(resample_mean, 0.975)
+  )
+
+# See the result
+conf_int_quantile
+
+# Generate a 95% confidence interval using the std error method
+conf_int_std_error <- bootstrap_distribution %>% 
+  summarize(
+    point_estimate = mean(resample_mean),
+    standard_error = sd(resample_mean),
+    lower = qnorm(0.025, point_estimate, standard_error),
+    upper = qnorm(0.975, point_estimate, standard_error)
+  )
+
+# See the result
+conf_int_std_error
+
+
+```
+
+-   the standard deviation of a bootstrap distribution statistic is a good approximation for the standard error of the sampling distribution.
+
+-   you calculated confidence intervals for statistics using both the quantile method and the standard error method, and they gave very similar answers. That means that the normal distribution is a good approximation for the bootstrap distribution.
+
+## t test
+
+Hypothesis testing workflow for the one sample case where you compared a sample mean to a hypothesized value, and the two sample case where you compared two sample means. In both cases, the workflow follows this format.
+
+![](images/image-1030941934.png)
+
+### Two sample mean test statistic
+
+The hypothesis test for determining if there is a difference between the means of two populations uses  t-scores, and can be calculated from three values from each sample using this equation.
+
+Why is t needed?
+
+The process for calculating p-values is 
+1. to start with the sample statistic, 
+2. standardize it to get a test statistic, 
+3. then transform it via a cumulative distribution function (CDF). 
+
+In Chapter 1, that final transformation was denoted z, and the CDF transformation used the (standard normal) z-distribution. 
+
+In the last video, the test statistic was denoted t, and the transformation used the t-distribution.
+
+Using a sample standard deviation to estimate the standard error is computationally easier than using bootstrapping. However, to correct for the approximation, you need to use a t-distribution when transforming the test statistic to get the p-value.
+
+
+```{r}
+# Calculate the numerator of the test statistic
+numerator <- xbar_no - xbar_yes
+
+# Calculate the denominator of the test statistic
+denominator <- sqrt(s_no^2/n_no + s_yes^2/n_yes)
+
+# Calculate the test statistic
+t_stat <- numerator/denominator
+
+# See the result
+t_stat
+# Calculate the degrees of freedom
+degrees_of_freedom <- n_no+n_yes-2
+
+# Calculate the p-value from the test stat
+p_value <- pt(t_stat, df = degrees_of_freedom, lower.tail = TRUE)
+
+# See the result
+p_value
+```
+
+## ANOVA
+
+Visualizing many categories
+So far in this chapter, we've only considered the case of differences in a numeric variable between two categories. Of course, many datasets contain more categories. Before you get to conducting tests on many categories, it's often helpful to perform exploratory data analysis. That is, calculating summary statistics for each group and visualizing the distributions of the numeric variable for each category using box plots.
