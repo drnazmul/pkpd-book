@@ -1,13 +1,12 @@
 ---
-title: "Introduction to R"
+title: "R for Data Analyst"
 execute:
   eval: false
 ---
 
-## Variable assignment
+## Introduction to R
 
-## Vectors
-
+### Vectors
 
 ```{r}
 numeric_vector <- c(1, 10, 49)
@@ -59,7 +58,7 @@ print(poker_winning_days)
 
 ```
 
-## Matrices
+### Matrices
 
 ```{r}
 matrix(1:9, byrow = TRUE, nrow = 3)
@@ -150,7 +149,7 @@ visitors
 
 ```
 
-## Factors
+### Factors
 
 ```{r}
 # Sex vector
@@ -216,7 +215,7 @@ da2>da5
 
 ```
 
-## Data Frame
+### Data Frame
 
 ```{r}
 head(mtcars)
@@ -270,4 +269,792 @@ pwd
 
 ```
 
+## Introduction to sampling
 
+### Point estimates
+
+### Random number generation
+
+```{r}
+View(dataset)
+# Generate random numbers from ...
+randoms <- data.frame(
+  # a uniform distribution from -3 to 3
+  uniform = runif(n_numbers, min = -3, max = 3),
+  # a normal distribution with mean 5 and sd 2
+  normal = rnorm(n_numbers, mean = 5, sd = 2)
+)
+```
+
+Notice how the histograms almost take the flat and bell curve shapes of the uniform and normal distributions, but there is a bit of random noise.
+
+Setting the seed to a particular value means that subsequent random code that generates random numbers will have the same answer each time you run it.
+
+### Bootstrapping
+
+The bootstrapping workflow is to generate
+
+-   a resample of the same size as the population,
+
+-   calculate a summary statistic,
+
+-   then repeat this to get a distribution of summary statistics.
+
+The key to deciding whether to sample without or with replacement is whether or not your dataset is best thought of as being the whole population or not.
+
+To make a sampling distribution, you start with the population and sample without replacement. To make a bootstrap distribution, you start with a sample and sample that with replacement. After that, the steps are the same: calculate the summary statistic that you are interested in on that sample/resample, then replicate the process many times. In each case, you can visualize the distribution with a histogram.
+
+From the smaller sample of Spotify songs, we can estimate the mean danceability statistic in the population. Since we have a distribution of statistics, we can even quantify how accurate our estimate is.
+
+If the sample is not closely representative of the population, then the mean of the bootstrap distribution will not be representative of the population mean. This is less of a problem for standard errors.
+
+```{r}
+# Generate a sampling distribution
+mean_sampling_dist <- replicate(
+  # Use 2000 replicates
+  n = 2000,
+  expr = {
+    # Start with the population
+    spotify_population %>% 
+      # Sample 500 rows without replacement
+      slice_sample(n = 500) %>% 
+      # Calculate the mean popularity as mean_popularity
+      summarise(mean_popularity = mean(popularity)) %>% 
+      # Pull out the mean popularity
+      pull(mean_popularity)
+  }
+)
+
+# See the result
+mean_popularity_2000_samp
+
+
+# Generate a bootstrap distribution
+mean_bootstrap_dist <- replicate(
+  # Use 2000 replicates
+  n = 2000,
+  expr = {
+    # Start with the sample
+    spotify_sample %>% 
+      # Sample same number of rows with replacement
+      slice_sample(prop = 1, replace = TRUE) %>% 
+      # Calculate the mean popularity
+      summarise(mean_popularity = mean(popularity)) %>% 
+      # Pull out the mean popularity
+      pull(mean_popularity)
+  }
+)
+
+# Store the resamples in a tibble
+bootstrap_distn <- tibble(
+  resample_mean = mean_danceability_1000
+)
+
+# Draw a histogram of the resample means with binwidth 0.002
+ggplot(bootstrap_distn, aes(resample_mean))+
+  geom_histogram(binwidth=0.002)
+
+
+```
+
+The sampling distribution mean is the best estimate of the true population mean; the bootstrap distribution mean is closest to the original sample mean.
+
+The sampling distribution mean can be used to estimate the population mean, but that is not the case with the boostrap distribution.
+
+```{r}
+
+# Calculate std from sampling_distribution
+
+samp_distn_sd <- sampling_distribution %>% 
+  summarize(sd(sample_mean) * sqrt(500))
+
+# Calculate std from bootstrap_distribution
+
+boot_distn_sd <- bootstrap_distribution %>% 
+  summarize(sd(resample_mean) * sqrt(500))
+
+# See the results
+c(sam_distn = samp_distn_sd, boot_distn = boot_distn_sd)
+```
+
+*When you don't have all the values from the true population, you can use bootstrapping to get a good estimate of the population standard deviation*
+
+### Confidence interval
+
+When reporting results, it is common to provide a confidence interval alongside an estimate.
+
+What does that confidence interval provide?
+
+-   A range of plausible values for an unknown quantity.
+
+Confidence intervals account for uncertainty in our estimate of a population parameter by providing a range of possible values. We are confident that the true value lies somewhere in the interval specified by that range.
+
+The standard error method for calculating the confidence interval assumes that the bootstrap distribution is normal. This assumption should hold if the sample size and number of replicates are sufficiently large.
+
+```{r}
+# Generate a 95% confidence interval using the quantile method
+conf_int_quantile <- bootstrap_distribution %>% 
+  summarize(
+    lower = quantile(resample_mean, 0.025),
+    upper = quantile(resample_mean, 0.975)
+  )
+
+# See the result
+conf_int_quantile
+
+# Generate a 95% confidence interval using the std error method
+conf_int_std_error <- bootstrap_distribution %>% 
+  summarize(
+    point_estimate = mean(resample_mean),
+    standard_error = sd(resample_mean),
+    lower = qnorm(0.025, point_estimate, standard_error),
+    upper = qnorm(0.975, point_estimate, standard_error)
+  )
+
+# See the result
+conf_int_std_error
+
+
+```
+
+-   the standard deviation of a bootstrap distribution statistic is a good approximation for the standard error of the sampling distribution.
+
+-   you calculated confidence intervals for statistics using both the quantile method and the standard error method, and they gave very similar answers. That means that the normal distribution is a good approximation for the bootstrap distribution.
+
+### t test
+
+Hypothesis testing workflow for the one sample case where you compared a sample mean to a hypothesized value, and the two sample case where you compared two sample means. In both cases, the workflow follows this format.
+
+![](images/image-1030941934.png)
+
+### Two sample mean test statistic
+
+The hypothesis test for determining if there is a difference between the means of two populations uses t-scores, and can be calculated from three values from each sample using this equation.
+
+Why is t needed?
+
+The process for calculating p-values is
+
+1\. to start with the sample statistic,
+
+2\. standardize it to get a test statistic,
+
+3\. then transform it via a cumulative distribution function (CDF).
+
+In Chapter 1, that final transformation was denoted z, and the CDF transformation used the (standard normal) z-distribution.
+
+In the last video, the test statistic was denoted t, and the transformation used the t-distribution.
+
+Using a sample standard deviation to estimate the standard error is computationally easier than using bootstrapping. However, to correct for the approximation, you need to use a t-distribution when transforming the test statistic to get the p-value.
+
+```{r}
+# Calculate the numerator of the test statistic
+numerator <- xbar_no - xbar_yes
+
+# Calculate the denominator of the test statistic
+denominator <- sqrt(s_no^2/n_no + s_yes^2/n_yes)
+
+# Calculate the test statistic
+t_stat <- numerator/denominator
+
+# See the result
+t_stat
+# Calculate the degrees of freedom
+degrees_of_freedom <- n_no+n_yes-2
+
+# Calculate the p-value from the test stat
+p_value <- pt(t_stat, df = degrees_of_freedom, lower.tail = TRUE)
+
+# See the result
+p_value
+```
+
+## Hypothesis testing in R
+
+### Calculating a z-score
+
+Since variables have arbitrary ranges and units, we need to standardize them. For example, it would be silly if a hypothesis test gave a different answer if your variables were in Euros instead of US dollars. Standardization avoids that.
+
+One standardized value of interest in a hypothesis test is called a z-score. To calculate it, we need three numbers:
+
+1.  Sample statistic (point estimate),
+2.  Hypothesized statistic,
+3.  Standard error of the statistic (which we estimate from the bootstrap distribution).
+
+```{r}
+# View the late_shipments dataset
+View(late_shipments)
+
+# Calculate the proportion of late shipments
+late_prop_samp <- late_shipments %>% 
+  summarize(prop_late_shipments = mean(late == "Yes")) %>% 
+  pull(prop_late_shipments)
+
+# See the results
+late_prop_samp
+
+# Hypothesize that the proportion is 6%
+late_prop_hyp <- 0.06
+
+# Calculate the standard error
+std_error <- late_shipments_boot_distn %>% 
+  summarize(sd_late_prop = sd(late_prop)) %>% 
+  pull(sd_late_prop)
+
+# Find z-score of late_prop_samp
+z_score <- (late_prop_samp - late_prop_hyp) / std_error
+
+# See the results
+z_score
+
+
+
+```
+
+The z-score is a standardized measure of the difference between the sample statistic and the hypothesized statistic.
+
+### p value
+
+A hypothesis is a statement about a population parameter. We don't know the true value of this population parameter; we can only make inferences about it from the data. Hypothesis tests compare two competing hypotheses.
+
+Rather than saying we accept the alternative hypothesis, the verdicts are rejecting the null hypothesis, or failing to reject the null hypothesis.
+
+The hypothes is testing equivalent of "beyond a reasonable doubt" is known as the significance level.
+
+The tails of the distribution that are relevant depend on whether the alternative hypothesis refers to "greater than", "less than", or "differences between".
+
+```{r}
+ 
+# Calculate the p-value
+p_value <- pnorm(z_score, lower.tail = FALSE)
+                 
+# See the result
+p_value   
+```
+
+The p-value is calculated by transforming the z-score with the standard normal cumulative distribution function (CDF).
+
+### Statistical significance
+
+What defines the cutoff point between a small p-value and a large one?
+
+Significance level
+
+The cutoff point is known as the significance level,$\alpha$. The appropriate significance level depends on the dataset and the discipline you are working in. Five percent is the most common choice, but ten percent and one percent are also popular. The significance level gives us a decision process for which hypothesis to support.
+
+If the p-value is low, H~0~ must go (reject H~0~ )
+
+If the p-value is high, H~0~ must fly (fail to reject H~0~)
+
+It's important that you decide what the appropriate significance level should be before you run your test. Otherwise there is a temptation to decide on a significance level that lets you choose the hypothesis you want.
+
+### Confidence intervals
+
+To get a sense as to potential values of the population parameter, it's common to choose a confidence interval of one minus the significance level. For a significance level of 0.05 e, we'd use a 95% confidance interval. Here's the calculation using the quantile method.
+
+```{r}
+# Calculate 95% confidence interval using quantile method
+conf_int_quantile <- late_shipments_boot_distn %>%
+  summarize(
+    lower = quantile(prop_late_shipments, 0.025),
+    upper = quantile(prop_late_shipments, 0.975)
+  )
+
+# See the result
+conf_int_quantile
+
+```
+
+The interval runs from 0.369 to 0.407 giving a range of plausible values for the proportion of data scientists starting programming as children.
+
+Calculating confidence intervals
+
+If you give a single estimate of a sample statistic, you are bound to be wrong by some amount. For example, the hypothesized proportion of late shipments was 6%. Even if evidence suggests the null hypothesis that the proportion of late shipments is equal to this, for any new sample of shipments, the proportion is likely to be a little different. Consequently, it's a good idea to state a confidence interval. That is, you say "we are 95% 'confident' the proportion of late shipments is between A and B" (for some value of A and B).
+
+Sampling in R demonstrated two methods for calculating confidence intervals. Here, you'll use quantiles of the bootstrap distribution to calculate the confidence interval.
+
+When you have a confidence interval width equal to one minus the significance level, if the hypothesized population parameter is within the confidence interval, you should fail to reject the null hypothesis.
+
+### Proportion Tests
+
+The t-test is needed for tests of mean(s) since you are estimating two unknown quantities, which leads to more variability.
+
+### Non-parametric tests
+
+Assumptions in hypothesis testing
+
+Each hypothesis test makes assumptions about the data. It's only when these assumptions are met that it is appropriate to use that hypothesis test.
+
+Randomness
+
+Whether it uses one or two samples, every hypothesis test assumes that each sample is randomly sourced from its population. If you don't have a random sample, then it won't be representative of the population. To check this assumption, you need to know where your data came from. There are no statistical or coding tests you can perform to check this. If in doubt, ask the people involved in collecting the data, or a domain expert that understands the population being sampled.
+
+Independence of observations
+
+Tests also assume that each observation is independent. There are some special cases like paired t-tests where dependencies between two samples are allowed, but these change the calculations so you need to understand where such dependencies occur. As you saw with the paired t-test, not accounting for dependencies results in an increased chance of false negative and false positive errors. This is also a difficult problem to diagnose after you have the data. It needs to be discussed before data collection.
+
+Large sample size
+
+Hypothesis tests also assume that your sample is big enough. Smaller samples incur greater uncertainty, and mean that the Central Limit Theorem doesn't apply, which in turn means that the sampling distribution might not be normally distributed. The increased uncertainty means you get wider confidence intervals on the parameter you are trying to estimate. The Central Limit Theorem not applying means the calculations on the sample could be nonsense, which increases the chance of false negative and positive errors. The check for "big enough" depends on the test and that's where we'll head next.
+
+Large sample size: t-test
+
+For one sample t-tests, a popular heuristic is that you need at least thirty observations in your sample. For the two sample case or ANOVA, you need thirty observations in each. That means you can't compensate for one small group sample by making the other one bigger. In the paired case, you need thirty pairs of observations.
+
+Large sample size: proportion tests
+
+For one sample proportion tests, the sample is considered big enough if it contains at least ten successes and ten failures. Notice that if the probability of success is close to zero or close to one, then you need a bigger sample. In the two sample case the size requirements apply to each sample separately.
+
+Large sample size: chi-square tests
+
+The chi-square test is slightly more forgiving and only requires five successes and failures in each group rather than ten.
+
+Sanity check
+
+One more check you can perform is to calculate a bootstrap distribution and visualize it with a histogram. If you don't see a bell-shaped normal curve, then one of the assumptions hasn't been met. In that case, you should revisit the data collection process, and see if any of the three assumptions of randomness, independence, and sample size do not hold.
+
+## Foundations of Inference
+
+### NHANES home owner's data
+
+```{r}
+
+# Load packages
+library(ggplot2)
+library(dplyr)
+library(infer)
+
+library(NHANES)
+# What are the variables in the NHANES dataset?
+
+colnames(NHANES)
+
+
+```
+
+let's investigate the relationship between gender and home ownership calculate the original observed statistic
+
+```{r}
+homes <- NHANES %>% 
+  select(Gender, HomeOwn) %>% 
+  filter(HomeOwn %in% c("Own", "Rent"))
+homes
+
+```
+
+```{r}
+diff_orig <- homes %>% 
+  group_by(Gender) %>% 
+  summarise(prop_org = mean(HomeOwn == "Own")) %>% 
+  summarise(diff(prop_org)) %>% 
+  pull()
+```
+
+Randomized data under null model of independence
+
+```{r}
+homeown_perm <- homes %>% 
+  specify(HomeOwn ~ Gender, success = "Own") %>% 
+  hypothesise(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "diff in props", order = c("male", "female"))
+#the distribution of randomized statistics
+ggplot(homeown_perm, aes(x = stat))+
+  geom_dotplot(binwidth = 0.001)
+
+```
+
+geom density
+
+Do the data come from the population?
+
+```{r}
+ggplot(homeown_perm, aes(x = stat))+
+  geom_density()+
+  geom_vline(aes(xintercept = diff_orig), color = "red")
+```
+
+Compare permuted differences to observed difference
+
+```{r}
+homeown_perm %>%
+  summarize(n_perm_le_obs = sum(stat <= diff_orig))
+```
+
+223 permuted differences are more extreme than the observed difference. This only represents 21.2% of the null statistics, so you can conclude that the observed difference is consistent with the permuted distribution.
+
+### Gender Discrimination
+
+```{r}
+
+library(openintro)
+
+disc <- sex_discrimination
+
+disc %>% 
+  count(sex, decision)
+
+disc_orig <- disc %>% 
+  group_by(sex) %>% 
+  summarise(promoted_prop = mean(decision == "promoted")) %>% 
+  summarise(diff(promoted_prop)) %>% 
+  pull()
+disc_orig
+
+```
+
+As the first step of any analysis, you should look at and summarize the data. Categorical variables are often summarized using proportions, and it is always important to understand the denominator of the proportion.
+
+```{r}
+disc_perm <- disc %>% 
+  specify(decision ~ sex, success = "promoted") %>% 
+  hypothesise(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "diff in props", order = c("male", "female"))
+disc_perm
+
+```
+
+```{r}
+ggplot(disc_perm, aes(x = stat))+
+  geom_histogram(binwidth = 0.01)+
+  geom_vline(aes(xintercept = disc_orig), color = "red")
+```
+
+p-value measures the degree of disagreement between the data and the null hypothesis. here, you're only interested in the one-sided hypothesis test here. That is, you're trying to answer the question, "Are men more likely to be promoted than women?"
+
+```{r}
+disc_perm %>% 
+  visualise(obs_stat = disc_orig, direction = "greater")
+
+disc_perm %>% 
+  get_p_value(obs_stat = disc_orig, direction = "greater" )
+```
+
+Calculating p values
+
+```{r}
+disc_perm %>%
+  summarize(p_value = mean(disc_orig >= stat))
+```
+
+how the p-value is computed here. First we identify permuted differences that are larger than or equal to the observed statistic and label those situations with a 1, all other permutations receiving a zero. By averaging the 0s and 1s, the mean gives the proportion of times the permuted difference is larger than or equal to the observed difference. Because (point) 03 is less than (point) 05, we reject the null hypothesis and claim that men are promoted at a higher rate than women. That is, we conclude that it was not simply random variability which led to a higher proportion of men being promoted. A p-value of (point) 03 is reasonably close to (point) 05 which means we should be somewhat careful in making strong claims.
+
+### Opportunity Cost
+
+```{r}
+opportunity_cost %>% 
+  count(group, decision)
+
+opportunity_cost %>% 
+  group_by(group) %>% 
+  summarise(buy_prop = mean(decision == "buy video"))
+```
+
+The barplot better displays the results from the study. The treatment seems like it might have had an effect.
+
+```{r}
+# Plot group, filled by decision
+ggplot(opportunity_cost, aes(x = group, fill = decision)) + 
+  # Add a bar layer, with position "fill"
+  geom_bar(position = "fill")
+```
+
+```{r}
+# Point estimate
+
+# Calculate the observed difference in purchase rate
+diff_obs <- opportunity_cost %>%
+  # Group by group
+  group_by(group) %>%
+  # Calculate proportion deciding to buy a DVD
+  summarise(prop_buy = mean(decision == "buy video")) %>%
+  # Calculate difference between groups
+  summarise(stat = diff(prop_buy)) %>% 
+  pull()
+diff_obs
+```
+
+```{r}
+# Create data frame of permuted differences in purchase rates
+opp_perm <- opportunity_cost %>%
+  # Specify decision vs. group, where success is buying a DVD
+  specify(decision ~ group, success = "buy video") %>%
+  # Set the null hypothesis to independence
+  hypothesise(null = "independence") %>%
+  # Generate 1000 reps of type permute
+  generate(reps = 1000, type = "permute") %>%
+  # Calculate the summary stat difference in proportions
+  calculate(stat = "diff in props", order = c("treatment", "control"))
+    
+# Review the result
+opp_perm
+```
+
+```{r}
+# Using the permuation data, plot stat
+ggplot(opp_perm, aes(x = stat)) + 
+  # Add a histogram layer with binwidth 0.005
+  geom_histogram(binwidth = 0.005) +
+  # Add a vline layer with intercept diff_obs
+  geom_vline(aes(xintercept = diff_obs), color = "red")
+```
+
+you'll calculate the p-value to judge if the difference in proportions permuted is consistent with the observed difference.
+
+Now that you've created the randomization distribution, you'll use it to assess whether the observed difference in proportions is consistent with the null difference. You will measure this consistency (or lack thereof) with a p-value, or the proportion of permuted differences less than or equal to the observed difference.
+
+visualize and get_p\_value using the built in infer functions. Remember that the null statistics are above the original difference, so the p-value (which represents how often a null value is more extreme) is calculated by counting the number of null values which are less than the original difference.
+
+```{r}
+
+# Visualize the statistic 
+library(infer)
+opp_perm %>%
+  visualize()+
+  shade_p_value(obs_stat =diff_obs, direction = "left" )
+
+# Calculate the p-value using `get_p_value`
+opp_perm %>%
+  get_p_value(obs_stat = diff_obs, direction = "left")
+
+# Calculate the p-value using `summarize`
+opp_perm %>%
+  summarize(p_value = mean(stat <= diff_obs))
+```
+
+The small p-value indicates that the observed data are inconsistent with the null hypothesis. We should reject the null claim and conclude that financial advice does affect the likelihood of purchase.
+
+### Error in hypothesis testing
+
+there are two possible decisions to make in hypothesis testing. 1. Either the observed data are inconsistent with the null hypothesis, in which case the null hypothesis is rejected.
+
+2.  Or the observed data are consistent with the null hypothesis,in which case the null hypothesis is not rejected and no conclusion is made about a larger population.
+
+There are also two possible "truth" states: either the null hypothesis is true or the alternative hypothesis is true.
+
+![](images/image-2079919460.png){width="441"}
+
+the goal of the scientific study is to be in the bottom box where the alternative hypothesis is true and the data provide convincing evidence to reject the null hypothesis.
+
+However, any of the other three boxes are also possible. We cannot know which row has resulted, but we do know which conclusion has been made, thereby specifying the column.
+
+Which is to say, if the null hypothesis is rejected, then either the science is correct or a type I error has been made. If the null hypothesis is not rejected, it has either been done so correctly or a type II error has been made. Recall that the decision being made controls the type I error rate, that is the false positive rate, at, for example, (point) 05, for both mathematical and historical reasons.
+
+### Parameters and Confidence Interval
+
+Until now, the research question at hand has been a question of comparison. What if, instead, the research question is one of estimation?
+
+For example, "under which diet plan will participants lose more weight on average" is a comparative question and we use a hypothesis test. "How much should participants expect to lose on average" is an estimation question for which we use confidence intervals. Or
+
+another example is the comparative question: "which of two car manufacturers are drivers more likely to recommend to their friends?" Hypothesis testing is used to analyze that question. But: "what percent of users are likely to recommend Subaru to their friends" is an estimation problem and we use confidence intervals to answer that question.
+
+One more, the comparative question: "are education level and average income linearly related" is addressed with a hypothesis test. The estimation question: "for each additional year of education, what is the predicted average income" uses a confidence interval. OK, you see the pattern.
+
+Parameter
+
+For each of the estimation problems, we need to understand what a parameter is. A parameter is a numerical value from the population.
+
+So in the first example, the parameter is the true average amount that all dieters will lose on a particular program. In the second example, the parameter is the proportion of individuals in the population who recommend Subaru cars. And the last parameter is the average income of all individuals in the population with a particular education level.
+
+Confidence interval
+
+A confidence interval is a range of numbers that hopefully captures the true parameter value of interest.
+
+For example, at the end of the course, we'll be able to make conclusions along the lines of "we are 95% confident that somewhere between 12% and 34% of the entire population recommends Subarus." That is, the goal in creating a confidence interval is to calculate a range of plausible values for the parameter of interest.
+
+```{r}
+# Compute p-hat for each poll
+ex1_props <- all_polls %>% 
+  # Group by poll
+  group_by(poll) %>% 
+  # Calculate proportion of yes votes
+  summarize(stat = mean(vote == "yes"))
+  
+# Review the result
+ex1_props
+```
+
+## Introduction to Regression with R
+
+Regression models are a class of statistical models that let you explore the relationship between a response variable and some explanatory variables.
+
+Linear regression is used when the response variable is numeric, like in the motor insurance dataset. Logistic regression is used when the response variable is logical. That is, it takes TRUE or FALSE values. We'll limit the scope further to only consider simple linear regression and simple logistic regression. This means you only have a single explanatory variable.
+
+it's a good idea to visualize your dataset. To visualize the relationship between two numeric variables, you can use a scatter plot.
+
+add a trend line to the scatter plot. A trend line means fitting a line that follows the data points. In ggplot, trend lines are added using geom_smooth(). Setting the method argument to "lm", for "linear model" gives a trend line calculated with a linear regression.
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(fst)
+
+taiwan_real_estate <- read.fst("data/taiwan_real_estate.fst")
+
+ggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq))+
+  geom_point(alpha = 0.5)+
+  geom_smooth(method = "lm",
+              se = FALSE)
+```
+
+Straight lines are completely defined by two properties. The intercept is the y value when x is zero. The slope is the steepness of the line, equal to the amount y increases if you increase x by one. $$ y = intercept + slope * x $$
+
+```{r}
+mdl_price_vs_conv <- lm(price_twd_msq ~ n_convenience, data = taiwan_real_estate)
+```
+
+The intercept is positive, so a house with no convenience stores nearby still has a positive price. The coefficient for convenience stores is also positive, so as the number of nearby convenience stores increases, so does the price of the house.
+
+### Categorical explanatory variables
+
+To visualize the data, scatter plots aren't ideal because species is categorical. Instead, we can draw a histogram for each of the species.
+
+Let's calculate some summary statistics. First we group by species then we summarize to calculate their mean masses.
+
+```{r}
+# Using taiwan_real_estate, plot price_twd_msq
+ggplot(taiwan_real_estate, aes(price_twd_msq)) +
+  # Make it a histogram with 10 bins
+  geom_histogram(bins = 10) +
+  # Facet the plot so each house age group gets its own panel
+  facet_wrap(~ house_age_years)
+```
+
+It appears that new houses are the most expensive on average, and the medium aged ones (15 to 30 years) are the cheapest.
+
+Calculating means by category
+
+```{r}
+summary_stats <- taiwan_real_estate %>% 
+  # Group by house age
+  group_by(house_age_years) %>% 
+  # Summarize to calculate the mean house price/area
+  summarize(mean_by_group = mean(price_twd_msq))
+
+# See the result
+summary_stats
+
+```
+
+lm() with a categorical explanatory variable
+
+```{r}
+# Run a linear regression of price_twd_msq vs. house_age_years
+mdl_price_vs_age <- lm(
+  price_twd_msq ~ house_age_years, 
+  data = taiwan_real_estate
+)
+
+# See the result
+mdl_price_vs_age
+```
+
+```{r}
+# Update the model formula to remove the intercept
+mdl_price_vs_age_no_intercept <- lm(
+  price_twd_msq ~ house_age_years +0, 
+  data = taiwan_real_estate
+)
+
+# See the result
+mdl_price_vs_age_no_intercept
+```
+
+This is a reassuringly boring result. When you only have a single, categorical explanatory variable, the linear regression coefficients are the means of each category.
+
+### Predictions
+
+The big benefit of running models rather than simply calculating descriptive statistics is that models let you make predictions. Before we can make predictions, we need a model.
+
+The principle behind predicting is to ask questions of the form "if I set the explanatory variables to these values, what value would the response variable have?".
+
+```{r}
+
+library(tibble)
+# From previous steps
+explanatory_data <- tibble(
+  n_convenience = 0:10
+)
+
+# Edit this, so predictions are stored in prediction_data
+predict(mdl_price_vs_conv, explanatory_data)
+
+# See the result
+prediction_data <- explanatory_data %>%
+mutate(
+  price_twd_msq = predict(mdl_price_vs_conv, explanatory_data)
+)
+```
+
+Having the predictions in a data frame will make it easier to visualize them.
+
+```{r}
+# Add to the plot
+ggplot(taiwan_real_estate, aes(n_convenience, price_twd_msq)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  # Add a point layer of prediction data, colored yellow
+  geom_point(
+    data = prediction_data, color = "yellow"
+  )
+```
+
+```{r}
+summary(mdl_price_vs_conv)
+```
+
+### Using Broom Package
+
+```{r}
+library(broom)
+tidy(mdl_price_vs_conv)
+augment(mdl_price_vs_conv)
+glance(mdl_price_vs_conv)
+```
+
+### Assessing model fit
+
+Quantifyig model fit
+
+1.  r-squared or the coefficient of determination
+
+It is defined as the proportion of the variance in the response variable that is predictable from the explanatory variable.
+
+glance from broom and call r-squared
+
+For simple linear regression, the interpretation of the coefficient of determination is straightforward. It is simply the correlation between the explanatory and response variables, squared.
+
+2.  Residual standard error (RSE)
+
+The RSE is, very roughly speaking, a measure of the typical size of the residuals. That is, how much the predictions are typically wrong by. It has the same unit as the response variable.
+
+Residual standard error (RSE) is a measure of the typical size of the residuals. Equivalently, it's a measure of how badly wrong you can expect predictions to be. Smaller numbers are better, with zero being a perfect fit to the data.
+
+```{r}
+mdl_price_vs_conv %>% 
+  glance() %>% 
+  pull(sigma, r.squared)
+# sigma is RSE
+
+```
+
+3.  Root-mean-square error (RMSE)
+
+You need to be aware that RMSE exists, but typically you should use RSE instead.
+
+```{r}
+
+ad_conversion <- read.fst("data/ad_conversion.fst")
+
+mdl_nclick_impression <- lm(n_impressions ~ n_clicks, data = ad_conversion)
+
+mdl_nclick_impression %>% 
+  glance() %>% 
+  pull(sigma)
+```
+
+```{r}
+library(ggfortify)
+autoplot(mdl_nclick_impression, which= 1:3, nrow = 3, ncol =1)
+```

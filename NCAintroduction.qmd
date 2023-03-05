@@ -1,6 +1,37 @@
 ---
-title: "NCA-Introduction"
+title: "Noncompartmental Data Analysis (105-OD) "
 ---
+
+Noncompartmental analysis (NCA) is a fundamental tool used 
+
+- to analyze pharmacokinetic or drug concentration time data 
+
+- to understand better how the body handles the drug
+
+In this course you will learn 
+
+- how to calculate parameters associated with non-compartmental analysis
+
+- What those parameters mean 
+
+- what their impact is and how to interpret changes in the parameters
+
+We will examine all the equations and methodologies that are employed in NCA  
+
+Topics to cover:
+
+
+Observed parameters
+Half-life
+Area Under the Curve AUC
+Clearance 
+Statistical moments
+Data presentation
+Bioequivalnece 
+Study design consideration
+Limitations
+
+
 
 ## Presenting PK results
 
