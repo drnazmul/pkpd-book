@@ -164,7 +164,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NCAintroduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">NCA-Introduction</span></a>
+  <a href="./NCAintroduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Noncompartmental Data Analysis (105-OD)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -228,6 +228,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#p-value" id="toc-p-value" class="nav-link" data-scroll-target="#p-value"><span class="toc-section-number">6.3.2</span>  p value</a></li>
   <li><a href="#statistical-significance" id="toc-statistical-significance" class="nav-link" data-scroll-target="#statistical-significance"><span class="toc-section-number">6.3.3</span>  Statistical significance</a></li>
   <li><a href="#confidence-intervals" id="toc-confidence-intervals" class="nav-link" data-scroll-target="#confidence-intervals"><span class="toc-section-number">6.3.4</span>  Confidence intervals</a></li>
+  <li><a href="#proportion-tests" id="toc-proportion-tests" class="nav-link" data-scroll-target="#proportion-tests"><span class="toc-section-number">6.3.5</span>  Proportion Tests</a></li>
+  <li><a href="#non-parametric-tests" id="toc-non-parametric-tests" class="nav-link" data-scroll-target="#non-parametric-tests"><span class="toc-section-number">6.3.6</span>  Non-parametric tests</a></li>
+  </ul></li>
+  <li><a href="#foundations-of-inference" id="toc-foundations-of-inference" class="nav-link" data-scroll-target="#foundations-of-inference"><span class="toc-section-number">6.4</span>  Foundations of Inference</a>
+  <ul class="collapse">
+  <li><a href="#nhanes-home-owners-data" id="toc-nhanes-home-owners-data" class="nav-link" data-scroll-target="#nhanes-home-owners-data"><span class="toc-section-number">6.4.1</span>  NHANES home owner’s data</a></li>
+  <li><a href="#gender-discrimination" id="toc-gender-discrimination" class="nav-link" data-scroll-target="#gender-discrimination"><span class="toc-section-number">6.4.2</span>  Gender Discrimination</a></li>
+  <li><a href="#opportunity-cost" id="toc-opportunity-cost" class="nav-link" data-scroll-target="#opportunity-cost"><span class="toc-section-number">6.4.3</span>  Opportunity Cost</a></li>
+  <li><a href="#error-in-hypothesis-testing" id="toc-error-in-hypothesis-testing" class="nav-link" data-scroll-target="#error-in-hypothesis-testing"><span class="toc-section-number">6.4.4</span>  Error in hypothesis testing</a></li>
+  <li><a href="#parameters-and-confidence-interval" id="toc-parameters-and-confidence-interval" class="nav-link" data-scroll-target="#parameters-and-confidence-interval"><span class="toc-section-number">6.4.5</span>  Parameters and Confidence Interval</a></li>
+  </ul></li>
+  <li><a href="#introduction-to-regression-with-r" id="toc-introduction-to-regression-with-r" class="nav-link" data-scroll-target="#introduction-to-regression-with-r"><span class="toc-section-number">6.5</span>  Introduction to Regression with R</a>
+  <ul class="collapse">
+  <li><a href="#categorical-explanatory-variables" id="toc-categorical-explanatory-variables" class="nav-link" data-scroll-target="#categorical-explanatory-variables"><span class="toc-section-number">6.5.1</span>  Categorical explanatory variables</a></li>
+  <li><a href="#predictions" id="toc-predictions" class="nav-link" data-scroll-target="#predictions"><span class="toc-section-number">6.5.2</span>  Predictions</a></li>
+  <li><a href="#using-broom-package" id="toc-using-broom-package" class="nav-link" data-scroll-target="#using-broom-package"><span class="toc-section-number">6.5.3</span>  Using Broom Package</a></li>
+  <li><a href="#assessing-model-fit" id="toc-assessing-model-fit" class="nav-link" data-scroll-target="#assessing-model-fit"><span class="toc-section-number">6.5.4</span>  Assessing model fit</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -764,6 +781,393 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>If you give a single estimate of a sample statistic, you are bound to be wrong by some amount. For example, the hypothesized proportion of late shipments was 6%. Even if evidence suggests the null hypothesis that the proportion of late shipments is equal to this, for any new sample of shipments, the proportion is likely to be a little different. Consequently, it’s a good idea to state a confidence interval. That is, you say “we are 95% ‘confident’ the proportion of late shipments is between A and B” (for some value of A and B).</p>
 <p>Sampling in R demonstrated two methods for calculating confidence intervals. Here, you’ll use quantiles of the bootstrap distribution to calculate the confidence interval.</p>
 <p>When you have a confidence interval width equal to one minus the significance level, if the hypothesized population parameter is within the confidence interval, you should fail to reject the null hypothesis.</p>
+</section>
+<section id="proportion-tests" class="level3" data-number="6.3.5">
+<h3 data-number="6.3.5" class="anchored" data-anchor-id="proportion-tests"><span class="header-section-number">6.3.5</span> Proportion Tests</h3>
+<p>The t-test is needed for tests of mean(s) since you are estimating two unknown quantities, which leads to more variability.</p>
+</section>
+<section id="non-parametric-tests" class="level3" data-number="6.3.6">
+<h3 data-number="6.3.6" class="anchored" data-anchor-id="non-parametric-tests"><span class="header-section-number">6.3.6</span> Non-parametric tests</h3>
+<p>Assumptions in hypothesis testing</p>
+<p>Each hypothesis test makes assumptions about the data. It’s only when these assumptions are met that it is appropriate to use that hypothesis test.</p>
+<p>Randomness</p>
+<p>Whether it uses one or two samples, every hypothesis test assumes that each sample is randomly sourced from its population. If you don’t have a random sample, then it won’t be representative of the population. To check this assumption, you need to know where your data came from. There are no statistical or coding tests you can perform to check this. If in doubt, ask the people involved in collecting the data, or a domain expert that understands the population being sampled.</p>
+<p>Independence of observations</p>
+<p>Tests also assume that each observation is independent. There are some special cases like paired t-tests where dependencies between two samples are allowed, but these change the calculations so you need to understand where such dependencies occur. As you saw with the paired t-test, not accounting for dependencies results in an increased chance of false negative and false positive errors. This is also a difficult problem to diagnose after you have the data. It needs to be discussed before data collection.</p>
+<p>Large sample size</p>
+<p>Hypothesis tests also assume that your sample is big enough. Smaller samples incur greater uncertainty, and mean that the Central Limit Theorem doesn’t apply, which in turn means that the sampling distribution might not be normally distributed. The increased uncertainty means you get wider confidence intervals on the parameter you are trying to estimate. The Central Limit Theorem not applying means the calculations on the sample could be nonsense, which increases the chance of false negative and positive errors. The check for “big enough” depends on the test and that’s where we’ll head next.</p>
+<p>Large sample size: t-test</p>
+<p>For one sample t-tests, a popular heuristic is that you need at least thirty observations in your sample. For the two sample case or ANOVA, you need thirty observations in each. That means you can’t compensate for one small group sample by making the other one bigger. In the paired case, you need thirty pairs of observations.</p>
+<p>Large sample size: proportion tests</p>
+<p>For one sample proportion tests, the sample is considered big enough if it contains at least ten successes and ten failures. Notice that if the probability of success is close to zero or close to one, then you need a bigger sample. In the two sample case the size requirements apply to each sample separately.</p>
+<p>Large sample size: chi-square tests</p>
+<p>The chi-square test is slightly more forgiving and only requires five successes and failures in each group rather than ten.</p>
+<p>Sanity check</p>
+<p>One more check you can perform is to calculate a bootstrap distribution and visualize it with a histogram. If you don’t see a bell-shaped normal curve, then one of the assumptions hasn’t been met. In that case, you should revisit the data collection process, and see if any of the three assumptions of randomness, independence, and sample size do not hold.</p>
+</section>
+</section>
+<section id="foundations-of-inference" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="foundations-of-inference"><span class="header-section-number">6.4</span> Foundations of Inference</h2>
+<section id="nhanes-home-owners-data" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="nhanes-home-owners-data"><span class="header-section-number">6.4.1</span> NHANES home owner’s data</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load packages</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(NHANES)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># What are the variables in the NHANES dataset?</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(NHANES)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>let’s investigate the relationship between gender and home ownership calculate the original observed statistic</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>homes <span class="ot">&lt;-</span> NHANES <span class="sc">%&gt;%</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Gender, HomeOwn) <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(HomeOwn <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Own"</span>, <span class="st">"Rent"</span>))</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>homes</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>diff_orig <span class="ot">&lt;-</span> homes <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Gender) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prop_org =</span> <span class="fu">mean</span>(HomeOwn <span class="sc">==</span> <span class="st">"Own"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">diff</span>(prop_org)) <span class="sc">%&gt;%</span> </span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Randomized data under null model of independence</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>homeown_perm <span class="ot">&lt;-</span> homes <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(HomeOwn <span class="sc">~</span> Gender, <span class="at">success =</span> <span class="st">"Own"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co">#the distribution of randomized statistics</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(homeown_perm, <span class="fu">aes</span>(<span class="at">x =</span> stat))<span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_dotplot</span>(<span class="at">binwidth =</span> <span class="fl">0.001</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>geom density</p>
+<p>Do the data come from the population?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(homeown_perm, <span class="fu">aes</span>(<span class="at">x =</span> stat))<span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>()<span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> diff_orig), <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Compare permuted differences to observed difference</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>homeown_perm <span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n_perm_le_obs =</span> <span class="fu">sum</span>(stat <span class="sc">&lt;=</span> diff_orig))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>223 permuted differences are more extreme than the observed difference. This only represents 21.2% of the null statistics, so you can conclude that the observed difference is consistent with the permuted distribution.</p>
+</section>
+<section id="gender-discrimination" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="gender-discrimination"><span class="header-section-number">6.4.2</span> Gender Discrimination</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(openintro)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>disc <span class="ot">&lt;-</span> sex_discrimination</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>disc <span class="sc">%&gt;%</span> </span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sex, decision)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>disc_orig <span class="ot">&lt;-</span> disc <span class="sc">%&gt;%</span> </span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sex) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">promoted_prop =</span> <span class="fu">mean</span>(decision <span class="sc">==</span> <span class="st">"promoted"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">diff</span>(promoted_prop)) <span class="sc">%&gt;%</span> </span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>disc_orig</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>As the first step of any analysis, you should look at and summarize the data. Categorical variables are often summarized using proportions, and it is always important to understand the denominator of the proportion.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>disc_perm <span class="ot">&lt;-</span> disc <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(decision <span class="sc">~</span> sex, <span class="at">success =</span> <span class="st">"promoted"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"male"</span>, <span class="st">"female"</span>))</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>disc_perm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(disc_perm, <span class="fu">aes</span>(<span class="at">x =</span> stat))<span class="sc">+</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.01</span>)<span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> disc_orig), <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>p-value measures the degree of disagreement between the data and the null hypothesis. here, you’re only interested in the one-sided hypothesis test here. That is, you’re trying to answer the question, “Are men more likely to be promoted than women?”</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>disc_perm <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualise</span>(<span class="at">obs_stat =</span> disc_orig, <span class="at">direction =</span> <span class="st">"greater"</span>)</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>disc_perm <span class="sc">%&gt;%</span> </span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> disc_orig, <span class="at">direction =</span> <span class="st">"greater"</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Calculating p values</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>disc_perm <span class="sc">%&gt;%</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">p_value =</span> <span class="fu">mean</span>(disc_orig <span class="sc">&gt;=</span> stat))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>how the p-value is computed here. First we identify permuted differences that are larger than or equal to the observed statistic and label those situations with a 1, all other permutations receiving a zero. By averaging the 0s and 1s, the mean gives the proportion of times the permuted difference is larger than or equal to the observed difference. Because (point) 03 is less than (point) 05, we reject the null hypothesis and claim that men are promoted at a higher rate than women. That is, we conclude that it was not simply random variability which led to a higher proportion of men being promoted. A p-value of (point) 03 is reasonably close to (point) 05 which means we should be somewhat careful in making strong claims.</p>
+</section>
+<section id="opportunity-cost" class="level3" data-number="6.4.3">
+<h3 data-number="6.4.3" class="anchored" data-anchor-id="opportunity-cost"><span class="header-section-number">6.4.3</span> Opportunity Cost</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>opportunity_cost <span class="sc">%&gt;%</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(group, decision)</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>opportunity_cost <span class="sc">%&gt;%</span> </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span> </span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">buy_prop =</span> <span class="fu">mean</span>(decision <span class="sc">==</span> <span class="st">"buy video"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The barplot better displays the results from the study. The treatment seems like it might have had an effect.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot group, filled by decision</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(opportunity_cost, <span class="fu">aes</span>(<span class="at">x =</span> group, <span class="at">fill =</span> decision)) <span class="sc">+</span> </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a bar layer, with position "fill"</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">position =</span> <span class="st">"fill"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Point estimate</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the observed difference in purchase rate</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>diff_obs <span class="ot">&lt;-</span> opportunity_cost <span class="sc">%&gt;%</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group by group</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group) <span class="sc">%&gt;%</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate proportion deciding to buy a DVD</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">prop_buy =</span> <span class="fu">mean</span>(decision <span class="sc">==</span> <span class="st">"buy video"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate difference between groups</span></span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">stat =</span> <span class="fu">diff</span>(prop_buy)) <span class="sc">%&gt;%</span> </span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>diff_obs</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create data frame of permuted differences in purchase rates</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>opp_perm <span class="ot">&lt;-</span> opportunity_cost <span class="sc">%&gt;%</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Specify decision vs. group, where success is buying a DVD</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">specify</span>(decision <span class="sc">~</span> group, <span class="at">success =</span> <span class="st">"buy video"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set the null hypothesis to independence</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hypothesise</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Generate 1000 reps of type permute</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate the summary stat difference in proportions</span></span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in props"</span>, <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"treatment"</span>, <span class="st">"control"</span>))</span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Review the result</span></span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>opp_perm</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using the permuation data, plot stat</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(opp_perm, <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span> </span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a histogram layer with binwidth 0.005</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="fl">0.005</span>) <span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a vline layer with intercept diff_obs</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="fu">aes</span>(<span class="at">xintercept =</span> diff_obs), <span class="at">color =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>you’ll calculate the p-value to judge if the difference in proportions permuted is consistent with the observed difference.</p>
+<p>Now that you’ve created the randomization distribution, you’ll use it to assess whether the observed difference in proportions is consistent with the null difference. You will measure this consistency (or lack thereof) with a p-value, or the proportion of permuted differences less than or equal to the observed difference.</p>
+<p>visualize and get_p_value using the built in infer functions. Remember that the null statistics are above the original difference, so the p-value (which represents how often a null value is more extreme) is calculated by counting the number of null values which are less than the original difference.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualize the statistic </span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(infer)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>opp_perm <span class="sc">%&gt;%</span></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">visualize</span>()<span class="sc">+</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span>diff_obs, <span class="at">direction =</span> <span class="st">"left"</span> )</span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the p-value using `get_p_value`</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>opp_perm <span class="sc">%&gt;%</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> diff_obs, <span class="at">direction =</span> <span class="st">"left"</span>)</span>
+<span id="cb31-10"><a href="#cb31-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-11"><a href="#cb31-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the p-value using `summarize`</span></span>
+<span id="cb31-12"><a href="#cb31-12" aria-hidden="true" tabindex="-1"></a>opp_perm <span class="sc">%&gt;%</span></span>
+<span id="cb31-13"><a href="#cb31-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">p_value =</span> <span class="fu">mean</span>(stat <span class="sc">&lt;=</span> diff_obs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The small p-value indicates that the observed data are inconsistent with the null hypothesis. We should reject the null claim and conclude that financial advice does affect the likelihood of purchase.</p>
+</section>
+<section id="error-in-hypothesis-testing" class="level3" data-number="6.4.4">
+<h3 data-number="6.4.4" class="anchored" data-anchor-id="error-in-hypothesis-testing"><span class="header-section-number">6.4.4</span> Error in hypothesis testing</h3>
+<p>there are two possible decisions to make in hypothesis testing. 1. Either the observed data are inconsistent with the null hypothesis, in which case the null hypothesis is rejected.</p>
+<ol start="2" type="1">
+<li>Or the observed data are consistent with the null hypothesis,in which case the null hypothesis is not rejected and no conclusion is made about a larger population.</li>
+</ol>
+<p>There are also two possible “truth” states: either the null hypothesis is true or the alternative hypothesis is true.</p>
+<p><img src="images/image-2079919460.png" class="img-fluid" width="441"></p>
+<p>the goal of the scientific study is to be in the bottom box where the alternative hypothesis is true and the data provide convincing evidence to reject the null hypothesis.</p>
+<p>However, any of the other three boxes are also possible. We cannot know which row has resulted, but we do know which conclusion has been made, thereby specifying the column.</p>
+<p>Which is to say, if the null hypothesis is rejected, then either the science is correct or a type I error has been made. If the null hypothesis is not rejected, it has either been done so correctly or a type II error has been made. Recall that the decision being made controls the type I error rate, that is the false positive rate, at, for example, (point) 05, for both mathematical and historical reasons.</p>
+</section>
+<section id="parameters-and-confidence-interval" class="level3" data-number="6.4.5">
+<h3 data-number="6.4.5" class="anchored" data-anchor-id="parameters-and-confidence-interval"><span class="header-section-number">6.4.5</span> Parameters and Confidence Interval</h3>
+<p>Until now, the research question at hand has been a question of comparison. What if, instead, the research question is one of estimation?</p>
+<p>For example, “under which diet plan will participants lose more weight on average” is a comparative question and we use a hypothesis test. “How much should participants expect to lose on average” is an estimation question for which we use confidence intervals. Or</p>
+<p>another example is the comparative question: “which of two car manufacturers are drivers more likely to recommend to their friends?” Hypothesis testing is used to analyze that question. But: “what percent of users are likely to recommend Subaru to their friends” is an estimation problem and we use confidence intervals to answer that question.</p>
+<p>One more, the comparative question: “are education level and average income linearly related” is addressed with a hypothesis test. The estimation question: “for each additional year of education, what is the predicted average income” uses a confidence interval. OK, you see the pattern.</p>
+<p>Parameter</p>
+<p>For each of the estimation problems, we need to understand what a parameter is. A parameter is a numerical value from the population.</p>
+<p>So in the first example, the parameter is the true average amount that all dieters will lose on a particular program. In the second example, the parameter is the proportion of individuals in the population who recommend Subaru cars. And the last parameter is the average income of all individuals in the population with a particular education level.</p>
+<p>Confidence interval</p>
+<p>A confidence interval is a range of numbers that hopefully captures the true parameter value of interest.</p>
+<p>For example, at the end of the course, we’ll be able to make conclusions along the lines of “we are 95% confident that somewhere between 12% and 34% of the entire population recommends Subarus.” That is, the goal in creating a confidence interval is to calculate a range of plausible values for the parameter of interest.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute p-hat for each poll</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>ex1_props <span class="ot">&lt;-</span> all_polls <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group by poll</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(poll) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculate proportion of yes votes</span></span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">stat =</span> <span class="fu">mean</span>(vote <span class="sc">==</span> <span class="st">"yes"</span>))</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Review the result</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>ex1_props</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="introduction-to-regression-with-r" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="introduction-to-regression-with-r"><span class="header-section-number">6.5</span> Introduction to Regression with R</h2>
+<p>Regression models are a class of statistical models that let you explore the relationship between a response variable and some explanatory variables.</p>
+<p>Linear regression is used when the response variable is numeric, like in the motor insurance dataset. Logistic regression is used when the response variable is logical. That is, it takes TRUE or FALSE values. We’ll limit the scope further to only consider simple linear regression and simple logistic regression. This means you only have a single explanatory variable.</p>
+<p>it’s a good idea to visualize your dataset. To visualize the relationship between two numeric variables, you can use a scatter plot.</p>
+<p>add a trend line to the scatter plot. A trend line means fitting a line that follows the data points. In ggplot, trend lines are added using geom_smooth(). Setting the method argument to “lm”, for “linear model” gives a trend line calculated with a linear regression.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fst)</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>taiwan_real_estate <span class="ot">&lt;-</span> <span class="fu">read.fst</span>(<span class="st">"data/taiwan_real_estate.fst"</span>)</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(n_convenience, price_twd_msq))<span class="sc">+</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">se =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Straight lines are completely defined by two properties. The intercept is the y value when x is zero. The slope is the steepness of the line, equal to the amount y increases if you increase x by one. <span class="math display">\[ y = intercept + slope * x \]</span></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>mdl_price_vs_conv <span class="ot">&lt;-</span> <span class="fu">lm</span>(price_twd_msq <span class="sc">~</span> n_convenience, <span class="at">data =</span> taiwan_real_estate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The intercept is positive, so a house with no convenience stores nearby still has a positive price. The coefficient for convenience stores is also positive, so as the number of nearby convenience stores increases, so does the price of the house.</p>
+<section id="categorical-explanatory-variables" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="categorical-explanatory-variables"><span class="header-section-number">6.5.1</span> Categorical explanatory variables</h3>
+<p>To visualize the data, scatter plots aren’t ideal because species is categorical. Instead, we can draw a histogram for each of the species.</p>
+<p>Let’s calculate some summary statistics. First we group by species then we summarize to calculate their mean masses.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Using taiwan_real_estate, plot price_twd_msq</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(price_twd_msq)) <span class="sc">+</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Make it a histogram with 10 bins</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Facet the plot so each house age group gets its own panel</span></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> house_age_years)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>It appears that new houses are the most expensive on average, and the medium aged ones (15 to 30 years) are the cheapest.</p>
+<p>Calculating means by category</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="ot">&lt;-</span> taiwan_real_estate <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group by house age</span></span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(house_age_years) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Summarize to calculate the mean house price/area</span></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">mean_by_group =</span> <span class="fu">mean</span>(price_twd_msq))</span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="co"># See the result</span></span>
+<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>summary_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>lm() with a categorical explanatory variable</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run a linear regression of price_twd_msq vs. house_age_years</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>mdl_price_vs_age <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  price_twd_msq <span class="sc">~</span> house_age_years, </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> taiwan_real_estate</span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a><span class="co"># See the result</span></span>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>mdl_price_vs_age</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Update the model formula to remove the intercept</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>mdl_price_vs_age_no_intercept <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  price_twd_msq <span class="sc">~</span> house_age_years <span class="sc">+</span><span class="dv">0</span>, </span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> taiwan_real_estate</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="co"># See the result</span></span>
+<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>mdl_price_vs_age_no_intercept</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is a reassuringly boring result. When you only have a single, categorical explanatory variable, the linear regression coefficients are the means of each category.</p>
+</section>
+<section id="predictions" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="predictions"><span class="header-section-number">6.5.2</span> Predictions</h3>
+<p>The big benefit of running models rather than simply calculating descriptive statistics is that models let you make predictions. Before we can make predictions, we need a model.</p>
+<p>The principle behind predicting is to ask questions of the form “if I set the explanatory variables to these values, what value would the response variable have?”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tibble)</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="co"># From previous steps</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>explanatory_data <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_convenience =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Edit this, so predictions are stored in prediction_data</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mdl_price_vs_conv, explanatory_data)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a><span class="co"># See the result</span></span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>prediction_data <span class="ot">&lt;-</span> explanatory_data <span class="sc">%&gt;%</span></span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(</span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">price_twd_msq =</span> <span class="fu">predict</span>(mdl_price_vs_conv, explanatory_data)</span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Having the predictions in a data frame will make it easier to visualize them.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add to the plot</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(taiwan_real_estate, <span class="fu">aes</span>(n_convenience, price_twd_msq)) <span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Add a point layer of prediction data, colored yellow</span></span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> prediction_data, <span class="at">color =</span> <span class="st">"yellow"</span></span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-broom-package" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="using-broom-package"><span class="header-section-number">6.5.3</span> Using Broom Package</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(mdl_price_vs_conv)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">augment</span>(mdl_price_vs_conv)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(mdl_price_vs_conv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="assessing-model-fit" class="level3" data-number="6.5.4">
+<h3 data-number="6.5.4" class="anchored" data-anchor-id="assessing-model-fit"><span class="header-section-number">6.5.4</span> Assessing model fit</h3>
+<p>Quantifyig model fit</p>
+<ol type="1">
+<li>r-squared or the coefficient of determination</li>
+</ol>
+<p>It is defined as the proportion of the variance in the response variable that is predictable from the explanatory variable.</p>
+<p>glance from broom and call r-squared</p>
+<p>For simple linear regression, the interpretation of the coefficient of determination is straightforward. It is simply the correlation between the explanatory and response variables, squared.</p>
+<ol start="2" type="1">
+<li>Residual standard error (RSE)</li>
+</ol>
+<p>The RSE is, very roughly speaking, a measure of the typical size of the residuals. That is, how much the predictions are typically wrong by. It has the same unit as the response variable.</p>
+<p>Residual standard error (RSE) is a measure of the typical size of the residuals. Equivalently, it’s a measure of how badly wrong you can expect predictions to be. Smaller numbers are better, with zero being a perfect fit to the data.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>mdl_price_vs_conv <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sigma, r.squared)</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sigma is RSE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Root-mean-square error (RMSE)</li>
+</ol>
+<p>You need to be aware that RMSE exists, but typically you should use RSE instead.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>ad_conversion <span class="ot">&lt;-</span> <span class="fu">read.fst</span>(<span class="st">"data/ad_conversion.fst"</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>mdl_nclick_impression <span class="ot">&lt;-</span> <span class="fu">lm</span>(n_impressions <span class="sc">~</span> n_clicks, <span class="at">data =</span> ad_conversion)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>mdl_nclick_impression <span class="sc">%&gt;%</span> </span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glance</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(sigma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggfortify)</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(mdl_nclick_impression, <span class="at">which=</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
