@@ -2,38 +2,359 @@
 title: "Noncompartmental Data Analysis (105-OD) "
 ---
 
-Noncompartmental analysis (NCA) is a fundamental tool used 
+Noncompartmental analysis (NCA) is a fundamental tool used
 
-- to analyze pharmacokinetic or drug concentration time data 
+-   to analyze pharmacokinetic or drug concentration time data
 
-- to understand better how the body handles the drug
+-   to understand better how the body handles the drug
 
-In this course you will learn 
+In this course you will learn
 
-- how to calculate parameters associated with non-compartmental analysis
+-   how to calculate parameters associated with non-compartmental analysis
 
-- What those parameters mean 
+-   What those parameters mean
 
-- what their impact is and how to interpret changes in the parameters
+-   what their impact is and how to interpret changes in the parameters
 
-We will examine all the equations and methodologies that are employed in NCA  
+We will examine all the equations and methodologies that are employed in NCA
 
 Topics to cover:
 
+-   Observed parameters
 
-Observed parameters
+-   Half-life
 
-Half-life
-Area Under the Curve AUC
-Clearance 
-Statistical moments
-Data presentation
-Bioequivalnece 
-Study design consideration
-Limitations
+-   Area Under the Curve AUC
 
-Observed parameters
+-   Clearance
 
+-   Statistical moments
+
+-   Data presentation
+
+-   Bioequivalnece
+
+-   Study design consideration
+
+-   Limitations of NCA
+
+## Observed parameters
+
+In this lecture, we will explore concentration data and see how we obtain some of the parameters directly from the observed data.
+
+It is important to note that NCA is not based on a model but is based on observed data and therefore some of the parameters are directly obtained from observations
+
+### Concentration:
+
+amount of substance per unit volume
+
+Units ng/mL, ug/mL, pg/mL, umol/L, nmol/L
+
+Concentration is measured with different techniques.
+
+Terms used in concentration data in PK: LOQ, LLOQ, LOD, ULOQ or ULQ, Preision, Accuracy
+
+LOQ creiteria: LOQ should be \<3% (five half lives) of expected peak concentration. Highest conc will be C~max~ and lowest will be 3% of C~max~.
+
+C~max~: the maximum value observed in a set of data.
+
+T~max~: The time of Cmax is the time axis was observed
+
+T~lag~: A lag time is the time of the last sample prior to the first sample with a measurable concentration. In intravascular or IV administration there is no lag time observed because we are dosing directly into the vein. Lag times occur only with extra vascular administration. For example let's imagine that we administer a drug in the form of a tablet after the tablet is swallowed it must dissolve in the stomach and then the dissolved drug must make its way to the small intestine to cross a membrane to reach the bloodstream
+
+![](images/image-1854326428.png)
+
+C~trough~: The trough concentration or C~trough~ is the concentration measured at the end of a dose interval at steady state here you can see that the troughs occur at about 8 hours and 20 hours. These samples were collected just prior to administering the next dose therefore in this data set the C~trough~ values are the concentrations measured at 8 and 20 hours which both appear to be about 10 ng/mL.
+
+![](images/image-1093880677.png)
+
+C~min~: a minimum concentration is the lowest concentration within a single dosing interval. it may be equal to the trough value but it may differ this example shows the case where a difference between the C~min~ and C~trough~:
+
+The dose was administered at 8 hours and you can see that the Ctough value is approximately 10 nanograms per milliliter but because there is a lag time in the absorption, the drug concentrations continue to fall after dosing at 9 hours. The concentration is fallen slightly to about 8 nanograms per milliliter after which the absorption process causes the concentration to increase therefore the minimum concentration is approximately 8 nanograms per milliliter but the trough concentration is 10 nanograms per milliliter. This is a very unique situation, it does not normally occur. Generally the minimum and trough concentrations are the same.
+
+![](images/image-1670859671.png)
+
+### Sampling Scheme
+
+the following have significant effect on the observed parameters:
+
+-   the times we choose to draw blood
+-   the frequency of those blood draws
+-   the scheduling of other events such as dosing relative to those blood draws
+
+how the Cmax is affected by time point selection. The two graphs seen here contain the exact same time concentration data The only difference is in the blood sampling times. in the curve on the left we have more frequent sampling around the peak we have samples at 1 hour 1.5 hours 2 hours 3 hours and 4 hours this results in a c max of 12 nanograms per milliliter at a time of 2 hours The CMax
+
+![](images/image-1757044115.png)
+
+You can't take blood samples at an infinite number of times invariably there's going to be a space between two blood samples and the concentration will peak in the interval during which no blood is taken you want to ensure that you have frequent sampling around the expected time of c max to maximize your chance of observing near the peak concentration
+
+everything we discussed regarding c max also applies to T-Max because T-Max is defined as the time at which we observe c max
+
+the Tlag is different in the two plots on the left t lag is at 1.5 hours and on the right it is at 1 hour you need to have sufficient sampling just after dosing to be able to determine if there is a lag time however lag time doesn't occur for every drug and a very short lag time such as 10 to 15 minutes may not be relevant therefore you should select time points that will enable you to determine if there is a lag time on the time scale that is relevant for your drug T~trough~ values are not really affected by the blood sample schedule as long as a sample is taken just prior to dose administration
+
+![](images/image-1299023243.png)
+
+The trough value is by definition the concentration just before the dose is administered usually it is appropriate to dose within 15 to 30 minutes of taking a trough sample if you wait much longer than 30 minutes you may not get a true trough however trying to dose too soon after collecting a trough sample may not be practical and it may lead to a cumbersome study design The minimum concentration can also be affected by the sampling schedule this can happen when there is a time lag in the absorption process if you collect a sample after dosing but within the time lag you may see a decrease in concentration after dosing
+
+these plots illustrate this phenomenon on the left the doses administered at 8 hours with sample collection at 1 hour intervals because of the time lag the concentration continues to decrease and at 1 hour post dose we collect a sample with a lower concentration than the previous sample at the dose time if we do not collect a sample within 1 hour after dosing we will not observe the decrease in concentration process causes the concentration time at 8 hours keep in mind that understanding lag time from your single dose data will help you design a proper sampling scheme for your minimum concentration samples. In conclusion remember that because you're observed parameters are taken directly from concentration time data nearly all of these parameters are dependent on the sampling scheme intensive sampling provides more accurate estimates for observed parameters
+
+![](images/image-455153789.png)
+
+## Half-life (t~1/2~)
+
+The time required for the observed concentration usually in plasma to decrease by 50%.
+
+let's take a look at half-life graphically. here we have a plot of the plasma concentration on the y-axis and time on the x-axis both axes are on a linear scale. in this plot on the figure we have indicated the concentration of 80 nanograms per milliliter with a dashed line it takes one half life for the concentration to drop to 40 nanograms per milliliter and then a second half life for to drop to 20 nanograms per milliliter
+
+![](images/image-1312941359.png)
+
+![](images/image-250818999.png)
+
+The half-life in this case is approximately 1 hour no matter where we start on the curve approximately an hour later the concentration will be cut in half here is the same data plotted on a semi logarithmic plot with the plasma concentration on a log scale. notice that on this scale it becomes a linear relationship which makes it very easy to determine the half-life here you see the same concentrations that we saw on the linear scale per milliliter. The time elapsed in each of these intervals. How do we determine the half-life in pharmacokinetics. First we assume there is a first order elimination during the terminal phase another words the change in concentration with respect to time can be represented by single term.
+
+![](images/image-1445163052.png)
+
+This how half-life in the elimination rate are related to one another if you have the elimination rate constant you can get the half-life and the inverse is also true if you have the half-life you can get the elimination rate constant
+
+we are making an important assumption that we have first order elimination during the terminal phase generally this is a reasonable assumption But if you have not reached the terminal phase you are estimating a half-life this relationship may not hold The half-life can affect plasma concentration curb significantly Shorter the half life faster the drug is eliminated Concentration time profiles we can see here that the initial portion of this profile has one slope and then the terminal phase has a separate slope phasic because there are two different processes that are occurring resulting in two different slopes eliminated
+
+![](images/image-175880357.png)
+
+After one half life 50% drag its eliminated after two half-life 75% drug eliminated and after three half-life 88% druggies eliminated Is considered normally after 5 and 7 half-lives considered complete elimination Half-life can be used to estimate washout time needed
+
+![](images/image-259525030.png)
+
+-   Half-life is the time required for a 50% reduction in the concentration of drug in the body
+
+-   Half-life is related to elimination rate constant for first order elimination only
+
+-   Half-life can be estimated from concentration time profiles
+
+-   Complete eliminatino (\>95%) requires 5 half-lives
+
+May not be a good estimate of the true concentration peak
+
+### General Guidance
+
+-   when calculating half-life plasma data is most often used however blood, urine or serum data can also be used to calculate terminal half-life values.
+
+-   We will concentrate on plasma data in this lecture and we will consider urine data in the next lecture
+
+-   even when we observe multiple phases in the time concentration curve we only calculate the terminal or last half-life when doing non-compartmental analysis
+
+-   we also assume first order elimination during the terminal elimination phase
+
+Phase should be considered and we need to transform that data by taking the log of the concentration second a minimum of three data points is required points should be
+
+1.  All concentration data in the terminal phase should be used (log-transformed)
+2.  A minimum of 3 data points is required
+3.  The last measurable concentration should be used unless it is greater than the previous concentration measurement
+4.  The maximum observed concentration Cmax should not be used
+5.  Values below BLQ should not be used
+
+Example:
+
+First plot the concentration time data on a semi-log scale and visually identify the terminal phase then perform a linear regression in the last three time points on your semilog plot. The slope is equal to the negative of the elimination rate constant. The intercept is not needed. r\^2 is the goodness of fit and values closer to one are better. finally we can use the equation of rate constant
+
+Another example:
+
+![](images/image-262193711.png)
+
+we will plot the data using a log scale for the y axis as you see here In this plot we need to identify the points that we will use to calculate the terminal elimination rate it looks like the terminal phase encompasses all but the first two data points which might be a different phase but generally it looks like a straight line from about 2 hours through 18 hours post dose In this first example we will simply use the last three points
+
+Regression we get a slope of negative 0.0949 and an r squared value of 0.930 which means that the line can explain 93% of the variability of the y-axis values remember that the elimination rate constant is the negative of the slope and therefore the rate constant is 0.949 hours to the -1 and then using the equation we saw previously we can calculate the half-life which turns out to be 7.3 hours after second half life it approximately 15 hours the concentration should only be 25% of its original value And now on the log scale we can see that there appear to be two phases first a distribution phase for about the first 3 hours followed by an elimination phase from about 4 hours to 24 hours we will focus on the terminal portion and we will not use any points from the earlier distribution phase although there may be as many as 6 points available in the terminal phase in this example we will just use the last three points for deciding on the optimal number of points to use in the fit but for now we're just going to use the last 3 points again we determine the slope by linear regression and get a slope of negative 0.07551 the r squared value is 999 indicating a high degree of correlation and explaining the variability we can determine the elimination rate constant and from that calculate the half-life which is 9.40 oral administration here you can see that the drug concentration increases over time
+
+Terminal elimination phase which appears to be between about two and eight hours again we will use just the last three points although it does appear that there are more points we could consider using linear regression using the last 3 points allows us to determine the slope of negative 749 with an r squared value of 0.990 therefore the terminal elimination rate constant is 0.749 hours to the -1 and the half-life is 93 hours this is a very short half-life but it does appear to be correct because the concentration decreases from about 150 in about an hour how do you select the right number of data points to use in the linear fit in all of our examples we use just three points but perhaps we should select four or five or even more data points to get a better terminal elimination rate constant estimate we will use an iterative process where you start with the fewest number of data points to the maximum number of data points allowed up to but not including c max we make pairwise comparisons and select for the largest value of r squared or adjusted r squared r squared is the correlation coefficient from a linear regression and it shows how much variability is explained by the linear regression an adjusted r squared gives a small penalty for adding data points r squared tends to increase as you add data points so this penalty offsets that natural increase
+
+![](images/image-841855473.png)
+
+The equation for adjusted r squared is shown here where r squared is the correlation coefficient and n is the number of data points used in the linear fit you adjusted r square will always be slightly smaller than the r squared value although the difference gets smaller is more points are used The minimum acceptable value of r squared or adjusted r squared is 0.60 some companies have SOPs where they require even larger r squared values but generally 0.6 is an appropriate limit below this value you can't have high confidence in your estimate of the terminal elimination rate constant here is the data from example 3 which we showed before previously we used the last 3 points in our curve fit and use just those points to estimate the slope and r squared values here we have estimated the slope using between three and seven data points and you can see that the slope changes slightly as we add points The third column has the r² is a little lower as we add that penalty for adding points but you can see that it also increases in peaks at six data points as well and then it falls off at 7:00 because the maximum adjusted r squared value occurs at 6 points we will be using 6 points in our calculation again summarizing the procedure you need to determine the r squared and adjusted r squared values as we increase the number of points in the stepwise fashion from the last three points up to the maximum number s in our fit In conclusion here In conclusion here are a few things you should remember from this lecture first that the terminal half life is calculated from the elimination rate constant and the elimination rate constant can be estimated from concentration time data you can follow the basic guidelines we presented using linear regression of semi-logarithmic data you want to use as much data as possible while maintaining the best correlation which is why we use the adjusted r squared to determine the number of points to use one last note about the slope fit ideally you would like to be able to use two to three half-lives of data in the terminal phase to get a reliable estimate of the terminal slope in the terminal phase you will still be able to calculate a slope but the reliability of your estimate will decrease and that concludes the second electron
+
+![](images/image-604220978.png)
+
+### Half-life of Urine data
+
+When determining half-life from urine data:
+
+-   As in plasma only the terminal or last half-life is calculated
+
+-   As in plasma we assume first order elimination during the terminal phase
+
+-   What is different about your data is that we determine the *renal elimination rate* which we assume to be proportional to plasma concentration. That assumption is usually true although in rare cases you may get an inaccurate result if it is not proportional.
+
+let's consider the equations involved in renal elimination on the left we can describe the renal elimination rate in terms of the renal clearance and the plasma concentrations. One important difference between plasma and urine data is that plasma concentrations are determined at discreet points in time but urine data is collected over a time interval.
+
+![](images/image-1498039710.png)
+
+We can determine the renal elimination rate during the collection interval using the equation on the right where V~ur~ is the volume of urine C~ur~ is the concentration of the drug in the urine and delta t is the change in time.
+
+the method that we will use is as follows
+
+1.  first we calculate the renal elimination rate for each urine collection interval using the equation.
+2.  we plot the renal elimination rate versus the midpoint of the collection interval on a semi-logarithmic scale
+3.  we perform linear regression to determine the slope r squared and the half-life and as with plasma data we don't need the intercept.
+
+let's take a look at an example of the renal elimination rate on this plot the y-axis is the renal elimination rate and milligrams per hour and the x-axis is the midpoint of the collection interval
+
+![](images/image-1950230546.png)
+
+notice that the intervals are about 2 hours apart at the beginning and then as long as 12 hours apart at the later times as with plasma data the semi-log plot is more useful let's take a look at that one
+
+![](images/image-2102253727.png)
+
+here to help us visualize the data we have plotted the intervals as a series of steps and the midpoint of each interval is plotted with a diamond symbol The y-axis again is the renal elimination rate but now it is on a log scale if we perform a linear regression using the last three points we get a slope of minus 0.146 and an r squared value of 0.999 the rate constant for renal elimination is then the negative of the slope or 0.146 hours 1 and from that we calculate a half-life before 7 hours The linear regression for urine data is done the same way as with plasma data but the difference is that we plotted the renal elimination rate in the concentration on the and on the x-axis we plot the midpoint of the interval.
+
+The rate constantly determine is the average renal elimination rate One question you might be asking is what else can we determine using the urine data Just as in plasma data we can estimate to wash out time which is given by the formula shown here wherein is the number of half-lives
+
+![](images/image-1285846155.png)
+
+same as plasma data issued expect 95% elimination within five have lives Finally remember that the half-life only predicts the time to steady state but it does not predict the plasma concentrations or the renal elimination rates that will be observed there are ways of predicting concentrations at steady state but those concentrations also depend on the dose amount in the interval of dosing
+
+In conclusion the two major points of this lecture have been that
+
+1.  the terminal half-life can be estimated from urine data using the renal elimination rate
+2.  half-life is primarily useful for estimating washout time and the time to achieve steady state this concludes the topic of half-life next let's take a moment to review what you've learned about half-life in these three lectures and in the corresponding exercise
+
+### Area Under the Curve or AUC
+
+we will look at the definition of a u c and then learn about interpolation methods
+
+area under the curve or AUC is the total exposure to drug over time and can be calculated as the integral of all concentrations across all time points
+
+mathematically it is expressed as shown in the equation the AUC from 0 to infinity is the integral from time zero to infinity of the concentration time curve multiplied by DT which is the change in time
+
+a u c can be calculated directly from concentration time profiles using simple algebra based on addition and multiplication. AUC can be calculated for any time interval for which concentrations are measurable those are called partial areas and we will talk about those a little bit later.
+
+here's an example of the area under the curve we have a set of plasma concentration time data shown here from time zero peeking about 1 hour post dose and then declining down to 6 hours post dose
+
+![](images/image-282921538.png)
+
+The area under the curve is literally the area under that plasma concentration time curve as indicated here once the AUC has been calculated that number can be used to make comparisons in drug exposure next we are going to go through some mathematical derivations and we will end up with some equations that you can use to calculate the AUC you don't need to know the details of this derivation to calculate in AUC equations that result from it but rather than just give you the end equations we will show you how they are derived The first equation shows that the full AUC from 0 to infinity can be defined by two parts the AUC from 0 to t and the AUC from t to infinity or t is the time of the last measurable concentration you can see here that AUC is additive so you can slice it up into pieces and add them back together to get the hole
+
+The second equation
+
+So you can slice it up into pieces and add them back together again to get the hole The second equation shows that the AUC from 0 to T2 is the AUC from 0 to 1 + the AUC from t1 to T2 where t1 is a point somewhere between 0 and T2 you can divide your au season to pieces that are small as you want as long as you have David to support that mathematically the AUC from time zero to time in is the integral from time zero to time n of the concentration as a function of time multiplied by DT which is the increment of time slices
+
+You should also mention that the concentration at times 0 is a special case for oral administration the initial concentration is assumed to be zero and for IV bolus administration the initial concentration is back extrapolated to zero time using the log linear fit here is a visual illustration of this process using the example data set we calculate the area of each slice from data point to data point and then add them together to get the total AUC notice that this gives us the area from time zero up to our last observed concentration which occurs at 6 hours in this data set in a later lecture we will see how to extrapolate to account for the AUC from the last observation to infinite time in summary to calculate the AUC you determine the area of individual trapezoids using the adjacent concentration and time points and then you add the areas together to get the total AUC up to the last observation how do you calculate the area of a trapezoid it just takes some There are two methods to interpolate between concentration for the calculation of area The linear interpolation method and the log linear interpolation method The linear interpolation method assumes that the intermediate values between two observed data points lie along a straight line The log linear interpolation method assumes that there is a log relationship on the y-ax is this makes sense for decreasing concentration because we know that concentrations do not fall in the linear fashion but they do appear linear when viewed on the law scale here's an example of linear interpolation from one to two hours The actual concentration
+
+You're a true options that are commonly used The first is called linear up logged down when concentrations are increasing we use linear interpolation and when they are decreasing we use log linear interpolation The second method uses linear interpolation only this is typically used in generic drug analysis ensuring all the data has been processed identically therefore the choice of method may be dictated by regulatory agencies and/or company policies so make sure you use an appropriate choice here are the equations that you will use to calculate a UC's using the two methods of
+
+![](images/image-590738430.png)
+
+### Extrapolation to infinity
+
+So far we have only determined AUC up to the time of the last observation now we will consider how to extrapolate to determine the AUC from 0 to infinity
+
+We have seen how to obtain the AUC from 0 to 6 hours using the trapezoid method, however we have left out an important part of the AUC calculation. When we stopped collecting data at 6 hours there was still a measurable concentration and therefore there is a contribution to AUC from 6 hours onward that we need food in our calculations
+
+remember that AUCs are additive so that we can subdivide the AUC calculation into different parts The full AUC from 0 to infinity is equal to the AUC from 0 to time t plus the AUC from time t to infinity or t is the time of the last measurable concentration also remember that we can subdivide an AUC as desired the AUC from 0 to T2 can be subdivided as the AUC from 0 to t1 plus the AUC from t1 to T2 where t1 is between 0 and T2 we have used this principle to subdivide the AUC into separate slices from 0 to the last observation as you see here in the yellow trapezoids The piece that we still need to determine is the red triangle which represents the AUC from 6 hours to infinity
+
+![](images/image-1699222444.png)
+
+![](images/image-983166201.png)
+
+so all we need is an equation that will enable us to calculate the AUC from the last observation to infinity and by adding it to the AUC we obtained from the trapezoidal slices we can get the total AUC let's see how we can drive an equation to calculate the AUC of that triangle consider the decline of concentration from the time of our last concentration measurement to infinity it is important to note that we are assuming that at t last absorption is complete and elimination is following first order kinetics The AUC from t last to infinity is represented by the integral from t last to infinity of c last important to know that in this equation the value of t will not be the time post dose but it is the time elapsed after t last therefore in this equation t ranges from 0 to infinity The integrated form of this equation is shown here to the power of
+
+The term with zero drops out and therefore this big equation simplifies to see last divided by the elimination rate constant so now we have an equation we can use to determine the AUC of the extrapolation from t last to infinity as represented by the red triangle it is simply the concentration of the last observation c last divided by the elimination rate constant k e l all you will need to remember is this last equation The derivation is good to know because you can see what assumptions went into it mainly that absorption is complete and elimination kinetics are first order but the equation here is the only thing you need to know so to summarize to extrapolate to infinity all you need to know is the last observed concentration c at t last and the elimination rate constant k e l and you can determine the AUC from t last to infinity by doing a simple division
+
+![](images/image-562707964.png)
+
+finally let us consider the confidence that we can place in our extrapolation we assess this by calculating the ratio of the extrapolated AUC to the total AUC if this ratio is less than 0.15 or 15% then the sampling interval from 0 to t covers at least 85% of the exposure and we can have good confidence in the extrapolation conversely if the ratio is greater than therefore the extrapolated AUC is more than 30% of the total then the sampling interval is probably not sufficient to estimate the total exposure now if the extrapolation percentages adequately will depend on the goals of the study and different criteria may be chosen depending on the application
+
+![](images/image-2032244931.png)
+
+in conclusion we have seen how we can calculate the extrapolated AUC using the elimination rate constant and the last observed concentration the total AUC is simply the sum of the AUC up to the last observation we also saw that extrapolated AUC values that are greater than 30% of the total AUC are probably unreliable but with less than 15% extrapolation would be considered good anything between 15 and 30% may or may not be considered adequate depending on the application this concludes the second lecture
+
+![](images/image-29388722.png)
+
+### AUC to make decision
+
+In the third lecture on AUC we will see how to make decisions based on comparisons of drug exposure
+
+The first thing that we should remember is that AUC is a measure of exposure to drug over time therefore AUC's are used to make comparisons of formulations or to compare exposure under different conditions here are some applications that make use of AUC comparisons
+
+1.  two different formulations of a drug
+2.  the effects of food on drug absorption
+3.  drug drug interactions
+4.  the effect of demographics on the PK of a drug
+
+#### Bioavailability
+
+bioavailability is defined as the fraction of administered drug that reaches systemic circulation. The bioavailability of a drug is the result of many processes. Let's consider what happens when a drug is admistered and it moves down the digestive tract a fraction of the drug is absorbed in the small intestine and travels through the portal vein to the liver. The remainder of the drug that is not absorbed continues through the digestive tract and is eliminated in the feces, in the liver the drug is subjected to what is called first past metabolism in which the drug is chemically modified removing some of the drug before it reaches systemic circulation.
+
+The portion of the drug that has not been metabolized enters the bloodstream.
+
+once the drug has reached systemic circulation in the bloodstream it can then be eliminated by excretion through the kidneys and or further metabolism in the liver some drugs are eliminated via other organs that are not pictured here such as the lungs liver and/or other organs is what is responsible for the decline in the plasma concentration over time therefore the bioavailability is a single fraction that describes the many complex phenomena that lead to the drug reaching systemic circulation.
+
+![](images/image-76260856.png)
+
+It has a possible range from 0 to 1 where a value of zero would mean that none of the administered systemic circulation and a value of one would mean that 100% of the dose reaches systemic circulation in contrast to oral administration when we administer a drug by IV either as a bolus or as an infusion 100% of the drug is introduced directly into systemic circulation and therefore the bioavailability is exactly one now that we have defined bioavailability
+
+#### Relation between AUC, Clearance and dose
+
+How bioavailabity is related to the AUC, dose and clearance. AUC is a function of bioavailability, dose and clearance:
+
+$$AUC = \frac{F*Dose}{CL}$$
+
+let's consider how we can use this equation to compare drug exposure
+
+1.  if both dose and clearance are constant then dose is proportional to the bioavailability which is represented by F $AUC \propto F$
+
+2.  if F and clearance are constant then AUC will be proportional to dose $AUC \propto Dose$
+
+3.  and finally if dose and bioavailability or constant then AUC is inversely proportional to clearance $AUC \propto \frac{1}{CL}$
+
+#### Determinatino of Bioavailability
+
+![](images/image-1726048784.png)
+
+The equations for bioavailablity for both oral and IV administration is given above.
+
+if we divide these two equations by each other and do some algebra to solve for F we get the relationship shown here where F is equal to the AUC for oral administration times the IV dose divided by the AUC~IV~ times the oral dose usually we can assume that the clearance following oral administration will be the same as the clearance following IV administration and therefore the clearance terms drop out.
+
+Example:
+
+![](images/image-838115963.png)
+
+We administer the drug to the same subject by both IV and PO and then measure the plasma concentration over time we can use different doses for IV and PO but in this case we had doses of 5 mg per kilogram for both. We obtained the AUC values and then calculate the bioavailability. In the case shown in the plots here the AUC following oral administration was 47,000 and the AUC following IV administration was 133,000 both doses were five therefore the bioavailability for the subject was determined to be 0.352. The bioavailability can be determined for all subjects in the same way when comparing AUCs
+
+A few things to remember when comparing ACUs:
+
+1.  Crossover studies have lower variability because the same individual receives both treatments.
+2.  The ratios of AUC are useful in drug studies. These are normally expressed as the AUC of the test divided by that of the reference. They are sometimes expressed as a percentage
+3.  AUC is log-normally distributed. Log transform should be used before doing statistical tests and geometric mean is a better measure than arithmetic mean
+
+Here are some examples used to establish whether
+
+two formulations are equivalent in the rate and extent of the drug reaching the site of action In that case we compare the ratios of the AUCs of the two formulations and a similar comparison is done with the c max values
+
+for a food effect study you might compare the AUC of the Fed arm to the AUC of the fasted arm for drug interactions you might compare the AUC for the drug plus the inhibitor to the AUC of the drug alone and for hepatic impairment you would compare the AUC with impairment to the AUC of subjects with normal hepatic function in each of these cases the denominator contains the reference The reference is the standard to which you are comparing the test notice that the test is in the numerator in each of these in bile equivalents the test is the test formulation in food effect the test is the fed state in drug interaction the test is the drug combination and in hepatic impairment the test is the impaired individuals
+
+\#### how to interpret changes in AUC
+
+remember that AUC is directly proportional to bioavailability and inversely proportional to clearance
+
+if a u c increases either bioavailability has increased or clearance has decreased
+
+if AUC decreases then we have the reverse situation either bioavailability is decreased or clearance has increased
+
+so what constitutes a significant change? In AUC changes less than 20% are not considered clinically significant but changes greater than 50% are considered clinically significant in most situations.
+
+#### AUC and Dose
+
+Change in AUC should also be proportional to dose if clearance is constant that means that doubling the dose should double the AUC. You can test for proportionality using an exponential model:
+
+$$
+AUC = \alpha*Dose^\beta
+$$
+
+if the confidence interval for beta includes 1, then dose proportionality can be concluded.
+
+Summary
+
+1.  we have seen how AUC comparison should use ratios. We considered examples of bioequivalence food effects hepatic impairment and drug interactions
+2.  We can determine bioavailability by comparing AUC for extra vascular and IV administration and third
+3.  AUC can also be used to evaluate dose proportionality using the power model
 
 ## Presenting PK results
 
