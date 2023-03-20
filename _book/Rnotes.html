@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pkpd notes - 5&nbsp; R-notes</title>
+<title>pkpd notes - 6&nbsp; R-notes</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -133,7 +133,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-notes</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R-notes</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -163,32 +163,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NCAintroduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Noncompartmental Data Analysis (105-OD)</span></a>
+  <a href="./PKFundamentals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentals of Pharmacokinetics- 103 OD</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
+  <a href="./NCAintroduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Noncompartmental Data Analysis (105-OD)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></a>
+  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Notes</span></a>
+  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Rnotes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-notes</span></a>
+  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">My Notes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Rintro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R for Data Analyst</span></a>
+  <a href="./Rnotes.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R-notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Rintro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R for Data Analyst</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -205,35 +210,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#helpful-syntax" id="toc-helpful-syntax" class="nav-link active" data-scroll-target="#helpful-syntax"><span class="toc-section-number">5.1</span>  Helpful Syntax</a>
+  <li><a href="#helpful-syntax" id="toc-helpful-syntax" class="nav-link active" data-scroll-target="#helpful-syntax"><span class="toc-section-number">6.1</span>  Helpful Syntax</a>
   <ul class="collapse">
-  <li><a href="#installing-and-loading" id="toc-installing-and-loading" class="nav-link" data-scroll-target="#installing-and-loading"><span class="toc-section-number">5.1.1</span>  Installing and loading</a></li>
-  <li><a href="#the-operator" id="toc-the-operator" class="nav-link" data-scroll-target="#the-operator"><span class="toc-section-number">5.1.2</span>  The %&gt;% operator</a></li>
-  <li><a href="#preloaded-datasets" id="toc-preloaded-datasets" class="nav-link" data-scroll-target="#preloaded-datasets"><span class="toc-section-number">5.1.3</span>  Preloaded datasets</a></li>
-  <li><a href="#basic-column-operations-with-dplyr" id="toc-basic-column-operations-with-dplyr" class="nav-link" data-scroll-target="#basic-column-operations-with-dplyr"><span class="toc-section-number">5.1.4</span>  Basic column operations with dplyr</a></li>
+  <li><a href="#installing-and-loading" id="toc-installing-and-loading" class="nav-link" data-scroll-target="#installing-and-loading"><span class="toc-section-number">6.1.1</span>  Installing and loading</a></li>
+  <li><a href="#the-operator" id="toc-the-operator" class="nav-link" data-scroll-target="#the-operator"><span class="toc-section-number">6.1.2</span>  The %&gt;% operator</a></li>
+  <li><a href="#preloaded-datasets" id="toc-preloaded-datasets" class="nav-link" data-scroll-target="#preloaded-datasets"><span class="toc-section-number">6.1.3</span>  Preloaded datasets</a></li>
+  <li><a href="#basic-column-operations-with-dplyr" id="toc-basic-column-operations-with-dplyr" class="nav-link" data-scroll-target="#basic-column-operations-with-dplyr"><span class="toc-section-number">6.1.4</span>  Basic column operations with dplyr</a></li>
   </ul></li>
-  <li><a href="#working-with-columns" id="toc-working-with-columns" class="nav-link" data-scroll-target="#working-with-columns"><span class="toc-section-number">5.2</span>  Working with columns</a>
+  <li><a href="#working-with-columns" id="toc-working-with-columns" class="nav-link" data-scroll-target="#working-with-columns"><span class="toc-section-number">6.2</span>  Working with columns</a>
   <ul class="collapse">
-  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="toc-section-number">5.2.1</span>  Mutate</a></li>
+  <li><a href="#mutate" id="toc-mutate" class="nav-link" data-scroll-target="#mutate"><span class="toc-section-number">6.2.1</span>  Mutate</a></li>
   </ul></li>
-  <li><a href="#working-with-rows" id="toc-working-with-rows" class="nav-link" data-scroll-target="#working-with-rows"><span class="toc-section-number">5.3</span>  Working with rows</a>
+  <li><a href="#working-with-rows" id="toc-working-with-rows" class="nav-link" data-scroll-target="#working-with-rows"><span class="toc-section-number">6.3</span>  Working with rows</a>
   <ul class="collapse">
-  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="toc-section-number">5.3.1</span>  Filter</a></li>
-  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="toc-section-number">5.3.2</span>  Arrange</a></li>
-  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others"><span class="toc-section-number">5.3.3</span>  Others</a></li>
+  <li><a href="#filter" id="toc-filter" class="nav-link" data-scroll-target="#filter"><span class="toc-section-number">6.3.1</span>  Filter</a></li>
+  <li><a href="#arrange" id="toc-arrange" class="nav-link" data-scroll-target="#arrange"><span class="toc-section-number">6.3.2</span>  Arrange</a></li>
+  <li><a href="#others" id="toc-others" class="nav-link" data-scroll-target="#others"><span class="toc-section-number">6.3.3</span>  Others</a></li>
   </ul></li>
-  <li><a href="#aggregating-data-with-dplyr" id="toc-aggregating-data-with-dplyr" class="nav-link" data-scroll-target="#aggregating-data-with-dplyr"><span class="toc-section-number">5.4</span>  Aggregating data with dplyr</a>
+  <li><a href="#aggregating-data-with-dplyr" id="toc-aggregating-data-with-dplyr" class="nav-link" data-scroll-target="#aggregating-data-with-dplyr"><span class="toc-section-number">6.4</span>  Aggregating data with dplyr</a>
   <ul class="collapse">
-  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><span class="toc-section-number">5.4.1</span>  Count</a></li>
-  <li><a href="#summerise" id="toc-summerise" class="nav-link" data-scroll-target="#summerise"><span class="toc-section-number">5.4.2</span>  Summerise</a></li>
+  <li><a href="#count" id="toc-count" class="nav-link" data-scroll-target="#count"><span class="toc-section-number">6.4.1</span>  Count</a></li>
+  <li><a href="#summerise" id="toc-summerise" class="nav-link" data-scroll-target="#summerise"><span class="toc-section-number">6.4.2</span>  Summerise</a></li>
   </ul></li>
-  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="toc-section-number">5.5</span>  ggplot2</a>
+  <li><a href="#ggplot2" id="toc-ggplot2" class="nav-link" data-scroll-target="#ggplot2"><span class="toc-section-number">6.5</span>  ggplot2</a>
   <ul class="collapse">
-  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots"><span class="toc-section-number">5.5.1</span>  Scatter Plots</a></li>
-  <li><a href="#line-plots" id="toc-line-plots" class="nav-link" data-scroll-target="#line-plots"><span class="toc-section-number">5.5.2</span>  Line plots</a></li>
-  <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots"><span class="toc-section-number">5.5.3</span>  Bar plots</a></li>
-  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="toc-section-number">5.5.4</span>  Histograms</a></li>
-  <li><a href="#box-plots" id="toc-box-plots" class="nav-link" data-scroll-target="#box-plots"><span class="toc-section-number">5.5.5</span>  Box plots</a></li>
+  <li><a href="#scatter-plots" id="toc-scatter-plots" class="nav-link" data-scroll-target="#scatter-plots"><span class="toc-section-number">6.5.1</span>  Scatter Plots</a></li>
+  <li><a href="#line-plots" id="toc-line-plots" class="nav-link" data-scroll-target="#line-plots"><span class="toc-section-number">6.5.2</span>  Line plots</a></li>
+  <li><a href="#bar-plots" id="toc-bar-plots" class="nav-link" data-scroll-target="#bar-plots"><span class="toc-section-number">6.5.3</span>  Bar plots</a></li>
+  <li><a href="#histograms" id="toc-histograms" class="nav-link" data-scroll-target="#histograms"><span class="toc-section-number">6.5.4</span>  Histograms</a></li>
+  <li><a href="#box-plots" id="toc-box-plots" class="nav-link" data-scroll-target="#box-plots"><span class="toc-section-number">6.5.5</span>  Box plots</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -243,7 +248,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-notes</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R-notes</span></h1>
 </div>
 
 
@@ -258,8 +263,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 </header>
 
-<section id="helpful-syntax" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="helpful-syntax"><span class="header-section-number">5.1</span> Helpful Syntax</h2>
+<section id="helpful-syntax" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="helpful-syntax"><span class="header-section-number">6.1</span> Helpful Syntax</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Returns the structure and information of a given object</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -277,8 +282,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">"/c/Users/BABA/Documents"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="installing-and-loading" class="level3" data-number="5.1.1">
-<h3 data-number="5.1.1" class="anchored" data-anchor-id="installing-and-loading"><span class="header-section-number">5.1.1</span> Installing and loading</h3>
+<section id="installing-and-loading" class="level3" data-number="6.1.1">
+<h3 data-number="6.1.1" class="anchored" data-anchor-id="installing-and-loading"><span class="header-section-number">6.1.1</span> Installing and loading</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Install dplyr through tidyverse </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -300,8 +305,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">attach</span>(iris) <span class="co"># Attach iris data to r search path</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="the-operator" class="level3" data-number="5.1.2">
-<h3 data-number="5.1.2" class="anchored" data-anchor-id="the-operator"><span class="header-section-number">5.1.2</span> The %&gt;% operator</h3>
+<section id="the-operator" class="level3" data-number="6.1.2">
+<h3 data-number="6.1.2" class="anchored" data-anchor-id="the-operator"><span class="header-section-number">6.1.2</span> The %&gt;% operator</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Without the %&gt;% operator</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -313,8 +318,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(a, b)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="preloaded-datasets" class="level3" data-number="5.1.3">
-<h3 data-number="5.1.3" class="anchored" data-anchor-id="preloaded-datasets"><span class="header-section-number">5.1.3</span> Preloaded datasets</h3>
+<section id="preloaded-datasets" class="level3" data-number="6.1.3">
+<h3 data-number="6.1.3" class="anchored" data-anchor-id="preloaded-datasets"><span class="header-section-number">6.1.3</span> Preloaded datasets</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>()</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -337,8 +342,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"USArrests"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="basic-column-operations-with-dplyr" class="level3" data-number="5.1.4">
-<h3 data-number="5.1.4" class="anchored" data-anchor-id="basic-column-operations-with-dplyr"><span class="header-section-number">5.1.4</span> Basic column operations with dplyr</h3>
+<section id="basic-column-operations-with-dplyr" class="level3" data-number="6.1.4">
+<h3 data-number="6.1.4" class="anchored" data-anchor-id="basic-column-operations-with-dplyr"><span class="header-section-number">6.1.4</span> Basic column operations with dplyr</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Select one or more columns with select()</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -362,10 +367,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="working-with-columns" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="working-with-columns"><span class="header-section-number">5.2</span> Working with columns</h2>
-<section id="mutate" class="level3" data-number="5.2.1">
-<h3 data-number="5.2.1" class="anchored" data-anchor-id="mutate"><span class="header-section-number">5.2.1</span> Mutate</h3>
+<section id="working-with-columns" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="working-with-columns"><span class="header-section-number">6.2</span> Working with columns</h2>
+<section id="mutate" class="level3" data-number="6.2.1">
+<h3 data-number="6.2.1" class="anchored" data-anchor-id="mutate"><span class="header-section-number">6.2.1</span> Mutate</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Change Sepal.Length to be in millimeters</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -390,10 +395,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="working-with-rows" class="level2" data-number="5.3">
-<h2 data-number="5.3" class="anchored" data-anchor-id="working-with-rows"><span class="header-section-number">5.3</span> Working with rows</h2>
-<section id="filter" class="level3" data-number="5.3.1">
-<h3 data-number="5.3.1" class="anchored" data-anchor-id="filter"><span class="header-section-number">5.3.1</span> Filter</h3>
+<section id="working-with-rows" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="working-with-rows"><span class="header-section-number">6.3</span> Working with rows</h2>
+<section id="filter" class="level3" data-number="6.3.1">
+<h3 data-number="6.3.1" class="anchored" data-anchor-id="filter"><span class="header-section-number">6.3.1</span> Filter</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter rows on one condition (e.g., Select iris data of species "virginica")</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -417,8 +422,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"versicolor"</span>, <span class="st">"virginica"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="arrange" class="level3" data-number="5.3.2">
-<h3 data-number="5.3.2" class="anchored" data-anchor-id="arrange"><span class="header-section-number">5.3.2</span> Arrange</h3>
+<section id="arrange" class="level3" data-number="6.3.2">
+<h3 data-number="6.3.2" class="anchored" data-anchor-id="arrange"><span class="header-section-number">6.3.2</span> Arrange</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort rows by values in a column in ascending order</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -437,8 +442,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Sepal.Length))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="others" class="level3" data-number="5.3.3">
-<h3 data-number="5.3.3" class="anchored" data-anchor-id="others"><span class="header-section-number">5.3.3</span> Others</h3>
+<section id="others" class="level3" data-number="6.3.3">
+<h3 data-number="6.3.3" class="anchored" data-anchor-id="others"><span class="header-section-number">6.3.3</span> Others</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicate rows in all the dataset</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -458,10 +463,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="aggregating-data-with-dplyr" class="level2" data-number="5.4">
-<h2 data-number="5.4" class="anchored" data-anchor-id="aggregating-data-with-dplyr"><span class="header-section-number">5.4</span> Aggregating data with dplyr</h2>
-<section id="count" class="level3" data-number="5.4.1">
-<h3 data-number="5.4.1" class="anchored" data-anchor-id="count"><span class="header-section-number">5.4.1</span> Count</h3>
+<section id="aggregating-data-with-dplyr" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="aggregating-data-with-dplyr"><span class="header-section-number">6.4</span> Aggregating data with dplyr</h2>
+<section id="count" class="level3" data-number="6.4.1">
+<h3 data-number="6.4.1" class="anchored" data-anchor-id="count"><span class="header-section-number">6.4.1</span> Count</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count groups within a column (e.g., count number of species in Species)</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -474,8 +479,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(Species, <span class="at">sort=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="summerise" class="level3" data-number="5.4.2">
-<h3 data-number="5.4.2" class="anchored" data-anchor-id="summerise"><span class="header-section-number">5.4.2</span> Summerise</h3>
+<section id="summerise" class="level3" data-number="6.4.2">
+<h3 data-number="6.4.2" class="anchored" data-anchor-id="summerise"><span class="header-section-number">6.4.2</span> Summerise</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Return the total sum of values for a column (e.g., total petal length)</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -517,10 +522,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 </section>
 </section>
-<section id="ggplot2" class="level2" data-number="5.5">
-<h2 data-number="5.5" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">5.5</span> ggplot2</h2>
-<section id="scatter-plots" class="level3" data-number="5.5.1">
-<h3 data-number="5.5.1" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">5.5.1</span> Scatter Plots</h3>
+<section id="ggplot2" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="ggplot2"><span class="header-section-number">6.5</span> ggplot2</h2>
+<section id="scatter-plots" class="level3" data-number="6.5.1">
+<h3 data-number="6.5.1" class="anchored" data-anchor-id="scatter-plots"><span class="header-section-number">6.5.1</span> Scatter Plots</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>iris_small <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sepal.Length <span class="sc">&gt;</span><span class="dv">5</span>)</span>
@@ -557,16 +562,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Species)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="line-plots" class="level3" data-number="5.5.2">
-<h3 data-number="5.5.2" class="anchored" data-anchor-id="line-plots"><span class="header-section-number">5.5.2</span> Line plots</h3>
+<section id="line-plots" class="level3" data-number="6.5.2">
+<h3 data-number="6.5.2" class="anchored" data-anchor-id="line-plots"><span class="header-section-number">6.5.2</span> Line plots</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris, <span class="fu">aes</span>(<span class="at">x =</span> Petal.Length, <span class="at">y =</span> Sepal.Length))<span class="sc">+</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">expand_limits</span>(<span class="at">y=</span><span class="dv">0</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="bar-plots" class="level3" data-number="5.5.3">
-<h3 data-number="5.5.3" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">5.5.3</span> Bar plots</h3>
+<section id="bar-plots" class="level3" data-number="6.5.3">
+<h3 data-number="6.5.3" class="anchored" data-anchor-id="bar-plots"><span class="header-section-number">6.5.3</span> Bar plots</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>by_species <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Sepal.Length <span class="sc">&gt;</span><span class="dv">6</span>) <span class="sc">%&gt;%</span> </span>
@@ -577,15 +582,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="histograms" class="level3" data-number="5.5.4">
-<h3 data-number="5.5.4" class="anchored" data-anchor-id="histograms"><span class="header-section-number">5.5.4</span> Histograms</h3>
+<section id="histograms" class="level3" data-number="6.5.4">
+<h3 data-number="6.5.4" class="anchored" data-anchor-id="histograms"><span class="header-section-number">6.5.4</span> Histograms</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris_small, <span class="fu">aes</span>(<span class="at">x=</span> Petal.Length))<span class="sc">+</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="box-plots" class="level3" data-number="5.5.5">
-<h3 data-number="5.5.5" class="anchored" data-anchor-id="box-plots"><span class="header-section-number">5.5.5</span> Box plots</h3>
+<section id="box-plots" class="level3" data-number="6.5.5">
+<h3 data-number="6.5.5" class="anchored" data-anchor-id="box-plots"><span class="header-section-number">6.5.5</span> Box plots</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(iris_small, <span class="fu">aes</span>(<span class="at">x=</span>Species, <span class="at">y=</span>Sepal.Width))<span class="sc">+</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -732,12 +737,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./TechNotes.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Notes</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">My Notes</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./Rintro.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R for Data Analyst</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R for Data Analyst</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

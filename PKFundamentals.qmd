@@ -1,0 +1,280 @@
+---
+title: "Fundamentals of Pharmacokinetics- 103 OD"
+---
+
+## Pk processes: ADME
+
+ADME Definitions:
+
+A: absorption; D: distribution, M: metabolism, E excretion
+
+Elimination = metabolism + excretion
+
+Disposition = distribution + elimination
+
+ADME describe the processes that a compound undergoes in a body and influences the performance of drug.
+
+Elimination is another common word to describe the physiological processes of pharmacokinetics, which is a combination of metabolism and excretion.
+
+### Absorption
+
+Process by which drug moves from the site of administration to the systemic circulation.
+
+Drug can be delivered to the body in different ways and absotion process will take place for different rout of administration.
+
+-   Oral absorption
+
+-   Dermal absorption (skin)
+
+-   Topical absorption (ey, wond etc.)
+
+-   Subcutaneous absorption
+
+-   Unless the administration is IV, there is an absorption
+
+Absorption has a rate (amount per time) and an extent (total amount) of absorption.
+
+#### Principle of absorption
+
+Concentration time profiles of both oral and IV administrition have same distribution, metabolism and excretion, but the difference is in absorption process.
+
+Oral administartion has advantages of longer concentration coverage period and does not achive high concentration as IV that might be toxic for some person.
+
+Concentration time functions
+
+Intavenous equation:
+
+$$
+C(t)= \frac{Dose}{V}*e^{-k*t}
+$$ Extravascular equation:
+
+$$
+C(t) = \frac{F*D}{V}*(\frac{k_a}{k_a - k})*(e^{-k*t}-e^{-k_a*t})
+$$ two new parameters, F and ka.
+
+Absorption rate constant (ka) is first order rate constatn for drug absorption from the site of administration to the systemic circulation
+
+![](/images/image-1670094035.png){width="396"}
+
+Intramascular follow first order absorption
+
+Subcauteneous often follow zero order absorption
+
+![](/images/image-1806043357.png){width="318"}
+
+![](/images/image-1100382866.png)
+
+![](/images/image-1431579646.png)
+
+![](/images/image-129115686.png)
+
+![](/images/image-2101418846.png)
+
+![](/images/image-1245642337.png)
+
+![](/images/image-698631229.png)
+
+### Distribution
+
+Process by which drug moves from systemic circulation to other tissues in the body to take it's action
+
+Drugs penetrate different tissues at different speeds depending on the unbound drug ability to cross membranes. This is an equilibrium process largly based on physiochemical characteristics of drug molecules and small extent on the transporters that exists in the body.
+
+Distribution occurs throughout the entire time that the drug is in the body. It is very difficult to quantify what distribution is, we can only say that the drug distribution is only small, average or large.
+
+![](/images/image-1706033419.png)
+
+![](/images/image-114514837.png)
+
+![](/images/image-1704998924.png)
+
+![](/images/image-792850584.png)
+
+![](/images/image-785390024.png)
+
+![](/images/image-2138945788.png)
+
+![](/images/image-270992514.png)
+
+![](/images/image-873251510.png)
+
+### Metabolism
+
+Chemical or enzymatic transformation of parent drug to another chemical form (metabolite)
+
+Metabolites tend to be more polar and thus more water soluble, usually less active, which promotes excretion in the urine
+
+Liver is the primarily responsible for metabolism. Main enzymatic system is the Cytochrome P450 family of enzymes.
+
+Some metabolism also occurs in Kidney, intestine and lung
+
+When a drug is injected the body convert it into metabolites. This is the process of pharmacokinetics, also refer to clearance.
+
+![](/images/image-1018225456.png)
+
+![](/images/image-987583076.png)
+
+Constant clearance is the result of first order kinetics.
+
+![](/images/image-1924170728.png)
+
+![](/images/image-1536010791.png)
+
+![](/images/image-1791440775.png)
+
+![](/images/image-514183519.png)
+
+![](/images/image-195757055.png)
+
+![](/images/image-702102137.png)
+
+![](/images/image-1376206816.png)
+
+#### Hepatic metabolism
+
+![](/images/image-1800811040.png)
+
+![](/images/image-1565284039.png)
+
+![](/images/image-937346051.png)
+
+![](/images/image-712597633.png)
+
+![](/images/image-629541999.png)
+
+![](/images/image-830999164.png)
+
+![](/images/image-1634315242.png)
+
+![](/images/image-228951482.png)
+
+### Excretion
+
+Process of removing drugs and metabolites from the body
+
+Primarily occurs through the kidney (urinary excretion). The very polar and soluble metabolites end up in urine
+
+Also, excreted though the lungs, saliva, breast milk, sweat, and bile
+
+Elimination = metabolism + excretion (removal of active drug from the body)
+
+![](/images/image-1562963555.png)
+
+![](/images/image-1858848379.png)
+
+![](/images/image-1378314178.png)
+
+![](/images/image-1966036882.png)
+
+### Pharmacokinetics and ADME
+
+Pharmacokinetics encompasses all of ADME
+
+While ADME are discrete activities, they occur simultaneously
+
+Immediately after a molecule is absorbed, distribution, metabolism and excretion occurs
+
+#### Intravenous dosing
+
+ADME processes can be observed from concentration time profile curves
+
+for example, for Intravenous dosing
+
+-   No absorption process, since the drug is already in blood
+
+-   Distribution is observed at early time points ( May be very rapid and not observed)
+
+-   Elimination is observed at late time points (which encompasses metabolism + excretion)
+
+#### Extravascular dosing
+
+-   Absorption predominates at early time points
+
+-   Distribution is difficult to observe before Cmax, but may be detected after Cmax
+
+-   Elimination is observed at late time points (metabolism + excretion)
+
+### IV administration
+
+PK principles for IV administration. IV administration can take many forms:
+
+-   Bolus injection
+
+-   Constant intravenous infusion
+
+-   Intra-arterial administration (technically not IV, because drug is injected into an artery rather than a vein)
+
+#### Bolus injection
+
+-   Dose is injected over 5-10 seconds
+
+-   Entire dose is avaialble to systemic circulation immediately
+
+-   Useful for acute conditoins that require drug immediately
+
+-   Distribution and elimination occur early
+
+-   Only elimination occurs later.
+
+-   changing dose reflects proportional change in plasma concentration, indicating linear kinetics.
+
+#### Rate of Elimination
+
+Drug elimination is an exponential decline
+
+If we assume immediate distribution and equilibrium of drug throughout the body, only the exponential decline of the drug is observed. Equation for the elimination:Concentration at time is equal to some drug concentration at time zero times exponetial function of Clearance over Volume of distribution times t
+
+$$
+C(t) = C(0)*e^{-\frac{CL}{V}*t}
+$$ Concentration after the bolus dose:
+
+$$
+C(0) = \frac{Dose}{V}
+$$ V, the volume, is not a real volume in the body, it is a proportionality factor between the amount and concentration.
+
+In this example, V is volume of distribution. But this is not the case if there was a noticible drug distribution phase.
+
+Taking natural logarithm of both sides:
+
+$$
+ln[C(t)] = ln[C(0)] - \frac{CL}{V}*t
+$$ This equation is samilir to y = b + mx
+
+Plotting lnC(t) vs t will allow for linear regression to determine CL/V = k (elemination rate constant); Y-intercept is equal to C(0) = Dose/V
+
+#### Elimination rate constant
+
+This is a secondary PK parameter and defined by the clearance and volume distribution.
+
+k can be estimated directly from the terminal elimination slope
+
+In this simple case V = V~d~. therefore,
+
+$$
+k = \frac{CL}{V_d} 
+$$ Resulting slope of the regression is negative elemination rate constant. This is referred as k or ke or $\lambda_z$ depending on the method or model used to estimate the parameter.
+
+#### Half-life
+
+$$
+ln[C(t)] = ln[C(0)] - k*t \\
+ln[\frac{C(0)}{2}] = ln[C(0)] - k*t_{1/2} \\
+k*t_{1/2} = ln[2]\\
+t_{1/2} = \frac{ln[2]}{k} = \frac{0.693}{k}
+$$ Half-life and elimination rate is related to one another. t1/2 is derived from k, k is in turn derived from CL and V. Therefore, half-life is a tertiary parameter.
+
+#### Volume of Distribution
+
+a proportionality factor between the amount of drug in the body and the concentration in the plasma/blood.
+
+$$
+A(t) = V_d*C(t)
+$$ V~d~ is a hypothetical value
+
+Plasma = 3L, Extracellular water = 16 L, Total body water = 42 L
+
+#### Area under the curve
+
+Measurement of total drug exposure over time. For IV bolus administration this can be defined by $AUC=\frac{Dose}{CL}$. CL is what defines the AUC, not the other way around. AUC is a secondary parameter.
+
+For IV dosing and 1 compartment kinetics, $Dose = \frac{C(0)}{V}$ and $CL = \frac{k}{V}$. Therefore, $AUC = \frac{C(0)}{k}$

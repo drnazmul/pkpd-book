@@ -7,6 +7,7 @@ book:
   date: "2023-02-06"
   chapters:
     - index.qmd
+    - PKFundamentals.qmd
     - NCAintroduction.qmd
     - WinNonlinIntro.qmd
     - WinNonlinModel.qmd

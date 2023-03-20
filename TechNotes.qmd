@@ -129,28 +129,6 @@ Scaptacle eays and curious mind are essential for data literate person
 
 -   PM and ML paper @keutzer2022
 
-## Data Camp Courses
+## latex in rmarkdown
 
-### Introduction to the Tidyverse
-
-David Robinson
-
-https://www.datacamp.com/cheat-sheet/tidyverse-cheat-sheet-for-beginners
-
-### Data Manipulation with dplyr
-
-James Chapman
-
-### Introduction to Statistics in R 
-
-Maggie Matsui
-
-### Hypothesis Testing in R 
-
-Richie Cotto
-
-### Sampling in R 
-
-Richie Cotto
-
-https://rpubs.com/ArifYetik/887228
+https://rpruim.github.io/s341/S19/from-class/MathinRmd.html

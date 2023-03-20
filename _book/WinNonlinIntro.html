@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>pkpd notes - 2&nbsp; Introduction to WinNonlin (122-D)</title>
+<title>pkpd notes - 3&nbsp; Introduction to WinNonlin (122-D)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -101,32 +101,37 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./NCAintroduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Noncompartmental Data Analysis (105-OD)</span></a>
+  <a href="./PKFundamentals.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Fundamentals of Pharmacokinetics- 103 OD</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
+  <a href="./NCAintroduction.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Noncompartmental Data Analysis (105-OD)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></a>
+  <a href="./WinNonlinIntro.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">My Notes</span></a>
+  <a href="./WinNonlinModel.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Rnotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">R-notes</span></a>
+  <a href="./TechNotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">My Notes</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Rintro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R for Data Analyst</span></a>
+  <a href="./Rnotes.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">R-notes</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Rintro.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">R for Data Analyst</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -143,93 +148,93 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#project-setup" id="toc-project-setup" class="nav-link active" data-scroll-target="#project-setup"><span class="toc-section-number">2.1</span>  Project setup</a></li>
-  <li><a href="#create-and-modify-worksheets" id="toc-create-and-modify-worksheets" class="nav-link" data-scroll-target="#create-and-modify-worksheets"><span class="toc-section-number">2.2</span>  Create and Modify Worksheets</a></li>
-  <li><a href="#plot-data" id="toc-plot-data" class="nav-link" data-scroll-target="#plot-data"><span class="toc-section-number">2.3</span>  Plot Data</a></li>
-  <li><a href="#introduction-to-nca" id="toc-introduction-to-nca" class="nav-link" data-scroll-target="#introduction-to-nca"><span class="toc-section-number">2.4</span>  Introduction to NCA</a>
+  <li><a href="#project-setup" id="toc-project-setup" class="nav-link active" data-scroll-target="#project-setup"><span class="toc-section-number">3.1</span>  Project setup</a></li>
+  <li><a href="#create-and-modify-worksheets" id="toc-create-and-modify-worksheets" class="nav-link" data-scroll-target="#create-and-modify-worksheets"><span class="toc-section-number">3.2</span>  Create and Modify Worksheets</a></li>
+  <li><a href="#plot-data" id="toc-plot-data" class="nav-link" data-scroll-target="#plot-data"><span class="toc-section-number">3.3</span>  Plot Data</a></li>
+  <li><a href="#introduction-to-nca" id="toc-introduction-to-nca" class="nav-link" data-scroll-target="#introduction-to-nca"><span class="toc-section-number">3.4</span>  Introduction to NCA</a>
   <ul class="collapse">
-  <li><a href="#about-nca" id="toc-about-nca" class="nav-link" data-scroll-target="#about-nca"><span class="toc-section-number">2.4.1</span>  About NCA</a></li>
-  <li><a href="#observe-parameters" id="toc-observe-parameters" class="nav-link" data-scroll-target="#observe-parameters"><span class="toc-section-number">2.4.2</span>  Observe Parameters</a></li>
-  <li><a href="#half-life" id="toc-half-life" class="nav-link" data-scroll-target="#half-life"><span class="toc-section-number">2.4.3</span>  Half-Life</a></li>
-  <li><a href="#area-under-the-curve-auc" id="toc-area-under-the-curve-auc" class="nav-link" data-scroll-target="#area-under-the-curve-auc"><span class="toc-section-number">2.4.4</span>  Area Under the Curve (AUC)</a></li>
-  <li><a href="#extrapolation-to-infinity" id="toc-extrapolation-to-infinity" class="nav-link" data-scroll-target="#extrapolation-to-infinity"><span class="toc-section-number">2.4.5</span>  Extrapolation to Infinity</a></li>
-  <li><a href="#volume-of-distribution" id="toc-volume-of-distribution" class="nav-link" data-scroll-target="#volume-of-distribution"><span class="toc-section-number">2.4.6</span>  Volume of Distribution</a></li>
-  <li><a href="#clearance" id="toc-clearance" class="nav-link" data-scroll-target="#clearance"><span class="toc-section-number">2.4.7</span>  Clearance</a></li>
-  <li><a href="#linear-vs-log" id="toc-linear-vs-log" class="nav-link" data-scroll-target="#linear-vs-log"><span class="toc-section-number">2.4.8</span>  Linear vs Log</a></li>
+  <li><a href="#about-nca" id="toc-about-nca" class="nav-link" data-scroll-target="#about-nca"><span class="toc-section-number">3.4.1</span>  About NCA</a></li>
+  <li><a href="#observe-parameters" id="toc-observe-parameters" class="nav-link" data-scroll-target="#observe-parameters"><span class="toc-section-number">3.4.2</span>  Observe Parameters</a></li>
+  <li><a href="#half-life" id="toc-half-life" class="nav-link" data-scroll-target="#half-life"><span class="toc-section-number">3.4.3</span>  Half-Life</a></li>
+  <li><a href="#area-under-the-curve-auc" id="toc-area-under-the-curve-auc" class="nav-link" data-scroll-target="#area-under-the-curve-auc"><span class="toc-section-number">3.4.4</span>  Area Under the Curve (AUC)</a></li>
+  <li><a href="#extrapolation-to-infinity" id="toc-extrapolation-to-infinity" class="nav-link" data-scroll-target="#extrapolation-to-infinity"><span class="toc-section-number">3.4.5</span>  Extrapolation to Infinity</a></li>
+  <li><a href="#volume-of-distribution" id="toc-volume-of-distribution" class="nav-link" data-scroll-target="#volume-of-distribution"><span class="toc-section-number">3.4.6</span>  Volume of Distribution</a></li>
+  <li><a href="#clearance" id="toc-clearance" class="nav-link" data-scroll-target="#clearance"><span class="toc-section-number">3.4.7</span>  Clearance</a></li>
+  <li><a href="#linear-vs-log" id="toc-linear-vs-log" class="nav-link" data-scroll-target="#linear-vs-log"><span class="toc-section-number">3.4.8</span>  Linear vs Log</a></li>
   </ul></li>
-  <li><a href="#run-nca-on-plasma-data" id="toc-run-nca-on-plasma-data" class="nav-link" data-scroll-target="#run-nca-on-plasma-data"><span class="toc-section-number">2.5</span>  Run NCA on Plasma Data</a>
+  <li><a href="#run-nca-on-plasma-data" id="toc-run-nca-on-plasma-data" class="nav-link" data-scroll-target="#run-nca-on-plasma-data"><span class="toc-section-number">3.5</span>  Run NCA on Plasma Data</a>
   <ul class="collapse">
-  <li><a href="#run-nca-using-best-fit" id="toc-run-nca-using-best-fit" class="nav-link" data-scroll-target="#run-nca-using-best-fit"><span class="toc-section-number">2.5.1</span>  Run NCA using best fit</a></li>
-  <li><a href="#customize-rules-and-parameters" id="toc-customize-rules-and-parameters" class="nav-link" data-scroll-target="#customize-rules-and-parameters"><span class="toc-section-number">2.5.2</span>  Customize rules and parameters</a></li>
-  <li><a href="#customize-slope-selections" id="toc-customize-slope-selections" class="nav-link" data-scroll-target="#customize-slope-selections"><span class="toc-section-number">2.5.3</span>  Customize slope selections</a></li>
-  <li><a href="#compute-partial-areas" id="toc-compute-partial-areas" class="nav-link" data-scroll-target="#compute-partial-areas"><span class="toc-section-number">2.5.4</span>  Compute partial areas</a></li>
-  <li><a href="#use-theraputic-response" id="toc-use-theraputic-response" class="nav-link" data-scroll-target="#use-theraputic-response"><span class="toc-section-number">2.5.5</span>  Use Theraputic response</a></li>
-  <li><a href="#customize-units-and-parameters-names" id="toc-customize-units-and-parameters-names" class="nav-link" data-scroll-target="#customize-units-and-parameters-names"><span class="toc-section-number">2.5.6</span>  Customize units and parameters names</a></li>
+  <li><a href="#run-nca-using-best-fit" id="toc-run-nca-using-best-fit" class="nav-link" data-scroll-target="#run-nca-using-best-fit"><span class="toc-section-number">3.5.1</span>  Run NCA using best fit</a></li>
+  <li><a href="#customize-rules-and-parameters" id="toc-customize-rules-and-parameters" class="nav-link" data-scroll-target="#customize-rules-and-parameters"><span class="toc-section-number">3.5.2</span>  Customize rules and parameters</a></li>
+  <li><a href="#customize-slope-selections" id="toc-customize-slope-selections" class="nav-link" data-scroll-target="#customize-slope-selections"><span class="toc-section-number">3.5.3</span>  Customize slope selections</a></li>
+  <li><a href="#compute-partial-areas" id="toc-compute-partial-areas" class="nav-link" data-scroll-target="#compute-partial-areas"><span class="toc-section-number">3.5.4</span>  Compute partial areas</a></li>
+  <li><a href="#use-theraputic-response" id="toc-use-theraputic-response" class="nav-link" data-scroll-target="#use-theraputic-response"><span class="toc-section-number">3.5.5</span>  Use Theraputic response</a></li>
+  <li><a href="#customize-units-and-parameters-names" id="toc-customize-units-and-parameters-names" class="nav-link" data-scroll-target="#customize-units-and-parameters-names"><span class="toc-section-number">3.5.6</span>  Customize units and parameters names</a></li>
   </ul></li>
-  <li><a href="#run-urine-nca" id="toc-run-urine-nca" class="nav-link" data-scroll-target="#run-urine-nca"><span class="toc-section-number">2.6</span>  Run Urine NCA</a>
+  <li><a href="#run-urine-nca" id="toc-run-urine-nca" class="nav-link" data-scroll-target="#run-urine-nca"><span class="toc-section-number">3.6</span>  Run Urine NCA</a>
   <ul class="collapse">
-  <li><a href="#about-urine-nca" id="toc-about-urine-nca" class="nav-link" data-scroll-target="#about-urine-nca"><span class="toc-section-number">2.6.1</span>  About Urine NCA</a></li>
-  <li><a href="#setup-project" id="toc-setup-project" class="nav-link" data-scroll-target="#setup-project"><span class="toc-section-number">2.6.2</span>  Setup project</a></li>
-  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="toc-section-number">2.6.3</span>  Exploratory Data Analysis</a></li>
-  <li><a href="#nca-of-plasma-data" id="toc-nca-of-plasma-data" class="nav-link" data-scroll-target="#nca-of-plasma-data"><span class="toc-section-number">2.6.4</span>  NCA of plasma data</a></li>
-  <li><a href="#nca-of-urine-data" id="toc-nca-of-urine-data" class="nav-link" data-scroll-target="#nca-of-urine-data"><span class="toc-section-number">2.6.5</span>  NCA of urine data</a></li>
-  <li><a href="#calculate-renal-clearance" id="toc-calculate-renal-clearance" class="nav-link" data-scroll-target="#calculate-renal-clearance"><span class="toc-section-number">2.6.6</span>  Calculate Renal Clearance</a></li>
+  <li><a href="#about-urine-nca" id="toc-about-urine-nca" class="nav-link" data-scroll-target="#about-urine-nca"><span class="toc-section-number">3.6.1</span>  About Urine NCA</a></li>
+  <li><a href="#setup-project" id="toc-setup-project" class="nav-link" data-scroll-target="#setup-project"><span class="toc-section-number">3.6.2</span>  Setup project</a></li>
+  <li><a href="#exploratory-data-analysis" id="toc-exploratory-data-analysis" class="nav-link" data-scroll-target="#exploratory-data-analysis"><span class="toc-section-number">3.6.3</span>  Exploratory Data Analysis</a></li>
+  <li><a href="#nca-of-plasma-data" id="toc-nca-of-plasma-data" class="nav-link" data-scroll-target="#nca-of-plasma-data"><span class="toc-section-number">3.6.4</span>  NCA of plasma data</a></li>
+  <li><a href="#nca-of-urine-data" id="toc-nca-of-urine-data" class="nav-link" data-scroll-target="#nca-of-urine-data"><span class="toc-section-number">3.6.5</span>  NCA of urine data</a></li>
+  <li><a href="#calculate-renal-clearance" id="toc-calculate-renal-clearance" class="nav-link" data-scroll-target="#calculate-renal-clearance"><span class="toc-section-number">3.6.6</span>  Calculate Renal Clearance</a></li>
   </ul></li>
-  <li><a href="#sparse-and-steady-state-nca" id="toc-sparse-and-steady-state-nca" class="nav-link" data-scroll-target="#sparse-and-steady-state-nca"><span class="toc-section-number">2.7</span>  Sparse and Steady-State NCA</a>
+  <li><a href="#sparse-and-steady-state-nca" id="toc-sparse-and-steady-state-nca" class="nav-link" data-scroll-target="#sparse-and-steady-state-nca"><span class="toc-section-number">3.7</span>  Sparse and Steady-State NCA</a>
   <ul class="collapse">
-  <li><a href="#eda-of-sparse-data" id="toc-eda-of-sparse-data" class="nav-link" data-scroll-target="#eda-of-sparse-data"><span class="toc-section-number">2.7.1</span>  EDA of Sparse Data</a></li>
-  <li><a href="#nca-of-sparse-data" id="toc-nca-of-sparse-data" class="nav-link" data-scroll-target="#nca-of-sparse-data"><span class="toc-section-number">2.7.2</span>  NCA of Sparse Data</a></li>
-  <li><a href="#eda-of-multiple-dose-data" id="toc-eda-of-multiple-dose-data" class="nav-link" data-scroll-target="#eda-of-multiple-dose-data"><span class="toc-section-number">2.7.3</span>  EDA of Multiple-Dose Data</a></li>
-  <li><a href="#split-data" id="toc-split-data" class="nav-link" data-scroll-target="#split-data"><span class="toc-section-number">2.7.4</span>  Split Data</a></li>
-  <li><a href="#nca-for-first-dose" id="toc-nca-for-first-dose" class="nav-link" data-scroll-target="#nca-for-first-dose"><span class="toc-section-number">2.7.5</span>  NCA for First Dose</a></li>
-  <li><a href="#nca-for-final-dose" id="toc-nca-for-final-dose" class="nav-link" data-scroll-target="#nca-for-final-dose"><span class="toc-section-number">2.7.6</span>  NCA for Final Dose</a></li>
-  <li><a href="#determine-accumulation-ratio" id="toc-determine-accumulation-ratio" class="nav-link" data-scroll-target="#determine-accumulation-ratio"><span class="toc-section-number">2.7.7</span>  Determine Accumulation Ratio</a></li>
+  <li><a href="#eda-of-sparse-data" id="toc-eda-of-sparse-data" class="nav-link" data-scroll-target="#eda-of-sparse-data"><span class="toc-section-number">3.7.1</span>  EDA of Sparse Data</a></li>
+  <li><a href="#nca-of-sparse-data" id="toc-nca-of-sparse-data" class="nav-link" data-scroll-target="#nca-of-sparse-data"><span class="toc-section-number">3.7.2</span>  NCA of Sparse Data</a></li>
+  <li><a href="#eda-of-multiple-dose-data" id="toc-eda-of-multiple-dose-data" class="nav-link" data-scroll-target="#eda-of-multiple-dose-data"><span class="toc-section-number">3.7.3</span>  EDA of Multiple-Dose Data</a></li>
+  <li><a href="#split-data" id="toc-split-data" class="nav-link" data-scroll-target="#split-data"><span class="toc-section-number">3.7.4</span>  Split Data</a></li>
+  <li><a href="#nca-for-first-dose" id="toc-nca-for-first-dose" class="nav-link" data-scroll-target="#nca-for-first-dose"><span class="toc-section-number">3.7.5</span>  NCA for First Dose</a></li>
+  <li><a href="#nca-for-final-dose" id="toc-nca-for-final-dose" class="nav-link" data-scroll-target="#nca-for-final-dose"><span class="toc-section-number">3.7.6</span>  NCA for Final Dose</a></li>
+  <li><a href="#determine-accumulation-ratio" id="toc-determine-accumulation-ratio" class="nav-link" data-scroll-target="#determine-accumulation-ratio"><span class="toc-section-number">3.7.7</span>  Determine Accumulation Ratio</a></li>
   </ul></li>
-  <li><a href="#use-data-tools" id="toc-use-data-tools" class="nav-link" data-scroll-target="#use-data-tools"><span class="toc-section-number">2.8</span>  Use Data Tools</a>
+  <li><a href="#use-data-tools" id="toc-use-data-tools" class="nav-link" data-scroll-target="#use-data-tools"><span class="toc-section-number">3.8</span>  Use Data Tools</a>
   <ul class="collapse">
-  <li><a href="#append-worksheets" id="toc-append-worksheets" class="nav-link" data-scroll-target="#append-worksheets"><span class="toc-section-number">2.8.1</span>  Append Worksheets</a></li>
-  <li><a href="#cross-product-worksheets" id="toc-cross-product-worksheets" class="nav-link" data-scroll-target="#cross-product-worksheets"><span class="toc-section-number">2.8.2</span>  Cross-product Worksheets</a></li>
-  <li><a href="#join-worksheets" id="toc-join-worksheets" class="nav-link" data-scroll-target="#join-worksheets"><span class="toc-section-number">2.8.3</span>  Join Worksheets</a></li>
-  <li><a href="#pivot-worksheet" id="toc-pivot-worksheet" class="nav-link" data-scroll-target="#pivot-worksheet"><span class="toc-section-number">2.8.4</span>  Pivot Worksheet</a></li>
-  <li><a href="#stack-columns" id="toc-stack-columns" class="nav-link" data-scroll-target="#stack-columns"><span class="toc-section-number">2.8.5</span>  Stack Columns</a></li>
-  <li><a href="#split-worksheet" id="toc-split-worksheet" class="nav-link" data-scroll-target="#split-worksheet"><span class="toc-section-number">2.8.6</span>  Split Worksheet</a></li>
-  <li><a href="#enumerate-worksheet" id="toc-enumerate-worksheet" class="nav-link" data-scroll-target="#enumerate-worksheet"><span class="toc-section-number">2.8.7</span>  Enumerate Worksheet</a></li>
-  <li><a href="#make-bql-substitutions" id="toc-make-bql-substitutions" class="nav-link" data-scroll-target="#make-bql-substitutions"><span class="toc-section-number">2.8.8</span>  Make BQL Substitutions</a></li>
+  <li><a href="#append-worksheets" id="toc-append-worksheets" class="nav-link" data-scroll-target="#append-worksheets"><span class="toc-section-number">3.8.1</span>  Append Worksheets</a></li>
+  <li><a href="#cross-product-worksheets" id="toc-cross-product-worksheets" class="nav-link" data-scroll-target="#cross-product-worksheets"><span class="toc-section-number">3.8.2</span>  Cross-product Worksheets</a></li>
+  <li><a href="#join-worksheets" id="toc-join-worksheets" class="nav-link" data-scroll-target="#join-worksheets"><span class="toc-section-number">3.8.3</span>  Join Worksheets</a></li>
+  <li><a href="#pivot-worksheet" id="toc-pivot-worksheet" class="nav-link" data-scroll-target="#pivot-worksheet"><span class="toc-section-number">3.8.4</span>  Pivot Worksheet</a></li>
+  <li><a href="#stack-columns" id="toc-stack-columns" class="nav-link" data-scroll-target="#stack-columns"><span class="toc-section-number">3.8.5</span>  Stack Columns</a></li>
+  <li><a href="#split-worksheet" id="toc-split-worksheet" class="nav-link" data-scroll-target="#split-worksheet"><span class="toc-section-number">3.8.6</span>  Split Worksheet</a></li>
+  <li><a href="#enumerate-worksheet" id="toc-enumerate-worksheet" class="nav-link" data-scroll-target="#enumerate-worksheet"><span class="toc-section-number">3.8.7</span>  Enumerate Worksheet</a></li>
+  <li><a href="#make-bql-substitutions" id="toc-make-bql-substitutions" class="nav-link" data-scroll-target="#make-bql-substitutions"><span class="toc-section-number">3.8.8</span>  Make BQL Substitutions</a></li>
   </ul></li>
-  <li><a href="#compute-ratios-and-differences" id="toc-compute-ratios-and-differences" class="nav-link" data-scroll-target="#compute-ratios-and-differences"><span class="toc-section-number">2.9</span>  Compute Ratios and Differences</a>
+  <li><a href="#compute-ratios-and-differences" id="toc-compute-ratios-and-differences" class="nav-link" data-scroll-target="#compute-ratios-and-differences"><span class="toc-section-number">3.9</span>  Compute Ratios and Differences</a>
   <ul class="collapse">
-  <li><a href="#compute-ratios-from-single-input" id="toc-compute-ratios-from-single-input" class="nav-link" data-scroll-target="#compute-ratios-from-single-input"><span class="toc-section-number">2.9.1</span>  Compute Ratios from Single Input</a></li>
-  <li><a href="#compute-ratios-from-dual-inputs" id="toc-compute-ratios-from-dual-inputs" class="nav-link" data-scroll-target="#compute-ratios-from-dual-inputs"><span class="toc-section-number">2.9.2</span>  Compute Ratios from Dual Inputs</a></li>
-  <li><a href="#compute-ratios-using-means" id="toc-compute-ratios-using-means" class="nav-link" data-scroll-target="#compute-ratios-using-means"><span class="toc-section-number">2.9.3</span>  Compute Ratios using Means</a></li>
-  <li><a href="#compute-differences" id="toc-compute-differences" class="nav-link" data-scroll-target="#compute-differences"><span class="toc-section-number">2.9.4</span>  Compute Differences</a></li>
+  <li><a href="#compute-ratios-from-single-input" id="toc-compute-ratios-from-single-input" class="nav-link" data-scroll-target="#compute-ratios-from-single-input"><span class="toc-section-number">3.9.1</span>  Compute Ratios from Single Input</a></li>
+  <li><a href="#compute-ratios-from-dual-inputs" id="toc-compute-ratios-from-dual-inputs" class="nav-link" data-scroll-target="#compute-ratios-from-dual-inputs"><span class="toc-section-number">3.9.2</span>  Compute Ratios from Dual Inputs</a></li>
+  <li><a href="#compute-ratios-using-means" id="toc-compute-ratios-using-means" class="nav-link" data-scroll-target="#compute-ratios-using-means"><span class="toc-section-number">3.9.3</span>  Compute Ratios using Means</a></li>
+  <li><a href="#compute-differences" id="toc-compute-differences" class="nav-link" data-scroll-target="#compute-differences"><span class="toc-section-number">3.9.4</span>  Compute Differences</a></li>
   </ul></li>
-  <li><a href="#use-data-wizard" id="toc-use-data-wizard" class="nav-link" data-scroll-target="#use-data-wizard"><span class="toc-section-number">2.10</span>  Use Data Wizard</a>
+  <li><a href="#use-data-wizard" id="toc-use-data-wizard" class="nav-link" data-scroll-target="#use-data-wizard"><span class="toc-section-number">3.10</span>  Use Data Wizard</a>
   <ul class="collapse">
-  <li><a href="#create-a-filter" id="toc-create-a-filter" class="nav-link" data-scroll-target="#create-a-filter"><span class="toc-section-number">2.10.1</span>  Create a Filter</a></li>
-  <li><a href="#set-column-properties" id="toc-set-column-properties" class="nav-link" data-scroll-target="#set-column-properties"><span class="toc-section-number">2.10.2</span>  Set column properties</a></li>
-  <li><a href="#transform-data-arithmatic" id="toc-transform-data-arithmatic" class="nav-link" data-scroll-target="#transform-data-arithmatic"><span class="toc-section-number">2.10.3</span>  Transform Data (Arithmatic)</a></li>
-  <li><a href="#transform-data-custom" id="toc-transform-data-custom" class="nav-link" data-scroll-target="#transform-data-custom"><span class="toc-section-number">2.10.4</span>  Transform Data (Custom)</a></li>
-  <li><a href="#transform-data-functinos" id="toc-transform-data-functinos" class="nav-link" data-scroll-target="#transform-data-functinos"><span class="toc-section-number">2.10.5</span>  Transform Data (Functinos)</a></li>
-  <li><a href="#multi-step-operation" id="toc-multi-step-operation" class="nav-link" data-scroll-target="#multi-step-operation"><span class="toc-section-number">2.10.6</span>  Multi-step operation</a></li>
+  <li><a href="#create-a-filter" id="toc-create-a-filter" class="nav-link" data-scroll-target="#create-a-filter"><span class="toc-section-number">3.10.1</span>  Create a Filter</a></li>
+  <li><a href="#set-column-properties" id="toc-set-column-properties" class="nav-link" data-scroll-target="#set-column-properties"><span class="toc-section-number">3.10.2</span>  Set column properties</a></li>
+  <li><a href="#transform-data-arithmatic" id="toc-transform-data-arithmatic" class="nav-link" data-scroll-target="#transform-data-arithmatic"><span class="toc-section-number">3.10.3</span>  Transform Data (Arithmatic)</a></li>
+  <li><a href="#transform-data-custom" id="toc-transform-data-custom" class="nav-link" data-scroll-target="#transform-data-custom"><span class="toc-section-number">3.10.4</span>  Transform Data (Custom)</a></li>
+  <li><a href="#transform-data-functinos" id="toc-transform-data-functinos" class="nav-link" data-scroll-target="#transform-data-functinos"><span class="toc-section-number">3.10.5</span>  Transform Data (Functinos)</a></li>
+  <li><a href="#multi-step-operation" id="toc-multi-step-operation" class="nav-link" data-scroll-target="#multi-step-operation"><span class="toc-section-number">3.10.6</span>  Multi-step operation</a></li>
   </ul></li>
-  <li><a href="#applications-of-nca" id="toc-applications-of-nca" class="nav-link" data-scroll-target="#applications-of-nca"><span class="toc-section-number">2.11</span>  Applications of NCA</a>
+  <li><a href="#applications-of-nca" id="toc-applications-of-nca" class="nav-link" data-scroll-target="#applications-of-nca"><span class="toc-section-number">3.11</span>  Applications of NCA</a>
   <ul class="collapse">
-  <li><a href="#using-cmax-and-auc-to-make-decisions" id="toc-using-cmax-and-auc-to-make-decisions" class="nav-link" data-scroll-target="#using-cmax-and-auc-to-make-decisions"><span class="toc-section-number">2.11.1</span>  Using Cmax and AUC to Make Decisions</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">2.11.2</span>  </a></li>
-  <li><a href="#study-designs" id="toc-study-designs" class="nav-link" data-scroll-target="#study-designs"><span class="toc-section-number">2.11.3</span>  Study Designs</a></li>
-  <li><a href="#dose-proportionality" id="toc-dose-proportionality" class="nav-link" data-scroll-target="#dose-proportionality"><span class="toc-section-number">2.11.4</span>  Dose Proportionality</a></li>
-  <li><a href="#average-bioequivalence" id="toc-average-bioequivalence" class="nav-link" data-scroll-target="#average-bioequivalence"><span class="toc-section-number">2.11.5</span>  <img src="images/image-71630160.png" class="img-fluid">Average Bioequivalence</a></li>
-  <li><a href="#food-effects" id="toc-food-effects" class="nav-link" data-scroll-target="#food-effects"><span class="toc-section-number">2.11.6</span>  Food Effects</a></li>
-  <li><a href="#drug-drug-interactions" id="toc-drug-drug-interactions" class="nav-link" data-scroll-target="#drug-drug-interactions"><span class="toc-section-number">2.11.7</span>  Drug-Drug Interactions</a></li>
+  <li><a href="#using-cmax-and-auc-to-make-decisions" id="toc-using-cmax-and-auc-to-make-decisions" class="nav-link" data-scroll-target="#using-cmax-and-auc-to-make-decisions"><span class="toc-section-number">3.11.1</span>  Using Cmax and AUC to Make Decisions</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="toc-section-number">3.11.2</span>  </a></li>
+  <li><a href="#study-designs" id="toc-study-designs" class="nav-link" data-scroll-target="#study-designs"><span class="toc-section-number">3.11.3</span>  Study Designs</a></li>
+  <li><a href="#dose-proportionality" id="toc-dose-proportionality" class="nav-link" data-scroll-target="#dose-proportionality"><span class="toc-section-number">3.11.4</span>  Dose Proportionality</a></li>
+  <li><a href="#average-bioequivalence" id="toc-average-bioequivalence" class="nav-link" data-scroll-target="#average-bioequivalence"><span class="toc-section-number">3.11.5</span>  <img src="images/image-71630160.png" class="img-fluid">Average Bioequivalence</a></li>
+  <li><a href="#food-effects" id="toc-food-effects" class="nav-link" data-scroll-target="#food-effects"><span class="toc-section-number">3.11.6</span>  Food Effects</a></li>
+  <li><a href="#drug-drug-interactions" id="toc-drug-drug-interactions" class="nav-link" data-scroll-target="#drug-drug-interactions"><span class="toc-section-number">3.11.7</span>  Drug-Drug Interactions</a></li>
   </ul></li>
-  <li><a href="#create-tables" id="toc-create-tables" class="nav-link" data-scroll-target="#create-tables"><span class="toc-section-number">2.12</span>  Create Tables</a>
+  <li><a href="#create-tables" id="toc-create-tables" class="nav-link" data-scroll-target="#create-tables"><span class="toc-section-number">3.12</span>  Create Tables</a>
   <ul class="collapse">
-  <li><a href="#create-simple-table" id="toc-create-simple-table" class="nav-link" data-scroll-target="#create-simple-table"><span class="toc-section-number">2.12.1</span>  Create Simple Table</a></li>
-  <li><a href="#use-stratification" id="toc-use-stratification" class="nav-link" data-scroll-target="#use-stratification"><span class="toc-section-number">2.12.2</span>  Use Stratification</a></li>
-  <li><a href="#add-statistics-to-table" id="toc-add-statistics-to-table" class="nav-link" data-scroll-target="#add-statistics-to-table"><span class="toc-section-number">2.12.3</span>  Add Statistics to Table</a></li>
-  <li><a href="#change-columnsort-order" id="toc-change-columnsort-order" class="nav-link" data-scroll-target="#change-columnsort-order"><span class="toc-section-number">2.12.4</span>  Change Column/Sort Order</a></li>
-  <li><a href="#set-precisionalignment" id="toc-set-precisionalignment" class="nav-link" data-scroll-target="#set-precisionalignment"><span class="toc-section-number">2.12.5</span>  Set Precision/Alignment</a></li>
-  <li><a href="#change-table-text" id="toc-change-table-text" class="nav-link" data-scroll-target="#change-table-text"><span class="toc-section-number">2.12.6</span>  Change Table Text</a></li>
+  <li><a href="#create-simple-table" id="toc-create-simple-table" class="nav-link" data-scroll-target="#create-simple-table"><span class="toc-section-number">3.12.1</span>  Create Simple Table</a></li>
+  <li><a href="#use-stratification" id="toc-use-stratification" class="nav-link" data-scroll-target="#use-stratification"><span class="toc-section-number">3.12.2</span>  Use Stratification</a></li>
+  <li><a href="#add-statistics-to-table" id="toc-add-statistics-to-table" class="nav-link" data-scroll-target="#add-statistics-to-table"><span class="toc-section-number">3.12.3</span>  Add Statistics to Table</a></li>
+  <li><a href="#change-columnsort-order" id="toc-change-columnsort-order" class="nav-link" data-scroll-target="#change-columnsort-order"><span class="toc-section-number">3.12.4</span>  Change Column/Sort Order</a></li>
+  <li><a href="#set-precisionalignment" id="toc-set-precisionalignment" class="nav-link" data-scroll-target="#set-precisionalignment"><span class="toc-section-number">3.12.5</span>  Set Precision/Alignment</a></li>
+  <li><a href="#change-table-text" id="toc-change-table-text" class="nav-link" data-scroll-target="#change-table-text"><span class="toc-section-number">3.12.6</span>  Change Table Text</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to WinNonlin (122-D)</span></h1>
 </div>
 
 
@@ -254,8 +259,8 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="project-setup" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="project-setup"><span class="header-section-number">2.1</span> Project setup</h2>
+<section id="project-setup" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="project-setup"><span class="header-section-number">3.1</span> Project setup</h2>
 <ol type="1">
 <li>Create Project</li>
 </ol>
@@ -315,8 +320,8 @@ ul.task-list li input[type="checkbox"] {
 <li>update the save locations and hit apply before clicking on OK.</li>
 </ul>
 </section>
-<section id="create-and-modify-worksheets" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="create-and-modify-worksheets"><span class="header-section-number">2.2</span> Create and Modify Worksheets</h2>
+<section id="create-and-modify-worksheets" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="create-and-modify-worksheets"><span class="header-section-number">3.2</span> Create and Modify Worksheets</h2>
 <ol type="1">
 <li>Sort Rows</li>
 </ol>
@@ -358,8 +363,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Better way: use the Data Wizard to convert the units.</li>
 </ul>
 </section>
-<section id="plot-data" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="plot-data"><span class="header-section-number">2.3</span> Plot Data</h2>
+<section id="plot-data" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="plot-data"><span class="header-section-number">3.3</span> Plot Data</h2>
 <ol type="1">
 <li>Create Simple Plot</li>
 </ol>
@@ -474,10 +479,10 @@ ul.task-list li input[type="checkbox"] {
 <li>Changing prefernences affect all new plots</li>
 </ul>
 </section>
-<section id="introduction-to-nca" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="introduction-to-nca"><span class="header-section-number">2.4</span> Introduction to NCA</h2>
-<section id="about-nca" class="level3" data-number="2.4.1">
-<h3 data-number="2.4.1" class="anchored" data-anchor-id="about-nca"><span class="header-section-number">2.4.1</span> About NCA</h3>
+<section id="introduction-to-nca" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="introduction-to-nca"><span class="header-section-number">3.4</span> Introduction to NCA</h2>
+<section id="about-nca" class="level3" data-number="3.4.1">
+<h3 data-number="3.4.1" class="anchored" data-anchor-id="about-nca"><span class="header-section-number">3.4.1</span> About NCA</h3>
 <p>Non-compartmental analysis or NCA is a method for quantifying drug exposure</p>
 <ul>
 <li><p>NCA determines a large number of pharmacokinetic descriptors or PK parameters for a drug</p></li>
@@ -510,8 +515,8 @@ ul.task-list li input[type="checkbox"] {
 </p></li>
 </ul>
 </section>
-<section id="observe-parameters" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="observe-parameters"><span class="header-section-number">2.4.2</span> Observe Parameters</h3>
+<section id="observe-parameters" class="level3" data-number="3.4.2">
+<h3 data-number="3.4.2" class="anchored" data-anchor-id="observe-parameters"><span class="header-section-number">3.4.2</span> Observe Parameters</h3>
 <ul>
 <li>From the plot of concentration versus time, we can see that the maximum concentration is reached at about 1 hour, we call that time T<sub>max</sub> and the concentration at the peak is C<sub>max</sub></li>
 <li>T<sub>max</sub> and C<sub>max</sub> are listed in the output of NCA in Phoenix</li>
@@ -524,8 +529,8 @@ ul.task-list li input[type="checkbox"] {
 <li>sample richly around the expected time of C<sub>max</sub> so you can have a better chance of capturing something close to the true maximum</li>
 </ul>
 </section>
-<section id="half-life" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="half-life"><span class="header-section-number">2.4.3</span> Half-Life</h3>
+<section id="half-life" class="level3" data-number="3.4.3">
+<h3 data-number="3.4.3" class="anchored" data-anchor-id="half-life"><span class="header-section-number">3.4.3</span> Half-Life</h3>
 <ul>
 <li><p>time it takes for the concentration to decrease by 50%.</p></li>
 <li><p>a long half-life leads to a shallower slope and a short half-life leads to a steeper slope</p></li>
@@ -533,8 +538,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>It takes five to seven half lives to eliminate the drug.</p></li>
 </ul>
 </section>
-<section id="area-under-the-curve-auc" class="level3" data-number="2.4.4">
-<h3 data-number="2.4.4" class="anchored" data-anchor-id="area-under-the-curve-auc"><span class="header-section-number">2.4.4</span> Area Under the Curve (AUC)</h3>
+<section id="area-under-the-curve-auc" class="level3" data-number="3.4.4">
+<h3 data-number="3.4.4" class="anchored" data-anchor-id="area-under-the-curve-auc"><span class="header-section-number">3.4.4</span> Area Under the Curve (AUC)</h3>
 <p>How to calculate AUC?</p>
 <ul>
 <li><p>assume that the concentration follows a straight line between points</p></li>
@@ -544,8 +549,8 @@ ul.task-list li input[type="checkbox"] {
 <li><p>AUC is the sum of the areas of all the trapezoids plus one triangle</p></li>
 </ul>
 </section>
-<section id="extrapolation-to-infinity" class="level3" data-number="2.4.5">
-<h3 data-number="2.4.5" class="anchored" data-anchor-id="extrapolation-to-infinity"><span class="header-section-number">2.4.5</span> Extrapolation to Infinity</h3>
+<section id="extrapolation-to-infinity" class="level3" data-number="3.4.5">
+<h3 data-number="3.4.5" class="anchored" data-anchor-id="extrapolation-to-infinity"><span class="header-section-number">3.4.5</span> Extrapolation to Infinity</h3>
 <ul>
 <li><p>after the T<sub>last</sub> there are still large quantity of drug in the plasma</p></li>
 <li><p>How can we extrapolate to infinity?</p></li>
@@ -567,8 +572,8 @@ AUC _{0 - \infty} = AUC_{last} + \frac{C_{last}}{\lambda_z}
 <li><p>Dependent on the least-squares fit: <span class="math inline">\(\lambda_Z\)</span>, AUC~ 0-inf~, %Extrapolation, terminal half-life, volume, clearance</p></li>
 </ul>
 </section>
-<section id="volume-of-distribution" class="level3" data-number="2.4.6">
-<h3 data-number="2.4.6" class="anchored" data-anchor-id="volume-of-distribution"><span class="header-section-number">2.4.6</span> Volume of Distribution</h3>
+<section id="volume-of-distribution" class="level3" data-number="3.4.6">
+<h3 data-number="3.4.6" class="anchored" data-anchor-id="volume-of-distribution"><span class="header-section-number">3.4.6</span> Volume of Distribution</h3>
 <p><span class="math display">\[
 C = \frac{Dose}{V}
 \]</span></p>
@@ -580,8 +585,8 @@ C = \frac{Dose}{V}
 <li><p>Drugs that are strongly bound to protein has very high V</p></li>
 </ul>
 </section>
-<section id="clearance" class="level3" data-number="2.4.7">
-<h3 data-number="2.4.7" class="anchored" data-anchor-id="clearance"><span class="header-section-number">2.4.7</span> Clearance</h3>
+<section id="clearance" class="level3" data-number="3.4.7">
+<h3 data-number="3.4.7" class="anchored" data-anchor-id="clearance"><span class="header-section-number">3.4.7</span> Clearance</h3>
 <ul>
 <li>Clearance Quantifies how quickly drug is removed from the body</li>
 </ul>
@@ -615,15 +620,15 @@ F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
 <p><img src="images/image-438969836.png" class="img-fluid"></p>
 <p><img src="images/image-1032710582.png" class="img-fluid"></p>
 </section>
-<section id="linear-vs-log" class="level3" data-number="2.4.8">
-<h3 data-number="2.4.8" class="anchored" data-anchor-id="linear-vs-log"><span class="header-section-number">2.4.8</span> Linear vs Log</h3>
+<section id="linear-vs-log" class="level3" data-number="3.4.8">
+<h3 data-number="3.4.8" class="anchored" data-anchor-id="linear-vs-log"><span class="header-section-number">3.4.8</span> Linear vs Log</h3>
 <p><img src="images/image-1313806547.png" class="img-fluid"></p>
 </section>
 </section>
-<section id="run-nca-on-plasma-data" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="run-nca-on-plasma-data"><span class="header-section-number">2.5</span> Run NCA on Plasma Data</h2>
-<section id="run-nca-using-best-fit" class="level3" data-number="2.5.1">
-<h3 data-number="2.5.1" class="anchored" data-anchor-id="run-nca-using-best-fit"><span class="header-section-number">2.5.1</span> Run NCA using best fit</h3>
+<section id="run-nca-on-plasma-data" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="run-nca-on-plasma-data"><span class="header-section-number">3.5</span> Run NCA on Plasma Data</h2>
+<section id="run-nca-using-best-fit" class="level3" data-number="3.5.1">
+<h3 data-number="3.5.1" class="anchored" data-anchor-id="run-nca-using-best-fit"><span class="header-section-number">3.5.1</span> Run NCA using best fit</h3>
 <ul>
 <li><p>Drug: Gravitix, 10 subjects, a single ascending dose (SAD) study, 6 dose level (1, 2, 4, 8, 16, 32 mg), PO adminsitration</p></li>
 <li><p>From the plot each subject grouped by dose level, we see that as the dose increases so do the concentrations in plasma</p></li>
@@ -698,8 +703,8 @@ F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
 <li><p>map AUClast_D to y execute</p></li>
 </ul>
 </section>
-<section id="customize-rules-and-parameters" class="level3" data-number="2.5.2">
-<h3 data-number="2.5.2" class="anchored" data-anchor-id="customize-rules-and-parameters"><span class="header-section-number">2.5.2</span> Customize rules and parameters</h3>
+<section id="customize-rules-and-parameters" class="level3" data-number="3.5.2">
+<h3 data-number="3.5.2" class="anchored" data-anchor-id="customize-rules-and-parameters"><span class="header-section-number">3.5.2</span> Customize rules and parameters</h3>
 <ul>
 <li><p>Goal is to add <span class="math inline">\(\lambda_Z\)</span> acceptance rules to our NCA</p></li>
 <li><p>select the rules tab</p></li>
@@ -737,8 +742,8 @@ F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
 <li><p>execute the NCA object</p></li>
 </ul>
 </section>
-<section id="customize-slope-selections" class="level3" data-number="2.5.3">
-<h3 data-number="2.5.3" class="anchored" data-anchor-id="customize-slope-selections"><span class="header-section-number">2.5.3</span> Customize slope selections</h3>
+<section id="customize-slope-selections" class="level3" data-number="3.5.3">
+<h3 data-number="3.5.3" class="anchored" data-anchor-id="customize-slope-selections"><span class="header-section-number">3.5.3</span> Customize slope selections</h3>
 <ul>
 <li><p>start with NCA used in previous section</p></li>
 <li><p>Duplicate the NCA object</p></li>
@@ -764,8 +769,8 @@ F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
 <li><p>It is good idea to examine each slopes and adjust the solpes to compare the data.</p></li>
 </ul>
 </section>
-<section id="compute-partial-areas" class="level3" data-number="2.5.4">
-<h3 data-number="2.5.4" class="anchored" data-anchor-id="compute-partial-areas"><span class="header-section-number">2.5.4</span> Compute partial areas</h3>
+<section id="compute-partial-areas" class="level3" data-number="3.5.4">
+<h3 data-number="3.5.4" class="anchored" data-anchor-id="compute-partial-areas"><span class="header-section-number">3.5.4</span> Compute partial areas</h3>
 <p>In the previous section we saw how comparing AUClast was problematic.When different subjects had different Tlast, Computing partial areas is a way that can overcome that limitation.</p>
 <p><img src="images/image-54238214.png" class="img-fluid" width="641"></p>
 <ul>
@@ -789,8 +794,8 @@ F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
 <p>Turn off Subject and doselevel Specify the maximum number of partial areas</p>
 <p>The plots are all read, because the plots are all out of date -WE can update by Selecting the workflow in the object browser, the Workflow is displayed, click the Execute butte and it will update. While the Workflow is selected, on the result tab, we have the output of the workflow. Let’s go back to the workflow diagram, select Diagram, notice how the red color gone</p>
 </section>
-<section id="use-theraputic-response" class="level3" data-number="2.5.5">
-<h3 data-number="2.5.5" class="anchored" data-anchor-id="use-theraputic-response"><span class="header-section-number">2.5.5</span> Use Theraputic response</h3>
+<section id="use-theraputic-response" class="level3" data-number="3.5.5">
+<h3 data-number="3.5.5" class="anchored" data-anchor-id="use-theraputic-response"><span class="header-section-number">3.5.5</span> Use Theraputic response</h3>
 <p>To choose a dose for a given drug we have consider both the efficacy and side effects. We can set upper and lower concentration limits in NCA and quantify the time and AUC between the limits as well as above and below.</p>
 <p><img src="images/image-812533664.png" class="img-fluid" width="652"></p>
 <p>The following plot is for gravitex SAD study: Let’s say we want concentration to be between 10 and 50 ug/L. At the lowest dose, all the concentrations are below the lower limit. For higher dose (32 mg), concentrations are largley between the upper and lower limit</p>
@@ -801,8 +806,8 @@ F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
 <li><p>Execute</p></li>
 </ul>
 </section>
-<section id="customize-units-and-parameters-names" class="level3" data-number="2.5.6">
-<h3 data-number="2.5.6" class="anchored" data-anchor-id="customize-units-and-parameters-names"><span class="header-section-number">2.5.6</span> Customize units and parameters names</h3>
+<section id="customize-units-and-parameters-names" class="level3" data-number="3.5.6">
+<h3 data-number="3.5.6" class="anchored" data-anchor-id="customize-units-and-parameters-names"><span class="header-section-number">3.5.6</span> Customize units and parameters names</h3>
 <p>To obtain units in the NCA results, we need to have units defined on the concentrations, the times and the doses</p>
 <ul>
 <li><p>concentration units are microgram per liter, nanogram per liter and micromols per liter</p></li>
@@ -837,10 +842,10 @@ F = \frac{AUC_{oral}/Dose_{oral}}{AUC_{IV}/Dose_{IV}}
 </ul>
 </section>
 </section>
-<section id="run-urine-nca" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="run-urine-nca"><span class="header-section-number">2.6</span> Run Urine NCA</h2>
-<section id="about-urine-nca" class="level3" data-number="2.6.1">
-<h3 data-number="2.6.1" class="anchored" data-anchor-id="about-urine-nca"><span class="header-section-number">2.6.1</span> About Urine NCA</h3>
+<section id="run-urine-nca" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="run-urine-nca"><span class="header-section-number">3.6</span> Run Urine NCA</h2>
+<section id="about-urine-nca" class="level3" data-number="3.6.1">
+<h3 data-number="3.6.1" class="anchored" data-anchor-id="about-urine-nca"><span class="header-section-number">3.6.1</span> About Urine NCA</h3>
 <p><img src="images/image-1976229668.png" class="img-fluid"></p>
 <ul>
 <li><p>Urine samples are collected over an interval. Four samples were collected and concentration and volume was measured, the data is compiled in the table.</p></li>
@@ -860,21 +865,21 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Percent of extrapolation should be as small as possible.</p></li>
 </ul>
 </section>
-<section id="setup-project" class="level3" data-number="2.6.2">
-<h3 data-number="2.6.2" class="anchored" data-anchor-id="setup-project"><span class="header-section-number">2.6.2</span> Setup project</h3>
+<section id="setup-project" class="level3" data-number="3.6.2">
+<h3 data-number="3.6.2" class="anchored" data-anchor-id="setup-project"><span class="header-section-number">3.6.2</span> Setup project</h3>
 <ul>
 <li>10 subjects, dose level, 4 mg, conc in both plasma and urine,</li>
 </ul>
 </section>
-<section id="exploratory-data-analysis" class="level3" data-number="2.6.3">
-<h3 data-number="2.6.3" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">2.6.3</span> Exploratory Data Analysis</h3>
+<section id="exploratory-data-analysis" class="level3" data-number="3.6.3">
+<h3 data-number="3.6.3" class="anchored" data-anchor-id="exploratory-data-analysis"><span class="header-section-number">3.6.3</span> Exploratory Data Analysis</h3>
 <ul>
 <li><p>XY plot of plasma conc vs time is created</p></li>
 <li><p>XY plot of urine conc vs time is created. Time is end of collection interval</p></li>
 </ul>
 </section>
-<section id="nca-of-plasma-data" class="level3" data-number="2.6.4">
-<h3 data-number="2.6.4" class="anchored" data-anchor-id="nca-of-plasma-data"><span class="header-section-number">2.6.4</span> NCA of plasma data</h3>
+<section id="nca-of-plasma-data" class="level3" data-number="3.6.4">
+<h3 data-number="3.6.4" class="anchored" data-anchor-id="nca-of-plasma-data"><span class="header-section-number">3.6.4</span> NCA of plasma data</h3>
 <ul>
 <li><p>map x to Time, y to conc, sort to subject</p></li>
 <li><p>select the Dosing imput, map Time to Time, Dose to dose, sort to subject</p></li>
@@ -882,8 +887,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Excecute</p></li>
 </ul>
 </section>
-<section id="nca-of-urine-data" class="level3" data-number="2.6.5">
-<h3 data-number="2.6.5" class="anchored" data-anchor-id="nca-of-urine-data"><span class="header-section-number">2.6.5</span> NCA of urine data</h3>
+<section id="nca-of-urine-data" class="level3" data-number="3.6.5">
+<h3 data-number="3.6.5" class="anchored" data-anchor-id="nca-of-urine-data"><span class="header-section-number">3.6.5</span> NCA of urine data</h3>
 <ul>
 <li><p>specify the model type: Urine</p></li>
 <li><p>Required mapping: start time, end time, concentration, volume</p></li>
@@ -894,8 +899,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Urine NCA does not extrapolate for amount recovered and percent recovered. That’s why it is best to collect urine samples until no more drugs are detected in the urine sample</p></li>
 </ul>
 </section>
-<section id="calculate-renal-clearance" class="level3" data-number="2.6.6">
-<h3 data-number="2.6.6" class="anchored" data-anchor-id="calculate-renal-clearance"><span class="header-section-number">2.6.6</span> Calculate Renal Clearance</h3>
+<section id="calculate-renal-clearance" class="level3" data-number="3.6.6">
+<h3 data-number="3.6.6" class="anchored" data-anchor-id="calculate-renal-clearance"><span class="header-section-number">3.6.6</span> Calculate Renal Clearance</h3>
 <p><img src="images/image-1193624636.png" class="img-fluid" width="614"></p>
 <ul>
 <li><p>right click Final Parameter Pivited, send to “computation tools”, “ratio and differences”.</p></li>
@@ -911,16 +916,16 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <p><img src="images/image-1805596672.png" class="img-fluid" width="638"></p>
 </section>
 </section>
-<section id="sparse-and-steady-state-nca" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="sparse-and-steady-state-nca"><span class="header-section-number">2.7</span> Sparse and Steady-State NCA</h2>
+<section id="sparse-and-steady-state-nca" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="sparse-and-steady-state-nca"><span class="header-section-number">3.7</span> Sparse and Steady-State NCA</h2>
 <ul>
 <li><p>pre-clinical study of Gravitex in rats, 20 rats, dose: 200 ug/kg,time of blood draws: group A(0.5, 1, 2, 4, 8 h), group B( 0.75, 2, 6, 12 h)</p></li>
 <li><p>Not possible to do full NCA with only four data points</p></li>
 <li><p>We need to pool the data to do NCA</p></li>
 <li><p>Data: Schedule ( group A or group B), Animal, Time, Conc</p></li>
 </ul>
-<section id="eda-of-sparse-data" class="level3" data-number="2.7.1">
-<h3 data-number="2.7.1" class="anchored" data-anchor-id="eda-of-sparse-data"><span class="header-section-number">2.7.1</span> EDA of Sparse Data</h3>
+<section id="eda-of-sparse-data" class="level3" data-number="3.7.1">
+<h3 data-number="3.7.1" class="anchored" data-anchor-id="eda-of-sparse-data"><span class="header-section-number">3.7.1</span> EDA of Sparse Data</h3>
 <p>Plot: Concentration vs time by schedule</p>
 <ul>
 <li><p>Plotting the data: XY plot, map x to Time, y to conc, group to schedule, group to animal</p></li>
@@ -940,8 +945,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Select statistic tab, turn of “mean” and “SD”</p></li>
 </ul>
 </section>
-<section id="nca-of-sparse-data" class="level3" data-number="2.7.2">
-<h3 data-number="2.7.2" class="anchored" data-anchor-id="nca-of-sparse-data"><span class="header-section-number">2.7.2</span> NCA of Sparse Data</h3>
+<section id="nca-of-sparse-data" class="level3" data-number="3.7.2">
+<h3 data-number="3.7.2" class="anchored" data-anchor-id="nca-of-sparse-data"><span class="header-section-number">3.7.2</span> NCA of Sparse Data</h3>
 <p>Key Points on NCA of spares data:</p>
 <ul>
 <li><p>Spares Option often used in pre-clinical data, where there is insufficient data to compute a full NCA for each subject</p></li>
@@ -960,8 +965,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Since the data is pooled, only one plot is obtained.</p></li>
 </ul>
 </section>
-<section id="eda-of-multiple-dose-data" class="level3" data-number="2.7.3">
-<h3 data-number="2.7.3" class="anchored" data-anchor-id="eda-of-multiple-dose-data"><span class="header-section-number">2.7.3</span> EDA of Multiple-Dose Data</h3>
+<section id="eda-of-multiple-dose-data" class="level3" data-number="3.7.3">
+<h3 data-number="3.7.3" class="anchored" data-anchor-id="eda-of-multiple-dose-data"><span class="header-section-number">3.7.3</span> EDA of Multiple-Dose Data</h3>
 <p>Study design:</p>
 <ul>
 <li><p>Example: Gravitex multiple dose study</p></li>
@@ -985,8 +990,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 </ul>
 <p><img src="images/image-1660090732.png" class="img-fluid"></p>
 </section>
-<section id="split-data" class="level3" data-number="2.7.4">
-<h3 data-number="2.7.4" class="anchored" data-anchor-id="split-data"><span class="header-section-number">2.7.4</span> Split Data</h3>
+<section id="split-data" class="level3" data-number="3.7.4">
+<h3 data-number="3.7.4" class="anchored" data-anchor-id="split-data"><span class="header-section-number">3.7.4</span> Split Data</h3>
 <ul>
 <li><p>Before running NCA of multiple dose data, we need to split data</p></li>
 <li><p>Right click the worksheet, send to Data Management, Split Worksheet</p></li>
@@ -994,8 +999,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Split the dose worksheet the same way as the observation worksheet</p></li>
 </ul>
 </section>
-<section id="nca-for-first-dose" class="level3" data-number="2.7.5">
-<h3 data-number="2.7.5" class="anchored" data-anchor-id="nca-for-first-dose"><span class="header-section-number">2.7.5</span> NCA for First Dose</h3>
+<section id="nca-for-first-dose" class="level3" data-number="3.7.5">
+<h3 data-number="3.7.5" class="anchored" data-anchor-id="nca-for-first-dose"><span class="header-section-number">3.7.5</span> NCA for First Dose</h3>
 <ul>
 <li><p>Select Split Observation, right click on Output data A, send to NCA</p></li>
 <li><p>map subject to sort, dose level to sort, conc to concentration, time to Time</p></li>
@@ -1005,8 +1010,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Select Dose level column and click freez pane icon</p></li>
 </ul>
 </section>
-<section id="nca-for-final-dose" class="level3" data-number="2.7.6">
-<h3 data-number="2.7.6" class="anchored" data-anchor-id="nca-for-final-dose"><span class="header-section-number">2.7.6</span> NCA for Final Dose</h3>
+<section id="nca-for-final-dose" class="level3" data-number="3.7.6">
+<h3 data-number="3.7.6" class="anchored" data-anchor-id="nca-for-final-dose"><span class="header-section-number">3.7.6</span> NCA for Final Dose</h3>
 <ul>
 <li><p>perform same operation as for First Dose by selecting profile C.</p></li>
 <li><p>T<sub>min</sub> is the time where minimum concentration was found</p></li>
@@ -1016,8 +1021,8 @@ Rate = \frac{A_{ur}}{t_{end}-t_{start}}
 <li><p>Slope correction of the linear fit is of concern only if we are extrapolating the results. Otherwise AUC<sub>tau</sub> will not be affected by the slope correction.</p></li>
 </ul>
 </section>
-<section id="determine-accumulation-ratio" class="level3" data-number="2.7.7">
-<h3 data-number="2.7.7" class="anchored" data-anchor-id="determine-accumulation-ratio"><span class="header-section-number">2.7.7</span> Determine Accumulation Ratio</h3>
+<section id="determine-accumulation-ratio" class="level3" data-number="3.7.7">
+<h3 data-number="3.7.7" class="anchored" data-anchor-id="determine-accumulation-ratio"><span class="header-section-number">3.7.7</span> Determine Accumulation Ratio</h3>
 <p><img src="images/image-1080380939.png" class="img-fluid"></p>
 <p>NCA can only determine PK parameters of the first dose or the last dose,</p>
 <p>Accumulation ration (AR) is calculated with the equation below:</p>
@@ -1028,10 +1033,10 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <p>partial area</p>
 </section>
 </section>
-<section id="use-data-tools" class="level2" data-number="2.8">
-<h2 data-number="2.8" class="anchored" data-anchor-id="use-data-tools"><span class="header-section-number">2.8</span> Use Data Tools</h2>
-<section id="append-worksheets" class="level3" data-number="2.8.1">
-<h3 data-number="2.8.1" class="anchored" data-anchor-id="append-worksheets"><span class="header-section-number">2.8.1</span> Append Worksheets</h3>
+<section id="use-data-tools" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="use-data-tools"><span class="header-section-number">3.8</span> Use Data Tools</h2>
+<section id="append-worksheets" class="level3" data-number="3.8.1">
+<h3 data-number="3.8.1" class="anchored" data-anchor-id="append-worksheets"><span class="header-section-number">3.8.1</span> Append Worksheets</h3>
 <ul>
 <li>Combine data from two worksheets that share the same general structure of columns</li>
 </ul>
@@ -1046,8 +1051,8 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <li><p>To append more that one worksheet, set the number on the option section</p></li>
 </ul>
 </section>
-<section id="cross-product-worksheets" class="level3" data-number="2.8.2">
-<h3 data-number="2.8.2" class="anchored" data-anchor-id="cross-product-worksheets"><span class="header-section-number">2.8.2</span> Cross-product Worksheets</h3>
+<section id="cross-product-worksheets" class="level3" data-number="3.8.2">
+<h3 data-number="3.8.2" class="anchored" data-anchor-id="cross-product-worksheets"><span class="header-section-number">3.8.2</span> Cross-product Worksheets</h3>
 <ul>
 <li>For making combination of multiple columns,</li>
 </ul>
@@ -1058,8 +1063,8 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <li><p>Link the second worksheet and map the same way as before, Execute</p></li>
 </ul>
 </section>
-<section id="join-worksheets" class="level3" data-number="2.8.3">
-<h3 data-number="2.8.3" class="anchored" data-anchor-id="join-worksheets"><span class="header-section-number">2.8.3</span> Join Worksheets</h3>
+<section id="join-worksheets" class="level3" data-number="3.8.3">
+<h3 data-number="3.8.3" class="anchored" data-anchor-id="join-worksheets"><span class="header-section-number">3.8.3</span> Join Worksheets</h3>
 <ul>
 <li>To combine data so that rows are matched by a common sort key. Merge option is identical to Join option.</li>
 </ul>
@@ -1072,8 +1077,8 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 </ul>
 <p><img src="images/image-2085006661.png" class="img-fluid" width="506"></p>
 </section>
-<section id="pivot-worksheet" class="level3" data-number="2.8.4">
-<h3 data-number="2.8.4" class="anchored" data-anchor-id="pivot-worksheet"><span class="header-section-number">2.8.4</span> Pivot Worksheet</h3>
+<section id="pivot-worksheet" class="level3" data-number="3.8.4">
+<h3 data-number="3.8.4" class="anchored" data-anchor-id="pivot-worksheet"><span class="header-section-number">3.8.4</span> Pivot Worksheet</h3>
 <ul>
 <li>Rearranging data to allow comparison, for example to compare the effect of treatment, we need to see the data:</li>
 </ul>
@@ -1081,8 +1086,8 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <p><img src="images/image-479348411.png" class="img-fluid"></p>
 <p><img src="images/image-2099007160.png" class="img-fluid" width="302"></p>
 </section>
-<section id="stack-columns" class="level3" data-number="2.8.5">
-<h3 data-number="2.8.5" class="anchored" data-anchor-id="stack-columns"><span class="header-section-number">2.8.5</span> Stack Columns</h3>
+<section id="stack-columns" class="level3" data-number="3.8.5">
+<h3 data-number="3.8.5" class="anchored" data-anchor-id="stack-columns"><span class="header-section-number">3.8.5</span> Stack Columns</h3>
 <ul>
 <li>Inverse of Pivoting . Stackers stacks two or more column into a single column</li>
 </ul>
@@ -1092,19 +1097,19 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <li></li>
 </ul>
 </section>
-<section id="split-worksheet" class="level3" data-number="2.8.6">
-<h3 data-number="2.8.6" class="anchored" data-anchor-id="split-worksheet"><span class="header-section-number">2.8.6</span> Split Worksheet</h3>
+<section id="split-worksheet" class="level3" data-number="3.8.6">
+<h3 data-number="3.8.6" class="anchored" data-anchor-id="split-worksheet"><span class="header-section-number">3.8.6</span> Split Worksheet</h3>
 </section>
-<section id="enumerate-worksheet" class="level3" data-number="2.8.7">
-<h3 data-number="2.8.7" class="anchored" data-anchor-id="enumerate-worksheet"><span class="header-section-number">2.8.7</span> Enumerate Worksheet</h3>
+<section id="enumerate-worksheet" class="level3" data-number="3.8.7">
+<h3 data-number="3.8.7" class="anchored" data-anchor-id="enumerate-worksheet"><span class="header-section-number">3.8.7</span> Enumerate Worksheet</h3>
 <ul>
 <li>To convert text values to numbers,</li>
 </ul>
 <p><img src="images/image-763513672.png" class="img-fluid"></p>
 <p><img src="images/image-617025274.png" class="img-fluid"></p>
 </section>
-<section id="make-bql-substitutions" class="level3" data-number="2.8.8">
-<h3 data-number="2.8.8" class="anchored" data-anchor-id="make-bql-substitutions"><span class="header-section-number">2.8.8</span> Make BQL Substitutions</h3>
+<section id="make-bql-substitutions" class="level3" data-number="3.8.8">
+<h3 data-number="3.8.8" class="anchored" data-anchor-id="make-bql-substitutions"><span class="header-section-number">3.8.8</span> Make BQL Substitutions</h3>
 <p><img src="images/image-1669131987.png" class="img-fluid"></p>
 <ul>
 <li><p>Any non-numeric data is ignored by the NCA object</p>
@@ -1118,26 +1123,26 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 </ul>
 </section>
 </section>
-<section id="compute-ratios-and-differences" class="level2" data-number="2.9">
-<h2 data-number="2.9" class="anchored" data-anchor-id="compute-ratios-and-differences"><span class="header-section-number">2.9</span> Compute Ratios and Differences</h2>
-<section id="compute-ratios-from-single-input" class="level3" data-number="2.9.1">
-<h3 data-number="2.9.1" class="anchored" data-anchor-id="compute-ratios-from-single-input"><span class="header-section-number">2.9.1</span> Compute Ratios from Single Input</h3>
+<section id="compute-ratios-and-differences" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="compute-ratios-and-differences"><span class="header-section-number">3.9</span> Compute Ratios and Differences</h2>
+<section id="compute-ratios-from-single-input" class="level3" data-number="3.9.1">
+<h3 data-number="3.9.1" class="anchored" data-anchor-id="compute-ratios-from-single-input"><span class="header-section-number">3.9.1</span> Compute Ratios from Single Input</h3>
 <ul>
 <li><p>10 subjects with 2 mg IV dose, after wash out period same subject was administered 4 mg PO, To compute Bio-availability, we need to do ratio from a single worksheet.</p>
 <p><img src="images/image-1660862903.png" class="img-fluid"></p>
 <p><img src="images/image-1212642758.png" class="img-fluid"></p></li>
 </ul>
 </section>
-<section id="compute-ratios-from-dual-inputs" class="level3" data-number="2.9.2">
-<h3 data-number="2.9.2" class="anchored" data-anchor-id="compute-ratios-from-dual-inputs"><span class="header-section-number">2.9.2</span> Compute Ratios from Dual Inputs</h3>
+<section id="compute-ratios-from-dual-inputs" class="level3" data-number="3.9.2">
+<h3 data-number="3.9.2" class="anchored" data-anchor-id="compute-ratios-from-dual-inputs"><span class="header-section-number">3.9.2</span> Compute Ratios from Dual Inputs</h3>
 <ul>
 <li><p>NCA for urine and plasma must be done in separate NCA object, we have to combine results from two different worksheets.</p></li>
 <li><p>Renal Clearance example, view clearance section above.</p>
 <p><img src="images/image-76720220.png" class="img-fluid"></p></li>
 </ul>
 </section>
-<section id="compute-ratios-using-means" class="level3" data-number="2.9.3">
-<h3 data-number="2.9.3" class="anchored" data-anchor-id="compute-ratios-using-means"><span class="header-section-number">2.9.3</span> Compute Ratios using Means</h3>
+<section id="compute-ratios-using-means" class="level3" data-number="3.9.3">
+<h3 data-number="3.9.3" class="anchored" data-anchor-id="compute-ratios-using-means"><span class="header-section-number">3.9.3</span> Compute Ratios using Means</h3>
 <ul>
 <li>Difference between cross-over and parallel study</li>
 </ul>
@@ -1145,15 +1150,15 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <p><img src="images/image-1201568344.png" class="img-fluid"></p>
 <p><img src="images/image-703336195.png" class="img-fluid"></p>
 </section>
-<section id="compute-differences" class="level3" data-number="2.9.4">
-<h3 data-number="2.9.4" class="anchored" data-anchor-id="compute-differences"><span class="header-section-number">2.9.4</span> Compute Differences</h3>
+<section id="compute-differences" class="level3" data-number="3.9.4">
+<h3 data-number="3.9.4" class="anchored" data-anchor-id="compute-differences"><span class="header-section-number">3.9.4</span> Compute Differences</h3>
 <p><img src="images/image-2006269746.png" class="img-fluid"></p>
 </section>
 </section>
-<section id="use-data-wizard" class="level2" data-number="2.10">
-<h2 data-number="2.10" class="anchored" data-anchor-id="use-data-wizard"><span class="header-section-number">2.10</span> Use Data Wizard</h2>
-<section id="create-a-filter" class="level3" data-number="2.10.1">
-<h3 data-number="2.10.1" class="anchored" data-anchor-id="create-a-filter"><span class="header-section-number">2.10.1</span> Create a Filter</h3>
+<section id="use-data-wizard" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="use-data-wizard"><span class="header-section-number">3.10</span> Use Data Wizard</h2>
+<section id="create-a-filter" class="level3" data-number="3.10.1">
+<h3 data-number="3.10.1" class="anchored" data-anchor-id="create-a-filter"><span class="header-section-number">3.10.1</span> Create a Filter</h3>
 <ul>
 <li><p>Filter by time values</p></li>
 <li><p>Right click, send to Data management, Data Wizard</p>
@@ -1164,41 +1169,41 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <li>We can: 1. Exclude whole column; 2. Exclude or include by values, 3. Filter individual cells or whole rows.</li>
 </ul>
 </section>
-<section id="set-column-properties" class="level3" data-number="2.10.2">
-<h3 data-number="2.10.2" class="anchored" data-anchor-id="set-column-properties"><span class="header-section-number">2.10.2</span> Set column properties</h3>
+<section id="set-column-properties" class="level3" data-number="3.10.2">
+<h3 data-number="3.10.2" class="anchored" data-anchor-id="set-column-properties"><span class="header-section-number">3.10.2</span> Set column properties</h3>
 <ul>
 <li>This can be used to sort columns, rename columns, specify or convert units</li>
 </ul>
 </section>
-<section id="transform-data-arithmatic" class="level3" data-number="2.10.3">
-<h3 data-number="2.10.3" class="anchored" data-anchor-id="transform-data-arithmatic"><span class="header-section-number">2.10.3</span> Transform Data (Arithmatic)</h3>
+<section id="transform-data-arithmatic" class="level3" data-number="3.10.3">
+<h3 data-number="3.10.3" class="anchored" data-anchor-id="transform-data-arithmatic"><span class="header-section-number">3.10.3</span> Transform Data (Arithmatic)</h3>
 <ul>
 <li><p>used to do simple arethmatic; x and y are variables, n is constant, units inherited from source.</p></li>
 <li><p>same as data normalization.</p></li>
 <li><p>Set baseline in Time based data, Requires Time and Data Columns to map, Substrat the initial values</p></li>
 </ul>
 </section>
-<section id="transform-data-custom" class="level3" data-number="2.10.4">
-<h3 data-number="2.10.4" class="anchored" data-anchor-id="transform-data-custom"><span class="header-section-number">2.10.4</span> Transform Data (Custom)</h3>
+<section id="transform-data-custom" class="level3" data-number="3.10.4">
+<h3 data-number="3.10.4" class="anchored" data-anchor-id="transform-data-custom"><span class="header-section-number">3.10.4</span> Transform Data (Custom)</h3>
 <ul>
 <li>Ceiling, random</li>
 </ul>
 <p><img src="images/image-1432572422.png" class="img-fluid"></p>
 </section>
-<section id="transform-data-functinos" class="level3" data-number="2.10.5">
-<h3 data-number="2.10.5" class="anchored" data-anchor-id="transform-data-functinos"><span class="header-section-number">2.10.5</span> Transform Data (Functinos)</h3>
+<section id="transform-data-functinos" class="level3" data-number="3.10.5">
+<h3 data-number="3.10.5" class="anchored" data-anchor-id="transform-data-functinos"><span class="header-section-number">3.10.5</span> Transform Data (Functinos)</h3>
 <ul>
 <li>this works with only on single column such as X to Ln(X).</li>
 </ul>
 </section>
-<section id="multi-step-operation" class="level3" data-number="2.10.6">
-<h3 data-number="2.10.6" class="anchored" data-anchor-id="multi-step-operation"><span class="header-section-number">2.10.6</span> Multi-step operation</h3>
+<section id="multi-step-operation" class="level3" data-number="3.10.6">
+<h3 data-number="3.10.6" class="anchored" data-anchor-id="multi-step-operation"><span class="header-section-number">3.10.6</span> Multi-step operation</h3>
 </section>
 </section>
-<section id="applications-of-nca" class="level2" data-number="2.11">
-<h2 data-number="2.11" class="anchored" data-anchor-id="applications-of-nca"><span class="header-section-number">2.11</span> Applications of NCA</h2>
-<section id="using-cmax-and-auc-to-make-decisions" class="level3" data-number="2.11.1">
-<h3 data-number="2.11.1" class="anchored" data-anchor-id="using-cmax-and-auc-to-make-decisions"><span class="header-section-number">2.11.1</span> Using Cmax and AUC to Make Decisions</h3>
+<section id="applications-of-nca" class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="applications-of-nca"><span class="header-section-number">3.11</span> Applications of NCA</h2>
+<section id="using-cmax-and-auc-to-make-decisions" class="level3" data-number="3.11.1">
+<h3 data-number="3.11.1" class="anchored" data-anchor-id="using-cmax-and-auc-to-make-decisions"><span class="header-section-number">3.11.1</span> Using Cmax and AUC to Make Decisions</h3>
 <p>In regulatory guidance:</p>
 <p>Rate of absorption : C<sub>max</sub></p>
 <p>Extent of absorption: AUC</p>
@@ -1256,11 +1261,11 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <p>Drug-drug Interaction: <span class="math inline">\(\frac{AUC_{Drug\, + Inhibitor}}{AUC_{Drug\, alone}}\)</span></p>
 <p>Hepatic Impairment: <span class="math inline">\(\frac{AUC_{with\, impairment}}{AUC_{normal\, hepatic\, function}}\)</span></p>
 </section>
-<section id="section" class="level3" data-number="2.11.2">
-<h3 data-number="2.11.2" class="anchored" data-anchor-id="section"><span class="header-section-number">2.11.2</span> </h3>
+<section id="section" class="level3" data-number="3.11.2">
+<h3 data-number="3.11.2" class="anchored" data-anchor-id="section"><span class="header-section-number">3.11.2</span> </h3>
 </section>
-<section id="study-designs" class="level3" data-number="2.11.3">
-<h3 data-number="2.11.3" class="anchored" data-anchor-id="study-designs"><span class="header-section-number">2.11.3</span> Study Designs</h3>
+<section id="study-designs" class="level3" data-number="3.11.3">
+<h3 data-number="3.11.3" class="anchored" data-anchor-id="study-designs"><span class="header-section-number">3.11.3</span> Study Designs</h3>
 <p>Study design considerations:</p>
 <ol type="1">
 <li>Population</li>
@@ -1272,8 +1277,8 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <p>Parallel: Each subject receives one treatment</p>
 <p>single dose</p>
 </section>
-<section id="dose-proportionality" class="level3" data-number="2.11.4">
-<h3 data-number="2.11.4" class="anchored" data-anchor-id="dose-proportionality"><span class="header-section-number">2.11.4</span> Dose Proportionality</h3>
+<section id="dose-proportionality" class="level3" data-number="3.11.4">
+<h3 data-number="3.11.4" class="anchored" data-anchor-id="dose-proportionality"><span class="header-section-number">3.11.4</span> Dose Proportionality</h3>
 <p><span class="math display">\[AUC = \frac{F*Dose}{CL}\]</span></p>
 <ul>
 <li><p>If Dose and CL are constant, <span class="math inline">\(AUC \propto F\)</span></p></li>
@@ -1281,11 +1286,11 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 <li><p>If F and Dose are constant, <span class="math inline">\(AUC \propto \frac{1}{CL}\)</span></p></li>
 </ul>
 </section>
-<section id="average-bioequivalence" class="level3" data-number="2.11.5">
-<h3 data-number="2.11.5" class="anchored" data-anchor-id="average-bioequivalence"><span class="header-section-number">2.11.5</span> <img src="images/image-71630160.png" class="img-fluid">Average Bioequivalence</h3>
+<section id="average-bioequivalence" class="level3" data-number="3.11.5">
+<h3 data-number="3.11.5" class="anchored" data-anchor-id="average-bioequivalence"><span class="header-section-number">3.11.5</span> <img src="images/image-71630160.png" class="img-fluid">Average Bioequivalence</h3>
 </section>
-<section id="food-effects" class="level3" data-number="2.11.6">
-<h3 data-number="2.11.6" class="anchored" data-anchor-id="food-effects"><span class="header-section-number">2.11.6</span> Food Effects</h3>
+<section id="food-effects" class="level3" data-number="3.11.6">
+<h3 data-number="3.11.6" class="anchored" data-anchor-id="food-effects"><span class="header-section-number">3.11.6</span> Food Effects</h3>
 <ul>
 <li><p>This study helps labeling. Important parameters for Food Effect study:</p>
 <ul>
@@ -1304,29 +1309,29 @@ AR = \frac{AUC_{\tau,SS}} {AUC_{0-\tau}}
 </ul></li>
 </ul>
 </section>
-<section id="drug-drug-interactions" class="level3" data-number="2.11.7">
-<h3 data-number="2.11.7" class="anchored" data-anchor-id="drug-drug-interactions"><span class="header-section-number">2.11.7</span> Drug-Drug Interactions</h3>
+<section id="drug-drug-interactions" class="level3" data-number="3.11.7">
+<h3 data-number="3.11.7" class="anchored" data-anchor-id="drug-drug-interactions"><span class="header-section-number">3.11.7</span> Drug-Drug Interactions</h3>
 </section>
 </section>
-<section id="create-tables" class="level2" data-number="2.12">
-<h2 data-number="2.12" class="anchored" data-anchor-id="create-tables"><span class="header-section-number">2.12</span> Create Tables</h2>
-<section id="create-simple-table" class="level3" data-number="2.12.1">
-<h3 data-number="2.12.1" class="anchored" data-anchor-id="create-simple-table"><span class="header-section-number">2.12.1</span> Create Simple Table</h3>
+<section id="create-tables" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="create-tables"><span class="header-section-number">3.12</span> Create Tables</h2>
+<section id="create-simple-table" class="level3" data-number="3.12.1">
+<h3 data-number="3.12.1" class="anchored" data-anchor-id="create-simple-table"><span class="header-section-number">3.12.1</span> Create Simple Table</h3>
 </section>
-<section id="use-stratification" class="level3" data-number="2.12.2">
-<h3 data-number="2.12.2" class="anchored" data-anchor-id="use-stratification"><span class="header-section-number">2.12.2</span> Use Stratification</h3>
+<section id="use-stratification" class="level3" data-number="3.12.2">
+<h3 data-number="3.12.2" class="anchored" data-anchor-id="use-stratification"><span class="header-section-number">3.12.2</span> Use Stratification</h3>
 </section>
-<section id="add-statistics-to-table" class="level3" data-number="2.12.3">
-<h3 data-number="2.12.3" class="anchored" data-anchor-id="add-statistics-to-table"><span class="header-section-number">2.12.3</span> Add Statistics to Table</h3>
+<section id="add-statistics-to-table" class="level3" data-number="3.12.3">
+<h3 data-number="3.12.3" class="anchored" data-anchor-id="add-statistics-to-table"><span class="header-section-number">3.12.3</span> Add Statistics to Table</h3>
 </section>
-<section id="change-columnsort-order" class="level3" data-number="2.12.4">
-<h3 data-number="2.12.4" class="anchored" data-anchor-id="change-columnsort-order"><span class="header-section-number">2.12.4</span> Change Column/Sort Order</h3>
+<section id="change-columnsort-order" class="level3" data-number="3.12.4">
+<h3 data-number="3.12.4" class="anchored" data-anchor-id="change-columnsort-order"><span class="header-section-number">3.12.4</span> Change Column/Sort Order</h3>
 </section>
-<section id="set-precisionalignment" class="level3" data-number="2.12.5">
-<h3 data-number="2.12.5" class="anchored" data-anchor-id="set-precisionalignment"><span class="header-section-number">2.12.5</span> Set Precision/Alignment</h3>
+<section id="set-precisionalignment" class="level3" data-number="3.12.5">
+<h3 data-number="3.12.5" class="anchored" data-anchor-id="set-precisionalignment"><span class="header-section-number">3.12.5</span> Set Precision/Alignment</h3>
 </section>
-<section id="change-table-text" class="level3" data-number="2.12.6">
-<h3 data-number="2.12.6" class="anchored" data-anchor-id="change-table-text"><span class="header-section-number">2.12.6</span> Change Table Text</h3>
+<section id="change-table-text" class="level3" data-number="3.12.6">
+<h3 data-number="3.12.6" class="anchored" data-anchor-id="change-table-text"><span class="header-section-number">3.12.6</span> Change Table Text</h3>
 
 
 </section>
@@ -1469,12 +1474,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./NCAintroduction.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Noncompartmental Data Analysis (105-OD)</span></span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Noncompartmental Data Analysis (105-OD)</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
       <a href="./WinNonlinModel.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></span> <i class="bi bi-arrow-right-short"></i>
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Introduction to PK Modeling</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
